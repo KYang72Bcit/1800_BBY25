@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi this is Kelly. Excited about the project!
+* Hi this is Ramil. I am excited about this project because we're gonna make something cool. 
 	
 ## Technologies
 Technologies used for this project:
