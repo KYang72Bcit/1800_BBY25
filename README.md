@@ -5,7 +5,8 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application to remind user of their health checkups and build template to facilitate the appointment process 
+My name is Ke, I'm excited about this project because I've never done a web application before.
 	
 ## Technologies
 Technologies used for this project:
