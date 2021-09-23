@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi this is Kelly. Excited about the project!
 	
 ## Technologies
 Technologies used for this project:
