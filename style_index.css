@@ -1,0 +1,133 @@
+*{
+    background-color: #f7f7f7;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    width: 99.5vw;
+    height: 99.5vh;
+    grid-template-rows: 80px auto 80px;
+}
+
+.topnav {
+    margin: 0;
+    background-color: white;
+    grid-row: 1 / span 1;
+    display: grid;
+    grid-template-columns: 25% 15% 15% 30% 15%;
+    border-bottom: 0.5px solid #cccccc;
+}
+
+.logo {
+    grid-column: 1 / span 1;
+    background-image: url("./Rough_logo.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+    margin: 7px 7px;
+    width: 60px;
+    height: 60px;
+}
+
+
+.iphoto {
+    background-color: transparent;
+    grid-column: 2 / span 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.iadd {
+    background-color: transparent;
+    grid-column: 3 / span 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.hamburgermenu {
+    background-color: transparent;
+    grid-column: 5 / span 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.imenu{
+    background-color: transparent;
+}
+
+.main {
+    grid-row: 2 / span 1;
+}
+
+.bottomnav {
+    background-color: white;
+    grid-row: 3 / span 1;
+    height: 100%;
+    border-top: 0.5px solid #cccccc;
+    font-family: 'Open Sans', sans-serif;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.bottomicons {
+    text-decoration: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-template-rows: 60% 40%;
+}
+
+.bottomicons>i {
+    background-color: transparent;
+    grid-row: 1 / span 1;
+    align-self: end;
+    font-size:30px;
+    color:#7a7a7a;
+}
+
+.bottomicons>span {
+    text-decoration: none;
+    color: #7a7a7a;
+    background-color: transparent;
+    grid-row: 2 / span 1;
+    font-size: 10px;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bottom1 {
+    grid-column: 1 / span 1;
+}
+
+.bottom2 {
+    grid-column: 2 / span 1;
+}
+
+.bottom3 {
+    grid-column: 3 / span 1;
+}
+
+.bottom4 {
+    grid-column: 4 / span 1;
+}
+
+.bottomicons:hover {
+    background-color: #b9eaff;
+}
+
+.bottomicons:active {
+    background-color: #00a3e8;
+}
