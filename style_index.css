@@ -27,7 +27,7 @@
 
 .logo {
     grid-column: 1 / span 1;
-    background-image: url("./Rough_logo.jpg");
+    background-image: url("./images/Rough_logo.jpg");
     background-repeat: no-repeat; 
     background-size: cover;
     margin: 7px 7px;
