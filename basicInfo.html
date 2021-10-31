@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HealthGuard</title>
+    <meta name="author" content="BBY25">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- bootstrap css stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- self write stylesheet -->
+    <link rel="stylesheet" href="./style_index.css">
+    <link rel="stylesheet" href="style_basicInfor.css">
+   
+
+    
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!--Top Nav Bar-->
+        <nav class="topnav">
+            <div class="logo"></div>
+            <!-- <span class="appname">HealthGuard</span> -->
+            <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
+            <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
+            <!--Hamberger menu & js to be included-->
+            <a href="#" class="hamburgermenu">
+                <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
+            </a>
+
+        </nav>
+
+
+
+        <div class="main">
+            <!-- CONTENT -->
+            <div class="user">
+                <img src="profile.png" width="100px" alt="">
+                <span>Nancy Weinberg</span>
+
+            </div>
+            <form action="form submit.html" method="GET">
+                <fieldset>
+                    <legend>Basic Information </legend>
+                    <div class="Gender">
+                        Gender
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 yearOfBirth">
+                        <label for="yearOfBirth" class="form-label">Year of Birth</label>
+                        <input type="number" class="form-control yearOfBirth" id="userYearOfBirth" placeholder="1961" min="1900"
+                        max="2021" required>
+                      </div>
+                    <div class="mb-3 body_height">
+                        <label for="body_height" class="form-label">Body Height (cm) </label>
+                        <input type="number" class="form-control bodyHeight" id="userBodyHeight" placeholder="170 " min="50"
+                        max="220" required>
+                    </div>
+
+                    <div class = "mb-3 body_weight">
+                        <label for="body_weight" class="form-label">Body Weight (KG) </label>
+                        <input type="number" class="form-control bodyWeight" id="userBodyWeight" placeholder="65" min="5"
+                        max="200" required>
+                    </div>
+                    <div class="onGoingCondition">
+                        <label for="onGoingCondition" class="form-label">Ongong Condition</label>
+                        <input class="form-control" list="Chronic_Diseases" id="onGoingCondition"
+                            placeholder="Type to search...">
+                        <datalist id="Chronic_Diseases">
+                            <option value="ALS (Lou Gehrig's Disease)">ALS (Lou Gehrig's Disease)</option>
+                            <option value="Alzheimer's Disease and other Dementias"></option>
+                            <option value="Arthritis"></option>
+                            <option value="Asthma"></option>
+                            <option value="Cancer"></option>
+                            <option value="Chronic Obstructive Pulmonary Disease (COPD)"></option>
+                            <option value="Cystic Fibrosis"></option>
+                            <option value="Diabetes"></option>
+                            <option value="Eating Disorders"></option>
+                            <option value="Heart Disease"></option>
+                            <option value="Obesity"></option>
+                            <option value="Oral Health"></option>
+                            <option value="Osteoporosis"></option>
+                            <option value="Reflex Sympathetic Dystrophy (RSD) Syndrome"></option>
+                            <option value=" Tobacco Use and Related Conditions"></option>
+
+                        </datalist>
+                    </div>
+                   
+
+
+                    <div class="familyHistory">
+                        <label for="familyHistory" class="form-label">Family History</label>
+                        <input class="form-control" list="Chronic_Diseases" id="familyHistory"
+                            placeholder="Type to search...">
+                    </div>
+
+
+                </fieldset>
+
+            </form>
+
+
+            <div class="buttonSection">
+                <button type="button" class="btn btn-secondary btn-sm">Finish it later</button>
+                <button type="button" class="btn btn-outline-primary btn-sm">Update</button>
+
+
+            </div>
+
+        </div>
+
+        <!--Bottom Nav Bar-->
+        <footer class="bottomnav">
+            <a href="#" class="bottomicons bottom1">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottomicons bottom2">
+                <i class="material-icons">event_available</i>
+                <span>Schedule</span>
+            </a>
+            <a href="#" class="bottomicons bottom3">
+                <i class="material-icons">assignment</i>
+                <span>Test Results</span>
+            </a>
+            <a href="#" class="bottomicons bottom4">
+                <i class="material-icons">account_circle</i>
+                <span>My Profile</span>
+            </a>
+
+        </footer>
+
+        <!--------------------------------------------------->
+        <!-- Your Javascript Libraries and scripts go here -->
+        <!--------------------------------------------------->
+
+    </div>
+</body>
+
+</html>
