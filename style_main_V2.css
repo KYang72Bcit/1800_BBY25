@@ -2,10 +2,15 @@
     box-sizing: border-box;
 }
 
+.bottom1 > i, .bottom1 > span {
+    color: #29c8aa;
+}
+
 .bodycontainer {
     display: grid;
     width: 100%;
     grid-template-rows: 25% 10% 25% 3% 37%;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .image {
@@ -79,6 +84,7 @@
 .title {
     color: #757c7d;
     font-size: 15px;
+    background-color: transparent;
 }
 
 .schedule {

@@ -1,0 +1,108 @@
+html{
+    font-size: 16px;
+}
+span{
+    font-size: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: #7a7a7a;
+}
+
+a:hover {
+    background-color: #ededed;
+}
+
+a:active {
+    background-color: #dddddd;
+}
+
+.bottom3 > i, .bottom3 > span {
+    color: #29c8aa;
+}
+
+.main{
+    margin: 0;
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-rows: 30% 2% 34% 34%;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.main > div, .main > a{
+    display: grid;
+    box-sizing: border-box;
+}
+
+.user{
+    grid-template-rows: 100%;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-items: center;
+}
+
+.user > img{
+    object-fit: contain;
+    border-radius: 50%;
+    justify-self: start;
+
+}
+.user > span{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #7a7a7a;
+    justify-self: start;
+}
+
+.testresults{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+    height: 70%;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    border-bottom: solid 1px #7a7a7a;
+}
+
+.testresults > i {
+    color: #7a7a7a;
+}
+
+.testresults > span {
+    color: #7a7a7a;
+}
+
+.uploadresults, .checkresults {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100%;
+    height: 70%;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    border: 2px solid #cccccc;
+    border-radius: 30px;
+}
+
+.uploadresults {
+    grid-row: 3 / span 1;
+}
+
+.checkresults {
+    grid-row: 4 / span 1;
+}
+.testresults > i, .uploadresults > i, .checkresults > i {
+    grid-column: 1 / span 1;
+    font-size: 2rem;
+    justify-self: end;
+    background-color: transparent;
+}
+
+.testresults > span, .uploadresults > span, .checkresults > span{
+    grid-column: 2 / span 1;
+    /* font-size: 1.1rem; */
+    justify-self: center;
+    background-color: transparent;
+}

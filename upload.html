@@ -17,17 +17,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./style_index.css">
-    <link rel="stylesheet" href="./style_main_V2.css">
+    <link rel="stylesheet" href="./style_upload.css">
 
     <style type="text/css">
-        body{
-        margin: 0;
-        padding: 0;
+        body {
+            margin: 0;
+            padding: 0;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -42,47 +45,36 @@
             <a href="#" class="hamburgermenu">
                 <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
             </a>
-            
         </nav>
 
-
-
-        <div class="bodycontainer">
-            <img class="image" src="./profile.png" alt="profile image" />
-            <div class="name">
-                <span class="welcome">Welcome,</span><br/>
-                <span class="nancy">Nancy Weinberg</span></div>
-            <div class="personalinfo">
-                <div class="info age"><span class="title">Age</span><br /> 45</div>
-                <div class="info gender"><span class="title">Gender</span><br />Female</div>
-                <div class="info height"><span class="title">Height</span><br />164cm</div>
-                <div class="info weight"><span class="title">Weight</span><br />57kg</div>
-                <div class="info condition"><span class="title">Ongoing condition</span><br />none</div>
+        <div class="main">
+            <div class="uploadtitle">
+                <i class="material-icons">upload_file</i>
+                <span>Upload test results</span>
             </div>
-            <div class="schedule">
-                <div class="upcoming">
-                    <i class="material-icons" style="color:black">event</i>
-                    Upcoming Due Dates
-                </div>
-                <div class="dental">
-                    <i class="material-icons iconcircle" style="color:#1783E8">circle</i>
-                    <span class="title2">Dental checkup</span>
-                    <span class="date dec">December 21, 2021</span>
-                </div>
-                <div class="blood">
-                    <i class="material-icons iconcircle" style="color:#c43b58">circle</i>
-                    <span class="title2">Blood tests</span>
-                    <span class="date apr">April 20, 2022</span>
-                </div>
-                <div class="health">
-                    <i class="material-icons iconcircle" style="color:#149E39">circle</i>
-                    <span class="title2">Health checkup</span>
-                    <span class="date nov">November 10, 2022</span>
-                </div>
+            <div class="uploadfile">
+                <span>Choose a test result to upload (.pdf only):</span>
+                <input type="file" id="testupload" name="testupload" accept=".pdf"/>
             </div>
-    
+            <div class="testname">
+                <span>Test Name: </span>
+                <textarea name="testnamearea" id="testnamearea" rows="3" cols="40" placeholder="Ex) Blood test..."></textarea>
+            </div>
+
+            <div class="testdate">
+                <span>Test Date: </span>
+                <input type="date" id="selectdate" name="selectdate"/>
+            </div>
+
+            <div class="comments">
+                <span>Comments (optional): </span>
+                <textarea id="commentarea" name="commentarea" rows="8" cols="40" placeholder="Ex) Something you discussed with your doctor..."></textarea>
+            </div>
+            <div class="buttons">
+                <input type="button" id="submitDetails" class="submitDetails" name="submitDetails" value="Submit" />
+            </div>
+
         </div>
-    
 
         <!--Bottom Nav Bar-->
         <footer class="bottomnav">
