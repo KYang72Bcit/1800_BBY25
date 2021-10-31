@@ -16,39 +16,41 @@ a{
     margin: 0;
     padding: 2rem 3rem;
     display: grid;
-    grid-template-rows: 30% 20% 50% ;
+    grid-template-rows: 30% 15% 55% ;
     font-family: 'Noto Sans', sans-serif;
 }
 
 .main > div{
-    display: grid;
-    box-sizing: border-box;
-   
+    display: grid;  
 }
-.main :first-child{
-   
-    align-self: center;
-}
+
 .user{
     grid-template-rows: 100%;
     grid-template-columns: 30% 70%;
-    align-items: center;
-    justify-items: center;
+    width: 100%;
     
 }
 .user > img{
     object-fit: contain;
+    width: 70%;
     border-radius: 50%;
     justify-self: start;
+    align-self: center;
+    border: 1px solid white;
 
 }
 .user > span{
     font-size: 1.5rem;
     font-weight: 700;
     color: #7a7a7a;
-    justify-self: start;
+    align-self: center;
+    justify-self: center;
 }
+
+
+
 .fuctions{
+    
     border-top: solid 1px #7a7a7a;
     align-items: center;
     

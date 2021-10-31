@@ -51,7 +51,6 @@
             <a href="#" class="hamburgermenu">
                 <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
             </a>
-
         </nav>
 
 
@@ -64,41 +63,43 @@
 
             </div>
             <form action="form submit.html" method="GET">
-                <fieldset>
+                
                     <legend>Basic Information </legend>
                     <div class="Gender">
-                        Gender
+                        <span>Gender</span> 
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Female</label>
-                        </div>
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked="">
+                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                          </div>
+                          
                     </div>
 
-                    <div class="mb-3 yearOfBirth">
+                    <div class="input-div mb-3 yearOfBirth">
                         <label for="yearOfBirth" class="form-label">Year of Birth</label>
                         <input type="number" class="form-control yearOfBirth" id="userYearOfBirth" placeholder="1961" min="1900"
                         max="2021" required>
                       </div>
-                    <div class="mb-3 body_height">
+                    <div class="input-div mb-3 body_height">
                         <label for="body_height" class="form-label">Body Height (cm) </label>
                         <input type="number" class="form-control bodyHeight" id="userBodyHeight" placeholder="170 " min="50"
                         max="220" required>
                     </div>
 
-                    <div class = "mb-3 body_weight">
+                    <div class = "input-div mb-3 body_weight">
                         <label for="body_weight" class="form-label">Body Weight (KG) </label>
                         <input type="number" class="form-control bodyWeight" id="userBodyWeight" placeholder="65" min="5"
                         max="200" required>
                     </div>
-                    <div class="onGoingCondition">
+                    <div class="input-div onGoingCondition">
                         <label for="onGoingCondition" class="form-label">Ongong Condition</label>
                         <input class="form-control" list="Chronic_Diseases" id="onGoingCondition"
-                            placeholder="Type to search...">
+                            placeholder="None">
                         <datalist id="Chronic_Diseases">
+                            <option value="None"></option>
                             <option value="ALS (Lou Gehrig's Disease)">ALS (Lou Gehrig's Disease)</option>
                             <option value="Alzheimer's Disease and other Dementias"></option>
                             <option value="Arthritis"></option>
@@ -120,21 +121,18 @@
                    
 
 
-                    <div class="familyHistory">
+                    <div class="input-div familyHistory">
                         <label for="familyHistory" class="form-label">Family History</label>
                         <input class="form-control" list="Chronic_Diseases" id="familyHistory"
-                            placeholder="Type to search...">
+                            placeholder="None">
                     </div>
-
-
-                </fieldset>
 
             </form>
 
 
             <div class="buttonSection">
-                <button type="button" class="btn btn-secondary btn-sm">Finish it later</button>
-                <button type="button" class="btn btn-outline-primary btn-sm">Update</button>
+                <button type="button" class="btn btn-secondary btn-sm">Stay as it is</button>
+                <button type="button" class="btn btn-primary btn-sm">Update</button>
 
 
             </div>
@@ -142,8 +140,9 @@
         </div>
 
         <!--Bottom Nav Bar-->
-        <footer class="bottomnav">
-            <a href="#" class="bottomicons bottom1">
+         <!--Bottom Nav Bar-->
+         <footer class="bottomnav">
+            <a href="./main_V2.html" class="bottomicons bottom1">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
@@ -151,11 +150,11 @@
                 <i class="material-icons">event_available</i>
                 <span>Schedule</span>
             </a>
-            <a href="#" class="bottomicons bottom3">
+            <a href="./testresults.html" class="bottomicons bottom3">
                 <i class="material-icons">assignment</i>
                 <span>Test Results</span>
             </a>
-            <a href="#" class="bottomicons bottom4">
+            <a href="./myProfile.html" class="bottomicons bottom4">
                 <i class="material-icons">account_circle</i>
                 <span>My Profile</span>
             </a>
