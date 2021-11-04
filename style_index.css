@@ -26,13 +26,15 @@
 }
 
 .logo {
+    background-color: white;
     grid-column: 1 / span 1;
-    background-image: url("./images/logo.jpg");
+    background-image: url("./images/logo.png");
     background-repeat: no-repeat; 
     background-size: cover;
-    margin: 7px 7px;
-    width: 60px;
-    height: 60px;
+    margin: 2px 7px;
+    width: 65px;
+    height: 70px;
+    z-index: 1;
 }
 
 
