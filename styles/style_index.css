@@ -28,7 +28,7 @@
 .logo {
     background-color: white;
     grid-column: 1 / span 1;
-    background-image: url("./images/logo.png");
+    background-image: url("../images/logo.png");
     background-repeat: no-repeat; 
     background-size: cover;
     margin: 2px 7px;
