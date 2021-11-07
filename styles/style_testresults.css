@@ -5,16 +5,16 @@ span{
     font-size: 1rem;
 }
 
-a{
+.uploadresults, .checkresults{
     text-decoration: none;
     color: #7a7a7a;
 }
 
-a:hover {
+.uploadresults:hover, .checkresults:hover {
     background-color: #ededed;
 }
 
-a:active {
+.uploadresults:active, .checkresults:active {
     background-color: #dddddd;
 }
 
