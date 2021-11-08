@@ -58,78 +58,82 @@
 
   <body>
     <div class="container">
-      <!--Top Nav Bar-->
-      <nav class="topnav">
-        <div class="logo"></div>
-        <!-- <span class="appname">HealthGuard</span> -->
-        <i class="material-icons iphoto" style="font-size: 30px; color: #7a7a7a"
-          >add_a_photo</i
-        >
-        <i class="material-icons iadd" style="font-size: 30px; color: #7a7a7a"
-          >add_circle</i
-        >
-        <!--Hamberger menu & js to be included-->
-        <a href="#" class="hamburgermenu">
-          <i
-            class="material-icons imenu"
-            style="font-size: 30px; color: #7a7a7a"
-            >menu</i
-          >
-        </a>
-      </nav>
+        <!--Top Nav Bar-->
+        <nav class="topnav">
+            <div class="logo"></div>
+            <!-- <span class="appname">HealthGuard</span> -->
+            <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
+            <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
+            <!--Hamberger menu & js to be included-->
+            <a href="#" id="hamburgermenu">
+                <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
+            </a>
+        </nav>
+        <div id="menuLinks">
+            <a href="#" class="insidemenu"><span>Information Centre</span></a>
+            <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
+            <a href="#" class="insidemenu"><span>App Settings</span></a>
+        </div>
 
-      <div class="bodycontainer">
-        <img class="image" src="./profile.png" alt="profile image" />
-        <div class="name">
-          <span class="welcome">Welcome,</span><br />
-          <span id="username"></span>
-        </div>
-        <div class="personalinfo">
-          <div class="info age">
-            <span class="title">Age</span><br />
-            45
-          </div>
-          <div class="info gender">
-            <span class="title">Gender</span><br />Female
-          </div>
-          <div class="info height">
-            <span class="title">Height</span><br />164cm
-          </div>
-          <div class="info weight">
-            <span class="title">Weight</span><br />57kg
-          </div>
-          <div class="info condition">
-            <span class="title">Ongoing condition</span><br />none
-          </div>
-        </div>
-        <div class="schedule">
-          <div class="upcoming">
-            <i class="material-icons" style="color: black">event</i>
-            Upcoming Due Dates
-          </div>
-          <div class="dental">
-            <i class="material-icons iconcircle" style="color: #1783e8"
-              >circle</i
-            >
-            <span class="title2">Dental checkup</span>
-            <span class="date dec">December 21, 2021</span>
-          </div>
-          <div class="blood">
-            <i class="material-icons iconcircle" style="color: #c43b58"
-              >circle</i
-            >
-            <span class="title2">Blood tests</span>
-            <span class="date apr">April 20, 2022</span>
-          </div>
-          <div class="health">
-            <i class="material-icons iconcircle" style="color: #149e39"
-              >circle</i
-            >
-            <span class="title2">Health checkup</span>
-            <span class="date nov">November 10, 2022</span>
-          </div>
+
+
+        <div class="main">
+            <img class="image" src="./profile.png" alt="profile image" />
+            <div class="name">
+                <span class="welcome">Welcome,</span><br/>
+                <span class="username"></span></div>
+            <div class="personalinfo">
+                <div class="info age"><span class="title">Age</span><br /> 45</div>
+                <div class="info gender"><span class="title">Gender</span><br />Female</div>
+                <div class="info height"><span class="title">Height</span><br />164cm</div>
+                <div class="info weight"><span class="title">Weight</span><br />57kg</div>
+                <div class="info condition"><span class="title">Ongoing condition</span><br />none</div>
+            </div>
+            <div class="schedule">
+                <div class="upcoming">
+                    <i class="material-icons" style="color:black">event</i>
+                    Upcoming Due Dates
+                </div>
+                <div class="dental">
+                    <i class="material-icons iconcircle" style="color:#1783E8">circle</i>
+                    <span class="title2">Dental checkup</span>
+                    <span class="date dec">December 21, 2021</span>
+                </div>
+                <div class="blood">
+                    <i class="material-icons iconcircle" style="color:#c43b58">circle</i>
+                    <span class="title2">Blood tests</span>
+                    <span class="date apr">April 20, 2022</span>
+                </div>
+                <div class="health">
+                    <i class="material-icons iconcircle" style="color:#149E39">circle</i>
+                    <span class="title2">Health checkup</span>
+                    <span class="date nov">November 10, 2022</span>
+                </div>
+            </div>
+    
         </div>
       </div>
+    
+
+        <!--Bottom Nav Bar-->
+        <footer class="bottomnav">
+            <a href="./main.html" class="bottomicons bottom1">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottomicons bottom2">
+                <i class="material-icons">event_available</i>
+                <span>Schedule</span>
+            </a>
+            <a href="./testresults.html" class="bottomicons bottom3">
+                <i class="material-icons">assignment</i>
+                <span>Test Results</span>
+            </a>
+            <a href="./myProfile.html" class="bottomicons bottom4">
+                <i class="material-icons">account_circle</i>
+                <span>My Profile</span>
+            </a>
+            </footer>
 
       <!--Bottom Nav Bar-->
       <footer class="bottomnav">
@@ -180,6 +184,10 @@
         }
         insertName();
       </script>
-    </div>
+        <!--------------------------------------------------->
+        <!-- Your Javascript Libraries and scripts go here -->
+        <!--------------------------------------------------->
+        <script src="scripts/index.js"></script>
+    
   </body>
 </html>

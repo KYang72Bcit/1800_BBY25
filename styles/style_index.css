@@ -1,4 +1,4 @@
-*{
+html {
     background-color: #f7f7f7;
 }
 
@@ -13,7 +13,7 @@
     display: grid;
     width: 99.5vw;
     height: 99.5vh;
-    grid-template-rows: 80px auto 80px;
+    grid-template-rows: 80px 15% auto 80px;
 }
 
 .topnav {
@@ -25,18 +25,17 @@
     border-bottom: 0.5px solid #cccccc;
 }
 
+
 .logo {
     background-color: white;
     grid-column: 1 / span 1;
-    background-image: url("./images/logo.png");
+    background-image: url("../images/logo.png");
     background-repeat: no-repeat; 
     background-size: cover;
     margin: 2px 7px;
     width: 65px;
     height: 70px;
-    z-index: 1;
 }
-
 
 .iphoto {
     background-color: transparent;
@@ -52,7 +51,7 @@
     justify-self: center;
 }
 
-.hamburgermenu {
+#hamburgermenu {
     background-color: transparent;
     grid-column: 5 / span 1;
     align-self: center;
@@ -63,13 +62,40 @@
     background-color: transparent;
 }
 
+#menuLinks {
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    height: 180px;
+    justify-items: end;
+    align-items: center;
+    display: none;
+}
+
+.insidemenu {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    display: grid;
+    justify-items: end;
+    align-items: center;
+    padding-right: 20px;
+    border: 0.5px solid #cccccc;
+}
+
+.insidemenu > span {
+    background-color: transparent;
+}
 .main {
-    grid-row: 2 / span 1;
+    grid-row: 2 / span 2;
 }
 
 .bottomnav {
     background-color: white;
-    grid-row: 3 / span 1;
+    grid-row: 4 / span 1;
     height: 100%;
     border-top: 0.5px solid #cccccc;
     font-family: 'Open Sans', sans-serif;
@@ -133,4 +159,8 @@
 
 .bottomicons:active {
     background-color: #dddddd;
+}
+
+@media screen and (min-width: 768px) {
+
 }

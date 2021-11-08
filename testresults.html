@@ -21,8 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./style_index.css">
-    <link rel="stylesheet" href="./style_testresults.css">
+    <link rel="stylesheet" href="./styles/style_index.css">
+    <link rel="stylesheet" href="./styles/style_testresults.css">
 
     <style type="text/css">
         body{
@@ -41,11 +41,15 @@
             <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
             <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
             <!--Hamberger menu & js to be included-->
-            <a href="#" class="hamburgermenu">
+            <a href="#" id="hamburgermenu">
                 <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
             </a>
-            
         </nav>
+        <div id="menuLinks">
+            <a href="#" class="insidemenu"><span>Information Centre</span></a>
+            <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
+            <a href="#" class="insidemenu"><span>App Settings</span></a>
+        </div>
 
 
 
@@ -74,7 +78,7 @@
 
         <!--Bottom Nav Bar-->
         <footer class="bottomnav">
-            <a href="./main_V2.html" class="bottomicons bottom1">
+            <a href="./main.html" class="bottomicons bottom1">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
@@ -96,7 +100,7 @@
         <!--------------------------------------------------->
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
-
+        <script src="scripts/index.js"></script>
     </div>
 </body>
 
