@@ -6,4 +6,11 @@ document.getElementById("hamburgermenu").addEventListener("click", function(){
       x.style.display = "grid";
     }
 
+    var y = document.getElementById("black");
+    if (y.style.display === "block") {
+      y.style.display = "none";
+    } else {
+      y.style.display = "block";
+    }
+
 }, false);

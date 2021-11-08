@@ -1,381 +1,306 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>HealthGuard</title>
-    <meta name="author" content="BBY25" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <title>HealthGuard</title>
+  <meta name="author" content="BBY25" />
 
-    <!-- bootstrap css stylesheet -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!--Icon-->
-    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- bootstrap css stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
-      rel="stylesheet"
-    />
+  <!--Icon-->
+  <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
+    rel="stylesheet" />
 
-    <!-- self write stylesheet -->
-    <link rel="stylesheet" href="./styles/style_index.css" />
-    <link rel="stylesheet" href="./styles/style_newUser.css" />
-    <link rel="stylesheet" href="./styles/style_basicInfor.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <!-- Firebase 8 CDNs-->
+  <!-- self write stylesheet -->
+  <link rel="stylesheet" href="./styles/style_index.css" />
+  <link rel="stylesheet" href="./styles/style_newUser.css" />
+  <link rel="stylesheet" href="./styles/style_basicInfor.css" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <!-- Firebase 8 CDNs-->
 
-    <!-- Link to the api keys for your firebase project -->
-    <script src="./scripts/firebaseAPI.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
-    <style type="text/css">
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/firebaseAPI.js"></script>
 
-  <body>
-    <div class="container">
-      <!--Top Nav Bar-->
-      <nav class="topnav">
-        <div class="logo"></div>
-        <!-- <span class="appname">HealthGuard</span> -->
-        <i class="material-icons iphoto" style="font-size: 30px; color: #7a7a7a"
-          >add_a_photo</i
-        >
-        <i class="material-icons iadd" style="font-size: 30px; color: #7a7a7a"
-          >add_circle</i
-        >
-        <!--Hamberger menu & js to be included-->
-        <a href="#" class="hamburgermenu">
-          <i
-            class="material-icons imenu"
-            style="font-size: 30px; color: #7a7a7a"
-            >menu</i
-          >
-        </a>
-      </nav>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
 
-      <div class="main">
-        <!-- CONTENT -->
-        <div class="user">
-          <img src="/images/defaulProfilepic.jpeg" width="100px" alt="" />
-          <div class="uploadProfile">
-            <span>Choose a photo as profile img:</span>
-            <input
-              type="file"
-              id="profileUpload"
-              name="profileUpload"
-              accept="image/png, image/jpeg"
-            />
-          </div>
-          <h5>Hello, <span id="username"></span></h5>
+<body>
+  <div class="container">
+    <!--Top Nav Bar-->
+    <nav class="topnav">
+      <div class="logo"></div>
+      <!-- <span class="appname">HealthGuard</span> -->
+      <i class="material-icons iphoto" style="font-size: 30px; color: #7a7a7a">add_a_photo</i>
+      <i class="material-icons iadd" style="font-size: 30px; color: #7a7a7a">add_circle</i>
+      <!--Hamberger menu & js to be included-->
+      <a href="#" id="hamburgermenu">
+        <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
+      </a>
+    </nav>
+    <div id="menuLinks">
+      <a href="#" class="insidemenu"><span>Information Centre</span></a>
+      <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
+      <a href="#" class="insidemenu"><span>App Settings</span></a>
+    </div>
+
+
+    <div class="main">
+      <!-- CONTENT -->
+      <div class="user">
+        <img src="/images/defaulProfilepic.jpeg" width="100px" alt="" />
+        <div class="uploadProfile">
+          <span>Choose a photo as profile img:</span>
+          <input type="file" id="profileUpload" name="profileUpload" accept="image/png, image/jpeg" />
         </div>
-        <form id="basicInfor">
-          <legend>Basic Information</legend>
-          <div class="Gender">
-            <span>Gender</span>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="inlineRadio1"
-                value="Male"
-              />
-              <label class="form-check-label" for="inlineRadio1">Male</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="inlineRadio2"
-                value="Female"
-              />
-              <label class="form-check-label" for="inlineRadio2">Female</label>
-            </div>
+        <h5>Hello, <span id="username"></span></h5>
+      </div>
+      <form id="basicInfor">
+        <legend>Basic Information</legend>
+        <div class="Gender">
+          <span>Gender</span>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male" />
+            <label class="form-check-label" for="inlineRadio1">Male</label>
           </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female" />
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+        </div>
 
-          <div class="input-div mb-3 yearOfBirth">
-            <label for="yearOfBirth" class="form-label">Year of Birth</label>
-            <input
-              type="number"
-              class="form-control yearOfBirth"
-              id="yearOfBirth"
-              placeholder="1970"
-              min="1900"
-              max="2021"
-              required
-            />
-          </div>
-          <div class="input-div mb-3 body_height">
-            <label for="body_height" class="form-label"
-              >Body Height (cm)
-            </label>
-            <input
-              type="number"
-              class="form-control bodyHeight"
-              id="bodyHeight"
-              placeholder="170 "
-              min="50"
-              max="220"
-              required
-            />
-          </div>
+        <div class="input-div mb-3 yearOfBirth">
+          <label for="yearOfBirth" class="form-label">Year of Birth</label>
+          <input type="number" class="form-control yearOfBirth" id="yearOfBirth" placeholder="1970" min="1900"
+            max="2021" required />
+        </div>
+        <div class="input-div mb-3 body_height">
+          <label for="body_height" class="form-label">Body Height (cm)
+          </label>
+          <input type="number" class="form-control bodyHeight" id="bodyHeight" placeholder="170 " min="50" max="220"
+            required />
+        </div>
 
-          <div class="input-div mb-3 body_weight">
-            <label for="body_weight" class="form-label"
-              >Body Weight (Kg)
-            </label>
-            <input
-              type="number"
-              class="form-control bodyWeight"
-              id="bodyWeight"
-              placeholder="65"
-              min="5"
-              max="200"
-              required
-            />
-          </div>
-          <div class="input-div onGoingCondition">
-            <label for="onGoingCondition" class="form-label"
-              >Ongong Condition</label
-            >
-            <input
-              class="form-control"
-              list="Chronic_Diseases"
-              id="ongoingCondition"
-              placeholder="None"
-            />
-            <datalist id="Chronic_Diseases">
-              <option value="None"></option>
-              <option value="ALS (Lou Gehrig's Disease)">
-                ALS (Lou Gehrig's Disease)
-              </option>
-              <option value="Alzheimer's Disease and other Dementias"></option>
-              <option value="Arthritis"></option>
-              <option value="Asthma"></option>
-              <option value="Cancer"></option>
-              <option
-                value="Chronic Obstructive Pulmonary Disease (COPD)"
-              ></option>
-              <option value="Cystic Fibrosis"></option>
-              <option value="Diabetes"></option>
-              <option value="Eating Disorders"></option>
-              <option value="Heart Disease"></option>
-              <option value="Obesity"></option>
-              <option value="Oral Health"></option>
-              <option value="Osteoporosis"></option>
-              <option
-                value="Reflex Sympathetic Dystrophy (RSD) Syndrome"
-              ></option>
-              <option value=" Tobacco Use and Related Conditions"></option>
-              <option value=" Prefer Not to Say"></option>
-            </datalist>
-          </div>
+        <div class="input-div mb-3 body_weight">
+          <label for="body_weight" class="form-label">Body Weight (Kg)
+          </label>
+          <input type="number" class="form-control bodyWeight" id="bodyWeight" placeholder="65" min="5" max="200"
+            required />
+        </div>
+        <div class="input-div onGoingCondition">
+          <label for="onGoingCondition" class="form-label">Ongong Condition</label>
+          <input class="form-control" list="Chronic_Diseases" id="ongoingCondition" placeholder="None" />
+          <datalist id="Chronic_Diseases">
+            <option value="None"></option>
+            <option value="ALS (Lou Gehrig's Disease)">
+              ALS (Lou Gehrig's Disease)
+            </option>
+            <option value="Alzheimer's Disease and other Dementias"></option>
+            <option value="Arthritis"></option>
+            <option value="Asthma"></option>
+            <option value="Cancer"></option>
+            <option value="Chronic Obstructive Pulmonary Disease (COPD)"></option>
+            <option value="Cystic Fibrosis"></option>
+            <option value="Diabetes"></option>
+            <option value="Eating Disorders"></option>
+            <option value="Heart Disease"></option>
+            <option value="Obesity"></option>
+            <option value="Oral Health"></option>
+            <option value="Osteoporosis"></option>
+            <option value="Reflex Sympathetic Dystrophy (RSD) Syndrome"></option>
+            <option value=" Tobacco Use and Related Conditions"></option>
+            <option value=" Prefer Not to Say"></option>
+          </datalist>
+        </div>
 
-          <div class="input-div familyHistory">
-            <label for="familyHistory" class="form-label">Family History</label>
-            <input
-              class="form-control"
-              list="Chronic_Diseases"
-              id="familyHistory"
-              placeholder="None"
-            />
-          </div>
-          <button
-            type="submit"
-            class="btn btn-primary btn-sm"
-            id="basicInforSubmit"
-          >
-            submit
-          </button>
-        </form>
+        <div class="input-div familyHistory">
+          <label for="familyHistory" class="form-label">Family History</label>
+          <input class="form-control" list="Chronic_Diseases" id="familyHistory" placeholder="None" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm" id="basicInforSubmit">
+          submit
+        </button>
+      </form>
 
-        <!-- <div class="buttonSection">
+      <!-- <div class="buttonSection">
 
                 <button type="submit" class="btn btn-primary btn-sm" id="basicInforSubmit">submit</button>
 
 
             </div> -->
-      </div>
-
-      <!--Bottom Nav Bar-->
-      <!--Bottom Nav Bar-->
-      <footer class="bottomnav">
-        <a href="./main.html" class="bottomicons bottom1">
-          <i class="material-icons">home</i>
-          <span>Home</span>
-        </a>
-        <a href="#" class="bottomicons bottom2">
-          <i class="material-icons">event_available</i>
-          <span>Schedule</span>
-        </a>
-        <a href="./testresults.html" class="bottomicons bottom3">
-          <i class="material-icons">assignment</i>
-          <span>Test Results</span>
-        </a>
-        <a href="./myProfile.html" class="bottomicons bottom4">
-          <i class="material-icons">account_circle</i>
-          <span>My Profile</span>
-        </a>
-      </footer>
-
-      <!--------------------------------------------------->
-      <!-- Your Javascript Libraries and scripts go here -->
-      <!--------------------------------------------------->
-      <script>
-        function insertName() {
-          firebase.auth().onAuthStateChanged((user) => {
-            // Check if user is signed in:
-            if (user) {
-              // Do something for the current logged-in user here:
-              console.log(user.uid);
-              //go to the correct user document by referencing to the user uid
-              currentUser = db.collection("users").doc(user.uid);
-              //get the document for current user.
-              currentUser.get().then((userDoc) => {
-                var user_Name = userDoc.data().name;
-                console.log(user_Name);
-                //method #1:  insert with html only
-                // document.getElementById("username").innerText = n;    //using javascript
-                //method #2:  insert using jquery
-                $("#username").text(user_Name); //using jquery
-              });
-            } else {
-              // No user is signed in.
-            }
-          });
-        }
-        insertName();
-
-        // function sayHello() {
-        //     firebase.auth().onAuthStateChanged(function (user) {
-        //         if (user) {
-        //             // User is signed in.
-        //             // Do something for the user here.
-        //             console.log(user.uid);
-        //             db.collection("users").doc(user.uid)
-        //                 .get()
-        //                 .then(function (doc) {
-        //                     var n = doc.data().name;
-        //                     console.log(n);
-        //                     //$("#username").text(n);
-        //                     document.getElementById("username").innerText = n;
-        //                 })
-        //         } else {
-        //             // No user is signed in.
-        //         }
-        //     });
-        // }
-        //sayHello();
-
-        // display the value of radio butter of gender
-        function displayRadioValue() {
-          const ele = document.getElementsByName("gender");
-
-          for (i = 0; i < ele.length; i++) {
-            if (ele[i].checked) return ele[i].value;
-          }
-        }
-
-        // store userGender
-
-        // add unserGender to userdoc
-        function writeGender() {
-          firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-              currentUser = db.collection("users").doc(user.uid);
-              currentUser.set({
-                gender: displayRadioValue(),
-              });
-            }
-          });
-        }
-
-        const userbasicInfor = [
-          "yearOfBirth",
-          "bodyHeight",
-          "bodyWeight",
-          "ongoingCondition",
-          "familyHistory",
-        ];
-        function writeBasicInform(userbasicInfor) {
-          firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-              currentUser = db.collection("users").doc(user.uid);
-              userbasicInfor.array.forEach((element) => {
-                const infor = document.querySelector(`#${element}`).value;
-                currentUser.set({
-                  element: infor,
-                });
-              });
-            }
-          });
-        }
-        document
-          .querySelector("#basicInfor")
-          .addEventListener("submit", submitForm);
-        function submitForm(e) {
-          e.preventDefault();
-
-          const yearOfBirth = getValuebyId("#yearOfBirth");
-          const bodyHeight = getValuebyId("#bodyHeight");
-          const bodyWeight = getValuebyId("#bodyWeight");
-          const ongoingCondition = getValuebyId("#ongoingCondition");
-          const familyHistory = getValuebyId("#familyHistory");
-
-          console.log(yearOfBirth);
-          console.log(bodyHeight);
-          console.log(bodyWeight);
-          console.log(ongoingCondition);
-          console.log(familyHistory);
-
-          // writeGender();
-          // writeBasicInform(userbasicInfor);
-        }
-
-        function getValuebyId(id) {
-          return document.querySelector(id).value;
-        }
-      </script>
     </div>
-  </body>
+    <div id="black">
+    </div>
+
+    <!--Bottom Nav Bar-->
+    <footer class="bottomnav">
+      <a href="./main.html" class="bottomicons bottom1">
+        <i class="material-icons">home</i>
+        <span>Home</span>
+      </a>
+      <a href="#" class="bottomicons bottom2">
+        <i class="material-icons">event_available</i>
+        <span>Schedule</span>
+      </a>
+      <a href="./testresults.html" class="bottomicons bottom3">
+        <i class="material-icons">assignment</i>
+        <span>Test Results</span>
+      </a>
+      <a href="./myProfile.html" class="bottomicons bottom4">
+        <i class="material-icons">account_circle</i>
+        <span>My Profile</span>
+      </a>
+    </footer>
+
+    <!--------------------------------------------------->
+    <!-- Your Javascript Libraries and scripts go here -->
+    <!--------------------------------------------------->
+    <script src="./scripts/index.js"></script>
+    <script>
+      function insertName() {
+        firebase.auth().onAuthStateChanged((user) => {
+          // Check if user is signed in:
+          if (user) {
+            // Do something for the current logged-in user here:
+            console.log(user.uid);
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid);
+            //get the document for current user.
+            currentUser.get().then((userDoc) => {
+              var user_Name = userDoc.data().name;
+              console.log(user_Name);
+              //method #1:  insert with html only
+              // document.getElementById("username").innerText = n;    //using javascript
+              //method #2:  insert using jquery
+              $("#username").text(user_Name); //using jquery
+            });
+          } else {
+            // No user is signed in.
+          }
+        });
+      }
+      insertName();
+
+      // function sayHello() {
+      //     firebase.auth().onAuthStateChanged(function (user) {
+      //         if (user) {
+      //             // User is signed in.
+      //             // Do something for the user here.
+      //             console.log(user.uid);
+      //             db.collection("users").doc(user.uid)
+      //                 .get()
+      //                 .then(function (doc) {
+      //                     var n = doc.data().name;
+      //                     console.log(n);
+      //                     //$("#username").text(n);
+      //                     document.getElementById("username").innerText = n;
+      //                 })
+      //         } else {
+      //             // No user is signed in.
+      //         }
+      //     });
+      // }
+      //sayHello();
+
+      // display the value of radio butter of gender
+      function displayRadioValue() {
+        const ele = document.getElementsByName("gender");
+
+        for (i = 0; i < ele.length; i++) {
+          if (ele[i].checked) return ele[i].value;
+        }
+      }
+
+      // store userGender
+
+      // add unserGender to userdoc
+      function writeGender() {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            currentUser = db.collection("users").doc(user.uid);
+            currentUser.set({
+              gender: displayRadioValue(),
+            });
+          }
+        });
+      }
+
+      const userbasicInfor = [
+        "yearOfBirth",
+        "bodyHeight",
+        "bodyWeight",
+        "ongoingCondition",
+        "familyHistory",
+      ];
+      function writeBasicInform(userbasicInfor) {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            currentUser = db.collection("users").doc(user.uid);
+            userbasicInfor.array.forEach((element) => {
+              const infor = document.querySelector(`#${element}`).value;
+              currentUser.set({
+                element: infor,
+              });
+            });
+          }
+        });
+      }
+      document
+        .querySelector("#basicInfor")
+        .addEventListener("submit", submitForm);
+      function submitForm(e) {
+        e.preventDefault();
+
+        const yearOfBirth = getValuebyId("#yearOfBirth");
+        const bodyHeight = getValuebyId("#bodyHeight");
+        const bodyWeight = getValuebyId("#bodyWeight");
+        const ongoingCondition = getValuebyId("#ongoingCondition");
+        const familyHistory = getValuebyId("#familyHistory");
+
+        console.log(yearOfBirth);
+        console.log(bodyHeight);
+        console.log(bodyWeight);
+        console.log(ongoingCondition);
+        console.log(familyHistory);
+
+        // writeGender();
+        // writeBasicInform(userbasicInfor);
+      }
+
+      function getValuebyId(id) {
+        return document.querySelector(id).value;
+      }
+    </script>
+  </div>
+</body>
+
 </html>
