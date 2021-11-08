@@ -39,9 +39,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <!-- Link to the api keys for your firebase project -->
     <script src="./scripts/firebaseAPI.js"></script>
 
@@ -79,7 +79,7 @@
         <div class="main">
             <div class="user">
                 <img src="profile.png" width="100px" alt="">
-                <span>Nancy Weinberg</span>
+                <span id="username"></span>
                 
 
             </div>
@@ -136,7 +136,37 @@
         <!--------------------------------------------------->
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
+
         <script src="scripts/index.js"></script>
+
+        <script> 
+        function insertName() {
+          firebase.auth().onAuthStateChanged((user) => {
+            // Check if user is signed in:
+            if (user) {
+              // Do something for the current logged-in user here:
+              console.log(user.uid);
+              //go to the correct user document by referencing to the user uid
+              currentUser = db.collection("users").doc(user.uid);
+              //get the document for current user.
+              currentUser.get().then((userDoc) => {
+                var user_Name = userDoc.data().name;
+                console.log(user_Name);
+                //method #1:  insert with html only
+                // document.getElementById("username").innerText = n;    //using javascript
+                //method #2:  insert using jquery
+                $("#username").text(user_Name); //using jquery
+              });
+            } else {
+              // No user is signed in.
+            }
+          });
+        }
+        insertName();
+        
+        </script>
+
+
     </div>
 </body>
 
