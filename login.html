@@ -121,7 +121,7 @@
                 email: user.email
               }).then(function() {
                 console.log("New user added to firestore");
-                window.location.assign("newUserBasicInform.html");
+                window.location.assign("main.html");
               })
               .catch(function(error) {
                 console.log("error is " + error);
@@ -141,7 +141,7 @@
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: "popup",
-        signInSuccessUrl: "main.html",
+        signInSuccessUrl: "newUserBack.html",
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
