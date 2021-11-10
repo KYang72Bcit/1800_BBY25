@@ -85,9 +85,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <form id="basicInfor">
+            <form >
          
               <legend>Basic Information </legend>
+              <fieldset id="basicInfor" disabled>
               <div class="Gender">
                   <span>Gender</span>
                   <div class="form-check form-check-inline">
@@ -113,7 +114,7 @@
               </div>
 
               <div class="input-div mb-3 body_weight">
-                  <label for="body_weight" class="form-label">Body Weight (Kg) </label>
+                  <label for="body_weight" class="form-label">Body Weight (KG) </label>
                   <input type="number" class="form-control bodyWeight" id="bodyWeight" placeholder="65" min="5"
                       max="200" required>
               </div>
@@ -145,12 +146,10 @@
                   <label for="familyHistory" class="form-label">Family History</label>
                   <input class="form-control" list="Chronic_Diseases" id="familyHistory" placeholder="None">
               </div>
+              
              
-
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" id="basicInforSubmit">Save changes</button>
-          </div>
-          </form>
+          </fieldset>
+          </form> 
           </div>
         </div>
       </div>
@@ -169,7 +168,7 @@
         <div class="info gender"><span class="title">Gender </span><span id="gender"></span></div>
         <div class="info height"><span class="title">Height </span><span id="height"></span>cm</div>
         <div class="info weight"><span class="title">Weight </span><span id="weight"></span>kg</div>
-        <div class="info condition"><span class="title">Ongoing condition </span><span id="ongoingCondition"></span></div>
+        <div class="info condition"><span class="title">Ongoing condition </span><span id="userongoingCondition"></span></div>
         <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Update Basic Information</button>
       </div>
       <div class="schedule">
@@ -328,7 +327,7 @@
               document.getElementById("weight").innerText = user_bodyWeight;
             }
             if (user_ongoingCodition != null) {
-              document.getElementById("ongoingCondition").innerText = user_ongoingCodition;
+              document.getElementById("userongoingCondition").innerText = user_ongoingCodition;
             }
             
             $("#username").text(user_Name); //using jquery
@@ -339,6 +338,72 @@
       });
     }
     getBasicInfor();
+
+    function getBasicInforModa() {
+    var currentUser;
+      firebase.auth().onAuthStateChanged((user) => {
+        // Check if user is signed in:
+        if (user) {
+          // Do something for the current logged-in user here:
+          //console.log(user.uid);
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+          //get the document for current user.
+          currentUser.get().then((userDoc) => {
+            //get user information from document and stored in variables .
+            var user_Name = userDoc.data().name;
+            var user_gender = userDoc.data().gender;
+            var user_yearOfBirth = userDoc.data().yearOfBirth;
+            var user_bodyHeight = userDoc.data().bodyHeight;
+            var user_bodyWeight = userDoc.data().bodyWeight;
+            var user_ongoingCodition = userDoc.data().ongoingCondition;
+            var user_familyHistory = userDoc.data().familyHistory;
+            //console.log(user_ongoingCodition);
+            // check if documents have that variables, assign the value to span with certain id. 
+            //console.log(user_age);
+            if (user_Name != null) {
+              document.getElementById("name").innerText = user_Name;
+            }
+            if (user_gender != null) {
+             checkRadioButton(user_gender);
+            }
+            if (user_yearOfBirth != 0) {
+              document.getElementById("yearOfBirth").value = user_yearOfBirth;
+            }
+            if (user_bodyHeight != 0) {
+              document.getElementById("bodyHeight").value = user_bodyHeight;
+            }
+            if (user_bodyWeight != 0) {
+              document.getElementById("bodyWeight").value = user_bodyWeight;
+            }
+            if (user_ongoingCodition != null) {
+              document.getElementById("ongoingCondition").value = user_ongoingCodition;
+            }
+            if (user_familyHistory != null) {
+              document.getElementById("familyHistory").value = user_familyHistory;
+            }
+            
+            $("#username").text(user_Name); //using jquery
+          });
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+    getBasicInforModa();
+
+    function checkRadioButton(user_gender){
+        let buttons = document.querySelectorAll('input[name = "gender"]')
+        console.log(buttons);
+        //console.log("123");
+        buttons.forEach(element =>{
+            if(element.value === user_gender){
+                console.log(element);
+                element.checked = true
+            }
+
+        })
+    }
   </script>
   <!--------------------------------------------------->
   <!------------ Your Javascript Libraries ------------>
