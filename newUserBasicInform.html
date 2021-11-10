@@ -167,7 +167,9 @@
                     <label for="familyHistory" class="form-label">Family History</label>
                     <input class="form-control" list="Chronic_Diseases" id="familyHistory" placeholder="None">
                 </div>
+                <!-- <a href="main.html"> -->
                 <button type="submit" class="btn btn-primary btn-sm" id="basicInforSubmit">submit</button>
+<!-- </a> -->
             </form>   
       </div>
 
@@ -256,7 +258,13 @@
                    ongoingCondition: ongoingCondition,
                    familyHistory: familyHistory,
                    gender: gender
-                 })
+                 }).then(() => {
+                  console.log("Document successfully updated!");
+                  window.location.href = "main.html"
+                }).catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
                  //window.location.assign("main.html");
                 
                 
