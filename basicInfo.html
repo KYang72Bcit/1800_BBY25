@@ -31,7 +31,20 @@
     <!-- self write stylesheet -->
     <link rel="stylesheet" href="./styles/style_index.css">
     <link rel="stylesheet" href="./styles/style_basicInfor.css">
-   
+  <!-- Firebase 9 CDNs -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/firebaseAPI.js"></script>
+
 
     
     <style type="text/css">
@@ -67,80 +80,79 @@
             <!-- CONTENT -->
             <div class="user">
                 <img src="profile.png" width="100px" alt="">
-                <span>Nancy Weinberg</span>
+                <span id="name"></span>
 
             </div>
-            <form action="form submit.html" method="GET">
-                
-                    <legend>Basic Information </legend>
-                    <div class="Gender">
-                        <span>Gender</span> 
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Male</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked="">
-                            <label class="form-check-label" for="inlineRadio2">Female</label>
-                          </div>
-                          
+            <form >
+         
+                <legend>Basic Information </legend>
+                <fieldset id="basicInfor" disabled>
+                <div class="Gender">
+                    <span>Gender</span>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
                     </div>
 
-                    <div class="input-div mb-3 yearOfBirth">
-                        <label for="yearOfBirth" class="form-label">Year of Birth</label>
-                        <input type="number" class="form-control yearOfBirth" id="userYearOfBirth" placeholder="1961" min="1900"
+                </div>
+
+                <div class="input-div mb-3 yearOfBirth">
+                    <label for="yearOfBirth" class="form-label">Year of Birth</label>
+                    <input type="number" class="form-control yearOfBirth" id="yearOfBirth" placeholder="1961" min="1900"
                         max="2021" required>
-                      </div>
-                    <div class="input-div mb-3 body_height">
-                        <label for="body_height" class="form-label">Body Height (cm) </label>
-                        <input type="number" class="form-control bodyHeight" id="userBodyHeight" placeholder="170 " min="50"
+                </div>
+                <div class="input-div mb-3 body_height">
+                    <label for="body_height" class="form-label">Body Height (cm) </label>
+                    <input type="number" class="form-control bodyHeight" id="bodyHeight" placeholder="170 " min="50"
                         max="220" required>
-                    </div>
+                </div>
 
-                    <div class = "input-div mb-3 body_weight">
-                        <label for="body_weight" class="form-label">Body Weight (KG) </label>
-                        <input type="number" class="form-control bodyWeight" id="userBodyWeight" placeholder="65" min="5"
+                <div class="input-div mb-3 body_weight">
+                    <label for="body_weight" class="form-label">Body Weight (KG) </label>
+                    <input type="number" class="form-control bodyWeight" id="bodyWeight" placeholder="65" min="5"
                         max="200" required>
-                    </div>
-                    <div class="input-div onGoingCondition">
-                        <label for="onGoingCondition" class="form-label">Ongong Condition</label>
-                        <input class="form-control" list="Chronic_Diseases" id="onGoingCondition"
-                            placeholder="None">
-                        <datalist id="Chronic_Diseases">
-                            <option value="None"></option>
-                            <option value="ALS (Lou Gehrig's Disease)">ALS (Lou Gehrig's Disease)</option>
-                            <option value="Alzheimer's Disease and other Dementias"></option>
-                            <option value="Arthritis"></option>
-                            <option value="Asthma"></option>
-                            <option value="Cancer"></option>
-                            <option value="Chronic Obstructive Pulmonary Disease (COPD)"></option>
-                            <option value="Cystic Fibrosis"></option>
-                            <option value="Diabetes"></option>
-                            <option value="Eating Disorders"></option>
-                            <option value="Heart Disease"></option>
-                            <option value="Obesity"></option>
-                            <option value="Oral Health"></option>
-                            <option value="Osteoporosis"></option>
-                            <option value="Reflex Sympathetic Dystrophy (RSD) Syndrome"></option>
-                            <option value=" Tobacco Use and Related Conditions"></option>
+                </div>
+                <div class="input-div onGoingCondition">
+                    <label for="onGoingCondition" class="form-label">Ongong Condition</label>
+                    <input class="form-control" list="Chronic_Diseases" id="ongoingCondition" placeholder="None">
+                    <datalist id="Chronic_Diseases">
+                        <option value="None"></option>
+                        <option value="ALS (Lou Gehrig's Disease)">ALS (Lou Gehrig's Disease)</option>
+                        <option value="Alzheimer's Disease and other Dementias"></option>
+                        <option value="Arthritis"></option>
+                        <option value="Asthma"></option>
+                        <option value="Cancer"></option>
+                        <option value="Chronic Obstructive Pulmonary Disease (COPD)"></option>
+                        <option value="Cystic Fibrosis"></option>
+                        <option value="Diabetes"></option>
+                        <option value="Eating Disorders"></option>
+                        <option value="Heart Disease"></option>
+                        <option value="Obesity"></option>
+                        <option value="Oral Health"></option>
+                        <option value="Osteoporosis"></option>
+                        <option value="Reflex Sympathetic Dystrophy (RSD) Syndrome"></option>
+                        <option value=" Tobacco Use and Related Conditions"></option>
+                        <option value=" Prefer Not to Say"></option>
 
-                        </datalist>
-                    </div>
-                   
-
-
-                    <div class="input-div familyHistory">
-                        <label for="familyHistory" class="form-label">Family History</label>
-                        <input class="form-control" list="Chronic_Diseases" id="familyHistory"
-                            placeholder="None">
-                    </div>
-
-            </form>
+                    </datalist>
+                </div>
+                <div class="input-div familyHistory">
+                    <label for="familyHistory" class="form-label">Family History</label>
+                    <input class="form-control" list="Chronic_Diseases" id="familyHistory" placeholder="None">
+                </div>
+                
+               
+            </fieldset>
+            </form>   
 
 
             <div class="buttonSection">
-                <button type="button" class="btn btn-secondary btn-sm">Stay as it is</button>
-                <button type="button" class="btn btn-primary btn-sm">Update</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="updateBotton" onclick="enableForm()">Update</button>
+                <button type="button" class="btn btn-primary btn-sm" id="submitBotton" onclick="updateForm()">Submit</button>
 
 
             </div>
@@ -175,6 +187,113 @@
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
         <script src="scripts/index.js"></script>
+
+        
+        <script>
+
+function getBasicInfor() {
+    var currentUser;
+      firebase.auth().onAuthStateChanged((user) => {
+        // Check if user is signed in:
+        if (user) {
+          // Do something for the current logged-in user here:
+          //console.log(user.uid);
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+          //get the document for current user.
+          currentUser.get().then((userDoc) => {
+            //get user information from document and stored in variables .
+            var user_Name = userDoc.data().name;
+            var user_gender = userDoc.data().gender;
+            var user_yearOfBirth = userDoc.data().yearOfBirth;
+            var user_bodyHeight = userDoc.data().bodyHeight;
+            var user_bodyWeight = userDoc.data().bodyWeight;
+            var user_ongoingCodition = userDoc.data().ongoingCondition;
+            var user_familyHistory = userDoc.data().familyHistory;
+            //console.log(user_ongoingCodition);
+            // check if documents have that variables, assign the value to span with certain id. 
+            //console.log(user_age);
+            if (user_Name != null) {
+              document.getElementById("name").innerText = user_Name;
+            }
+            if (user_gender != null) {
+             checkRadioButton(user_gender);
+            }
+            if (user_yearOfBirth != 0) {
+              document.getElementById("yearOfBirth").value = user_yearOfBirth;
+            }
+            if (user_bodyHeight != 0) {
+              document.getElementById("bodyHeight").value = user_bodyHeight;
+            }
+            if (user_bodyWeight != 0) {
+              document.getElementById("bodyWeight").value = user_bodyWeight;
+            }
+            if (user_ongoingCodition != null) {
+              document.getElementById("ongoingCondition").value = user_ongoingCodition;
+            }
+            if (user_familyHistory != null) {
+              document.getElementById("familyHistory").value = user_familyHistory;
+            }
+            
+            $("#username").text(user_Name); //using jquery
+          });
+        } else {
+          // No user is signed in.
+        }
+      });
+    }
+    getBasicInfor();
+
+    function checkRadioButton(user_gender){
+        let buttons = document.querySelectorAll('input[name = "gender"]')
+        console.log(buttons);
+        //console.log("123");
+        buttons.forEach(element =>{
+            if(element.value === user_gender){
+                console.log(element);
+                element.checked = true
+            }
+
+        })
+    }
+
+            function enableForm(){
+                document.querySelector("#basicInfor").disabled = false; 
+
+            }
+
+            function submitForm(){
+                
+                let gender = document.querySelector('input[name="gender"]:checked').value;
+                let yearOfBirth = document.querySelector("#yearOfBirth").value;
+                let bodyHeight = document.querySelector("#height").value;
+                let bodyWeight = document.querySelector("#weight").value;
+                let ongoingCondition = document.querySelector("#ongoingCondition").value;
+                let familyHistory = document.querySelector("#familyHistory").value;
+
+                currentUser.update({
+                  yearOfBirth: yearOfBirth,
+                   bodyHeight: bodyHeight,
+                   bodyWeight: bodyWeight,
+                   ongoingCondition: ongoingCondition,
+                   familyHistory: familyHistory,
+                   gender: gender
+                 }).then(() => {
+                  console.log("Document successfully updated!");
+                  alert("you information has been updated");
+                }).catch((error) => {
+                    // The document probably doesn't exist.
+                    console.error("Error updating document: ", error);
+                });
+                document.querySelector("#basicInfor").disabled = true; 
+                
+
+                
+
+
+            }
+        </script>
+        
     </div>
 </body>
 
