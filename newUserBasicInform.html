@@ -58,6 +58,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Link to the api keys for your firebase project -->
     <script src="./scripts/firebaseAPI.js"></script>
@@ -265,10 +266,9 @@
                     // The document probably doesn't exist.
                     console.error("Error updating document: ", error);
                 });
+                 
                  //window.location.assign("main.html");
-                
-                
-            }
+              }
 
             // function writeBasicInform(user_Name, user_email, gender, yearOfBirth, bodyHeight,bodyWeight, ongoingCondition,familyHistory){
 

@@ -25,6 +25,20 @@
     <link rel="stylesheet" href="./styles/style_index.css">
     <link rel="stylesheet" href="./styles/style_upload.css">
 
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="./scripts/firebaseAPI.js"></script>
+
     <style type="text/css">
         body {
             margin: 0;
@@ -59,24 +73,26 @@
             </div>
             <div class="uploadfile">
                 <span>Choose a test result to upload (.pdf only):</span>
-                <input type="file" id="testupload" name="testupload" accept=".pdf"/>
+                <input type="file" id="testupload" name="testupload" accept=".pdf" />
             </div>
             <div class="testname">
                 <span>Test Name: </span>
-                <textarea name="testnamearea" id="testnamearea" rows="3" cols="40" placeholder="Ex) Blood test..."></textarea>
+                <textarea name="testnamearea" id="testnamearea" rows="3" cols="40"
+                    placeholder="Ex) Blood test..."></textarea>
             </div>
 
             <div class="testdate">
                 <span>Test Date: </span>
-                <input type="date" id="selectdate" name="selectdate"/>
+                <input type="date" id="selectdate" name="selectdate" />
             </div>
 
             <div class="comments">
                 <span>Comments (optional): </span>
-                <textarea id="commentarea" name="commentarea" rows="8" cols="40" placeholder="Ex) Something you discussed with your doctor..."></textarea>
+                <textarea id="commentarea" name="commentarea" rows="8" cols="40"
+                    placeholder="Ex) Something you discussed with your doctor..."></textarea>
             </div>
             <div class="buttons">
-                <input type="button" id="submitDetails" class="submitDetails" name="submitDetails" value="Submit" />
+                <input type="button" id="submitDetails" class="submitDetails" name="submitDetails" value="Submit" onclick="submit()" />
             </div>
 
         </div>
@@ -108,6 +124,7 @@
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
         <script src="scripts/index.js"></script>
+        <script src="scripts/upload.js"></script>
     </div>
 </body>
 

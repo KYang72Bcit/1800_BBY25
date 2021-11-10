@@ -7,7 +7,10 @@ const firebaseConfig = {
     messagingSenderId: "469620914878",
     appId: "1:469620914878:web:92d87a7d534a831a5c3cef"
   };
-  
+
   // Initialize Firebase
   const app = firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+const storage = firebase.storage();
