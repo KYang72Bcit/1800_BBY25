@@ -196,6 +196,7 @@
       <!-- Your Javascript Libraries and scripts go here -->
       <!--------------------------------------------------->
       <script>
+        var currentUser;
         function insertName() {
           firebase.auth().onAuthStateChanged((user) => {
             // Check if user is signed in:
@@ -206,8 +207,8 @@
               currentUser = db.collection("users").doc(user.uid);
               //get the document for current user.
               currentUser.get().then((userDoc) => {
-                var user_Name = userDoc.data().name;
-                var user_email = userDoc.data().email;
+                user_Name = userDoc.data().name;
+                //user_email = userDoc.data().email;
                 console.log(user_Name);
                 //method #1:  insert with html only
                  //document.getElementById("username").innerText = n;    //using javascript
@@ -221,26 +222,7 @@
         }
         insertName();
 
-        // function sayHello() {
-        //     firebase.auth().onAuthStateChanged(function (user) {
-        //         if (user) {
-        //             // User is signed in.
-        //             // Do something for the user here.
-        //             console.log(user.uid);
-        //             db.collection("users").doc(user.uid)
-        //                 .get()
-        //                 .then(function (doc) {
-        //                     var n = doc.data().name;
-        //                     console.log(n);
-        //                     //$("#username").text(n);
-        //                     document.getElementById("username").innerText = n;
-        //                 })
-        //         } else {
-        //             // No user is signed in.
-        //         }
-        //     });
-        // }
-        //sayHello();
+        
 
         // display the value of radio butter of gender
         function displayRadioValue() {
@@ -251,24 +233,8 @@
           }
         }
 
-            //const userbasicInfor = ["yearOfBirth", "bodyHeight", "bodyWeight", "ongoingCondition", "familyHistory"]
-
-            // function writeBasicInform(userbasicInfor) {
-            //     firebase.auth().onAuthStateChanged(user => {
-            //         if (user) {
-            //             currentUser = db.collection("users").doc(user.uid);
-            //             userbasicInfor.array.forEach(element => {
-            //                 const infor = document.querySelector(`#${element}`).value;
-            //                 currentUser.set({
-            //                     element: infor
-            //                 });
-
-            //             });
-            //         }
-            //     })
-
-
-            // }
+            
+            
 
 
             document.querySelector("#basicInfor").addEventListener('submit', submitForm);
@@ -276,70 +242,60 @@
             function submitForm(e) {
                 e.preventDefault();
 
-                var yearOfBirth = getValuebyId("#yearOfBirth");
-                var bodyHeight = getValuebyId("#bodyHeight");
-                var bodyWeight = getValuebyId("#bodyWeight");
-                var ongoingCondition = getValuebyId("#ongoingCondition");
-                var familyHistory = getValuebyId("#familyHistory");
-                var gender = displayRadioValue();
-                writeBasicInform(gender, yearOfBirth, bodyHeight,bodyWeight, ongoingCondition,familyHistory);
-                window.location.assign("main.html");
-                console.log(yearOfBirth);
-                console.log(bodyHeight);
-                console.log(bodyWeight);
-                console.log(ongoingCondition);
-                console.log(familyHistory);
-                console.log(gender);
-                console.log(user_email);
-                console.log(u)
+                 yearOfBirth = parseInt(getValuebyId("#yearOfBirth"));
+                 bodyHeight = parseInt(getValuebyId("#bodyHeight"));
+                 bodyWeight = parseInt(getValuebyId("#bodyWeight"));
+                 ongoingCondition = getValuebyId("#ongoingCondition");
+                 familyHistory = getValuebyId("#familyHistory");
+                 gender = displayRadioValue();
+                 
+                 currentUser.update({
+                   yearOfBirth: yearOfBirth,
+                   bodyHeight: bodyHeight,
+                   bodyWeight: bodyWeight,
+                   ongoingCondition: ongoingCondition,
+                   familyHistory: familyHistory,
+                   gender: gender
+                 })
+                 //window.location.assign("main.html");
+                
                 
             }
 
-            function writeBasicInform(gender, yearOfBirth, bodyHeight,bodyWeight, ongoingCondition,familyHistory){
+            // function writeBasicInform(user_Name, user_email, gender, yearOfBirth, bodyHeight,bodyWeight, ongoingCondition,familyHistory){
 
-                firebase.auth().onAuthStateChanged((user) => {
-            // Check if user is signed in:
-            if (user) {
-              // Do something for the current logged-in user here:
-              console.log(user.uid);
-              //go to the correct user document by referencing to the user uid
-              currentUser = db.collection("users").doc(user.uid);
-              currentUser.set({
-                  name: user_Name,
-                  email: user_email,
-                    gender:gender,
-                    yearOfBirth: yearOfBirth,
-                    bodyHeight: bodyHeight,
-                    bodyWeight: bodyWeight,
-                    familyHistory:familyHistory,
-                    ongoingCondition:ongoingCondition
+            //     firebase.auth().onAuthStateChanged((user) => {
+            // // Check if user is signed in:
+            // if (user) {
+            //   // Do something for the current logged-in user here:
+            //   console.log(user.uid);
+            //   //go to the correct user document by referencing to the user uid
+            //   currentUser = db.collection("users").doc(user.uid);
+            //   currentUser.set({
+            //       name: user_Name,
+            //       email: user_email,
+            //         gender:gender,
+            //         yearOfBirth: yearOfBirth,
+            //         bodyHeight: bodyHeight,
+            //         bodyWeight: bodyWeight,
+            //         familyHistory:familyHistory,
+            //         ongoingCondition:ongoingCondition
 
-                })
+            //     })
               //get the document for current user.
               
-            } else {
-              // No user is signed in.
-            }
-          });
-                // const userRef = db.collection("users").doc(user.uid);
-                // userRef.set({
-                //     gender:gender,
-                //     yearOfBirth: yearOfBirth,
-                //     bodyHeight: bodyHeight,
-                //     bodyWeight: bodyWeight,
-                //     familyHistory:familyHistory,
-                //     ongoingCondition:ongoingCondition
-
-                // })
+          //   } else {
+          //     // No user is signed in.
+          //   }
+          // });
+                
 
 
-            }
+          //   }
 
 
 
-                // writeGender();
-                // writeBasicInform(userbasicInfor);
-        // store userGender
+        
 
         // add unserGender to userdoc
         function writeGender() {
@@ -353,46 +309,7 @@
           });
         }
 
-        // const userbasicInfor = [
-        //   "yearOfBirth",
-        //   "bodyHeight",
-        //   "bodyWeight",
-        //   "ongoingCondition",
-        //   "familyHistory",
-        // ];
-        // function writeBasicInform(userbasicInfor) {
-        //   firebase.auth().onAuthStateChanged((user) => {
-        //     if (user) {
-        //       currentUser = db.collection("users").doc(user.uid);
-        //       userbasicInfor.array.forEach((element) => {
-        //         const infor = document.querySelector(`#${element}`).value;
-        //         currentUser.set({
-        //           element: infor,
-        //         });
-        //       });
-        //     }
-        //   });
-        // }
-        //document .querySelector("#basicInfor").addEventListener("submit", submitForm);}
-
-        // function submitForm(e) {
-        //   e.preventDefault();
-
-        //   const yearOfBirth = getValuebyId("#yearOfBirth");
-        //   const bodyHeight = getValuebyId("#bodyHeight");
-        //   const bodyWeight = getValuebyId("#bodyWeight");
-        //   const ongoingCondition = getValuebyId("#ongoingCondition");
-        //   const familyHistory = getValuebyId("#familyHistory");
-
-        // //   console.log(yearOfBirth);
-        // //   console.log(bodyHeight);
-        // //   console.log(bodyWeight);
-        // //   console.log(ongoingCondition);
-        // //   console.log(familyHistory);
-
-        //   // writeGender();
-        //   // writeBasicInform(userbasicInfor);
-        // }
+        
 
         function getValuebyId(id) {
           return document.querySelector(id).value;

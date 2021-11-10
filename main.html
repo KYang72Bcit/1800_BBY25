@@ -1,195 +1,218 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>HealthGuard</title>
-    <meta name="author" content="BBY25" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <title>HealthGuard</title>
+  <meta name="author" content="BBY25" />
 
-    <!--Icon-->
-    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Firebase 9 CDNs -->
+  <!--Icon-->
+  <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-        </script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
+    rel="stylesheet" />
+  <!-- Firebase 9 CDNs -->
 
-    <!-- Link to the api keys for your firebase project -->
-    <script src="./scripts/firebaseAPI.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles/style_index.css" />
-    <link rel="stylesheet" href="./styles/style_main_V2.css" />
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/firebaseAPI.js"></script>
 
-    <style type="text/css">
-      body {
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/style_index.css" />
+  <link rel="stylesheet" href="./styles/style_main_V2.css" />
 
-  <body>
-    <div class="container">
-        <!--Top Nav Bar-->
-        <nav class="topnav">
-            <div class="logo"></div>
-            <!-- <span class="appname">HealthGuard</span> -->
-            <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
-            <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
-            <!--Hamberger menu & js to be included-->
-            <a href="#" id="hamburgermenu">
-                <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
-            </a>
-        </nav>
-        <div id="menuLinks">
-            <a href="#" class="insidemenu"><span>Information Centre</span></a>
-            <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
-            <a href="#" class="insidemenu"><span>App Settings</span></a>
-        </div>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!--Top Nav Bar-->
+    <nav class="topnav">
+      <div class="logo"></div>
+      <!-- <span class="appname">HealthGuard</span> -->
+      <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
+      <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
+      <!--Hamberger menu & js to be included-->
+      <a href="#" id="hamburgermenu">
+        <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
+      </a>
+    </nav>
+    <div id="menuLinks">
+      <a href="#" class="insidemenu"><span>Information Centre</span></a>
+      <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
+      <a href="#" class="insidemenu"><span>App Settings</span></a>
+    </div>
 
 
 
-        <div class="main">
-            <img class="image" src="./profile.png" alt="profile image" />
-            <div class="name">
-                <span class="welcome">Welcome,</span><br/>
-                <span id="username"></span></div>
-            <div class="personalinfo">
-                <div class="info age"><span class="title">Age</span><br /> 45</div>
-                <div class="info gender"><span class="title">Gender</span><br />Female</div>
-                <div class="info height"><span class="title">Height</span><br />164cm</div>
-                <div class="info weight"><span class="title">Weight</span><br />57kg</div>
-                <div class="info condition"><span class="title">Ongoing condition</span><br />none</div>
-            </div>
-            <div class="schedule">
-                <div class="upcoming">
-                    <i class="material-icons" style="color:black">event</i>
-                    Upcoming Due Dates
-                </div>
-                <div class="dental">
-                    <i class="material-icons iconcircle" style="color:#1783E8">circle</i>
-                    <span class="title2">Dental checkup</span>
-                    <span class="date dec">December 21, 2021</span>
-                </div>
-                <div class="blood">
-                    <i class="material-icons iconcircle" style="color:#c43b58">circle</i>
-                    <span class="title2">Blood tests</span>
-                    <span class="date apr">April 20, 2022</span>
-                </div>
-                <div class="health">
-                    <i class="material-icons iconcircle" style="color:#149E39">circle</i>
-                    <span class="title2">Health checkup</span>
-                    <span class="date nov">November 10, 2022</span>
-                </div>
-            </div>
-    
+    <div class="main">
+      <img class="image" src="./profile.png" alt="profile image" />
+      <div class="name">
+        <span class="welcome">Welcome,</span><br />
+        <span id="username"></span></div>
+      <div class="personalinfo">
+        <div class="info age"><span class="title">Age</span> <span class="age"></span></div>
+        <div class="info gender"><span class="title">Gender</span><span class="gender"></span></div>
+        <div class="info height"><span class="title">Height</span><span class="height"></span>cm</div>
+        <div class="info weight"><span class="title">Weight</span><span class="weight"></span>kg</div>
+        <div class="info condition"><span class="title">Ongoing condition</span><span class="ongoingCondition"></span>
         </div>
       </div>
-      <div id="black">
+      <div class="schedule">
+        <div class="upcoming">
+          <i class="material-icons" style="color:black">event</i>
+          Upcoming Due Dates
+        </div>
+        <div class="dental">
+          <i class="material-icons iconcircle" style="color:#1783E8">circle</i>
+          <span class="title2">Dental checkup</span>
+          <span class="date dec">December 21, 2021</span>
+        </div>
+        <div class="blood">
+          <i class="material-icons iconcircle" style="color:#c43b58">circle</i>
+          <span class="title2">Blood tests</span>
+          <span class="date apr">April 20, 2022</span>
+        </div>
+        <div class="health">
+          <i class="material-icons iconcircle" style="color:#149E39">circle</i>
+          <span class="title2">Health checkup</span>
+          <span class="date nov">November 10, 2022</span>
+        </div>
       </div>
-    
 
-        <!--Bottom Nav Bar-->
-        <footer class="bottomnav">
-            <a href="./main.html" class="bottomicons bottom1">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="bottomicons bottom2">
-                <i class="material-icons">event_available</i>
-                <span>Schedule</span>
-            </a>
-            <a href="./testresults.html" class="bottomicons bottom3">
-                <i class="material-icons">assignment</i>
-                <span>Test Results</span>
-            </a>
-            <a href="./myProfile.html" class="bottomicons bottom4">
-                <i class="material-icons">account_circle</i>
-                <span>My Profile</span>
-            </a>
-            </footer>
+    </div>
+  </div>
+  <div id="black">
+  </div>
 
-      <!--Bottom Nav Bar-->
-      <footer class="bottomnav">
-        <a href="./main_V2.html" class="bottomicons bottom1">
-          <i class="material-icons">home</i>
-          <span>Home</span>
-        </a>
-        <a href="#" class="bottomicons bottom2">
-          <i class="material-icons">event_available</i>
-          <span>Schedule</span>
-        </a>
-        <a href="./testresults.html" class="bottomicons bottom3">
-          <i class="material-icons">assignment</i>
-          <span>Test Results</span>
-        </a>
-        <a href="./myProfile.html" class="bottomicons bottom4">
-          <i class="material-icons">account_circle</i>
-          <span>My Profile</span>
-        </a>
-      </footer>
 
-      <!--------------------------------------------------->
-      <!-- Your Javascript Libraries and scripts go here -->
-      <!--------------------------------------------------->
+  <!--Bottom Nav Bar-->
+  <footer class="bottomnav">
+    <a href="./main.html" class="bottomicons bottom1">
+      <i class="material-icons">home</i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="bottomicons bottom2">
+      <i class="material-icons">event_available</i>
+      <span>Schedule</span>
+    </a>
+    <a href="./testresults.html" class="bottomicons bottom3">
+      <i class="material-icons">assignment</i>
+      <span>Test Results</span>
+    </a>
+    <a href="./myProfile.html" class="bottomicons bottom4">
+      <i class="material-icons">account_circle</i>
+      <span>My Profile</span>
+    </a>
+  </footer>
 
-      <script>
-        function insertName() {
-          firebase.auth().onAuthStateChanged((user) => {
-            // Check if user is signed in:
-            if (user) {
-              // Do something for the current logged-in user here:
-              console.log(user.uid);
-              //go to the correct user document by referencing to the user uid
-              currentUser = db.collection("users").doc(user.uid);
-              //get the document for current user.
-              currentUser.get().then((userDoc) => {
-                var user_Name = userDoc.data().name;
-                console.log(user_Name);
-                //method #1:  insert with html only
-                // document.getElementById("username").innerText = n;    //using javascript
-                //method #2:  insert using jquery
-                $("#username").text(user_Name); //using jquery
-              });
-            } else {
-              // No user is signed in.
-            }
+  <!--Bottom Nav Bar-->
+  <footer class="bottomnav">
+    <a href="./main_V2.html" class="bottomicons bottom1">
+      <i class="material-icons">home</i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="bottomicons bottom2">
+      <i class="material-icons">event_available</i>
+      <span>Schedule</span>
+    </a>
+    <a href="./testresults.html" class="bottomicons bottom3">
+      <i class="material-icons">assignment</i>
+      <span>Test Results</span>
+    </a>
+    <a href="./myProfile.html" class="bottomicons bottom4">
+      <i class="material-icons">account_circle</i>
+      <span>My Profile</span>
+    </a>
+  </footer>
+
+  <!--------------------------------------------------->
+  <!-- Your Javascript Libraries and scripts go here -->
+  <!--------------------------------------------------->
+
+  <script>
+    var currentUser;
+
+    function insertName() {
+      firebase.auth().onAuthStateChanged((user) => {
+        // Check if user is signed in:
+        if (user) {
+          // Do something for the current logged-in user here:
+          console.log(user.uid);
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid);
+          //get the document for current user.
+          currentUser.get().then((userDoc) => {
+            var user_Name = userDoc.data().name;
+            console.log(user_Name);
+            //method #1:  insert with html only
+            // document.getElementById("username").innerText = n;    //using javascript
+            //method #2:  insert using jquery
+            $("#username").text(user_Name); //using jquery
           });
+        } else {
+          // No user is signed in.
         }
-        insertName();
-      </script>
-        <!--------------------------------------------------->
-        <!-- Your Javascript Libraries and scripts go here -->
-        <!--------------------------------------------------->
-        <script src="scripts/index.js"></script>
-    
-  </body>
+      });
+    }
+    insertName();
+
+    function getUserInfor() {
+      currentUser.get().then((userDoc) => {
+        //var user_Name = userDoc.data().name;
+        var user_age = 2021 - userDoc.data().yearOfBirth;
+        var user_bodyHeight = userDoc.data().bodyHeight;
+        var user_bodyWeight = userDoc.data().bodyWeight;
+        var user_ongoingCodition = userDoc.data().ongoingCodition;
+        if (user_ongoingCodition != null) {
+          document.getElementById("ongoingCondition").innerText = user_ongoingCodition;
+        }
+        if (user_age != 0) {
+          document.getElementById("age").innerText = user_age;
+        }
+        if (user_bodyHeight != 0) {
+          document.getElementById("bodyHeight").innerText = user_bodyHeight;
+        }
+        if (user_bodyWeight != 0) {
+          document.getElementById("age").innerText = user_bodyWeight;
+        }
+        
+        //console.log(user_Name);
+        //method #1:  insert with html only
+        // document.getElementById("username").innerText = n;    //using javascript
+        //method #2:  insert using jquery
+        //$("#username").text(user_Name); //using jquery
+      });
+
+    }
+  </script>
+  <!--------------------------------------------------->
+  <!-- Your Javascript Libraries and scripts go here -->
+  <!--------------------------------------------------->
+  <script src="scripts/index.js"></script>
+
+</body>
+
 </html>
