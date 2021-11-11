@@ -1,0 +1,101 @@
+.main {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    justify-items: start;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.pagetitle {
+    grid-row: 1 / span 1;
+    color: #878787;
+    font-size: 24px;
+    padding: 0 40px;
+    align-self: end;
+} 
+
+#resultlist {
+    align-self: center;
+    grid-row: 2 / span 1;
+    /* width: 100%; */
+    height: 100%;
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: start;
+    padding: 0 30px;
+}
+
+.card {
+    text-decoration: none;
+    width: 300px;
+    height: 175px;
+    background-color: white;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 60% 20% 20%;
+    align-items: center;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.circle {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: center;
+    width: 68px;
+    height: 68px;
+    background-color: #3A52EE;
+    border-radius: 50%;
+    display: grid;
+}
+
+.firstletter {
+    color: white;
+    justify-self: center;
+    align-self: center;
+    font-size: 2rem; 
+}
+
+.storedFileName {
+    color: #4c4c4c;
+    width: 100%;
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: start;
+}
+
+.storedDate {
+    color: #878787;
+    width: 100%;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+    justify-self: start;
+    font-size: 0.8rem;
+    margin-left: 15px;
+}
+
+.storedName {
+    color: #878787;
+    width: 100%;
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+    justify-self: start;
+    font-size: 0.8rem;
+    margin-left: 15px;
+}
+
+
+@media screen and (max-width: 703px) {
+    .main {
+        justify-items: center;
+    }
+    
+    #resultlist {
+        justify-content: center;
+    }
+} 
+
+

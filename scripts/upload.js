@@ -1,10 +1,13 @@
-let currentUser, userID;
+let currentUser;
+let userID;
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         //console.log(user.uid);
         //currentUser = db.collection("users").doc(user.uid);
         userID = user.uid;
+        console.log(userID);
+
         userEmail = user.email;
         //console.log(typeof(userID));
     } else {}
@@ -44,6 +47,7 @@ function submit() {
             console.log(typeof (fileURL));
             testResults.doc(userID + testName + testDate).set({
                 UserID: userID,
+                FileName:file.name,
                 UserEmail: userEmail,
                 TestName: testName,
                 TestDate: testDate,
@@ -56,42 +60,3 @@ function submit() {
         .catch(console.error);
 
 }
-
-let container = document.getElementById("resultlist");
-let a = document.createElement("a");
-let span = document.createElement("span");
-let pdfURL, storedTestName, storedTestDate;
-
-function displayFiles(userID) {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            //console.log(user.uid);
-            //currentUser = db.collection("users").doc(user.uid);
-            userID = user.uid;
-            userEmail = user.email;
-            //console.log(typeof(userID));
-        } else {}
-    });
-
-    console.log("hi");
-    console.log(userID);
-
-    db.collection("Test Results").where("UserID", "==", userID)
-        .get()
-        .then(function (snap) {
-            snap.forEach(function (doc) {
-                pdfUrl = doc.data().StorageURL;
-                console.log(pdfURL);
-                storedTestName = doc.data().TestName;
-                console.log(storedTestName);
-                storedTestDate = doc.data().TestDate;
-                console.log(storedTestDate);
-
-                a.setAttribute("href", pdfURL);
-                span.innerHTML = storedTestDate + " / " + storedTestName;
-                container.append(a);
-                a.append(span);
-            })
-        })
-}
-displayFiles();
