@@ -17,19 +17,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style_index.css">
-    <link rel="stylesheet" href="./styles/style_testresults.css">
+    <link rel="stylesheet" href="./styles/style_upload.css">
+
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="./scripts/firebaseAPI.js"></script>
 
     <style type="text/css">
-        body{
-        margin: 0;
-        padding: 0;
+        body {
+            margin: 0;
+            padding: 0;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -52,30 +67,15 @@
         </div>
 
         <div class="main">
-            <div class="user">
-                <img src="profile.png" width="100px" alt="">
-                <span>Nancy Weinberg</span>
+            <div id="resultlist">
+                
             </div>
-            
-            <!-- <div class="testresults">
-                <i class="material-icons">science</i>
-                <span>Test Results</span>
-            </div> -->
 
-            <a href="./upload.html" class="uploadresults">
-                <i class="material-icons">upload_file</i>
-                <span>Upload Test Result</span>
-            </a>
-
-            <a href="./viewresults.html" class="checkresults">
-                <i class="material-icons">assessment</i>
-                <span>Check Result</span>
-            </a>
 
         </div>
-
         <div id="black">
         </div>
+
         <!--Bottom Nav Bar-->
         <footer class="bottomnav">
             <a href="./main.html" class="bottomicons bottom1">
@@ -101,6 +101,7 @@
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
         <script src="scripts/index.js"></script>
+        <script src="scripts/upload.js"></script>
     </div>
 </body>
 

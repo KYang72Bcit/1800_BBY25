@@ -30,7 +30,7 @@ function submit() {
     const ref = firebase.storage().ref();
     const file = document.getElementById("testupload").files[0];
     //uid + testName + testDate ?
-    const name = userID + "/" + testName + "/" + testDate + "/" +
+    const name = userID + "/" + testName + "-" + testDate + "-" +
         file.name;
     const metadata = {
         contentType: file.type
@@ -42,26 +42,56 @@ function submit() {
             fileURL = url;
             console.log(fileURL);
             console.log(typeof (fileURL));
-        })
-        .then(alert("Test Result Saved"))
-        .catch(console.error);
-
-   // firebase.auth().onAuthStateChanged(user => {
-        //if (user) {
-            testResults.doc(userID+testName+testDate).set({
+            testResults.doc(userID + testName + testDate).set({
                 UserID: userID,
                 UserEmail: userEmail,
                 TestName: testName,
                 TestDate: testDate,
                 Comments: comments,
+                StorageURL: fileURL,
                 StoragePath: name
-            });
-
-        //} else {
-            // No user is signed in.
-           // console.log("no user signed in");
-       // }
-   // });
+            })
+        })
+        .then(alert("Test Result Saved"))
+        .catch(console.error);
 
 }
 
+let container = document.getElementById("resultlist");
+let a = document.createElement("a");
+let span = document.createElement("span");
+let pdfURL, storedTestName, storedTestDate;
+
+function displayFiles(userID) {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            //console.log(user.uid);
+            //currentUser = db.collection("users").doc(user.uid);
+            userID = user.uid;
+            userEmail = user.email;
+            //console.log(typeof(userID));
+        } else {}
+    });
+
+    console.log("hi");
+    console.log(userID);
+
+    db.collection("Test Results").where("UserID", "==", userID)
+        .get()
+        .then(function (snap) {
+            snap.forEach(function (doc) {
+                pdfUrl = doc.data().StorageURL;
+                console.log(pdfURL);
+                storedTestName = doc.data().TestName;
+                console.log(storedTestName);
+                storedTestDate = doc.data().TestDate;
+                console.log(storedTestDate);
+
+                a.setAttribute("href", pdfURL);
+                span.innerHTML = storedTestDate + " / " + storedTestName;
+                container.append(a);
+                a.append(span);
+            })
+        })
+}
+displayFiles();
