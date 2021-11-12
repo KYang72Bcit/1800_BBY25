@@ -13,11 +13,6 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {}
 });
 
-//document.getElementById('testnamearea').addEventListener('change', getInput);
-
-//function getInput(e) {
-//testName = e.currentTarget.value;
-//}
 let fileURL, testName, testDate, comments;
 let userEmail;
 var testResults = db.collection("Test Results");
@@ -45,7 +40,7 @@ function submit() {
             fileURL = url;
             console.log(fileURL);
             console.log(typeof (fileURL));
-            testResults.doc(userID + testName + testDate).set({
+            return testResults.doc(userID + testName + testDate).set({
                 UserID: userID,
                 FileName:file.name,
                 UserEmail: userEmail,
@@ -56,7 +51,9 @@ function submit() {
                 StoragePath: name
             })
         })
-        .then(alert("Test Result Saved"))
+        .then(() => {
+            alert("Test Result Saved");
+        })
         .catch(console.error);
 
 }
