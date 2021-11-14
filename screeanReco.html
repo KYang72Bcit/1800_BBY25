@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HealthGuard</title>
+    <meta name="author" content="BBY25">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style_index.css">
+
+    <!-- Firebase 9 CDNs -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="./scripts/firebaseAPI.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!--Top Nav Bar-->
+        <nav class="topnav">
+            <div class="logo"></div>
+            <!-- <span class="appname">HealthGuard</span> -->
+            <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
+            <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
+            <!--Hamberger menu & js to be included-->
+            <a href="#" id="hamburgermenu">
+                <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
+            </a>
+        </nav>
+        <div id="menuLinks">
+            <a href="#" class="insidemenu"><span>Information Centre</span></a>
+            <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
+            <a href="#" class="insidemenu"><span>App Settings</span></a>
+        </div>
+        <div class="main">
+            <!-- CONTENT -->
+            <div class="user">
+                <img src="profile.png" alt="" id="profile" width="150px">
+                <span id="name"></span>
+            </div>
+            <form id="screenings">
+                <h5 class="">Recomended Screening Category</h5>
+
+                <div id="generalScreen" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="general" id="general" checked>
+                    <label class="form-check-label" for="gc">
+                        General Health Checkups
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="dental" id="dental" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Detal Checkups
+                    </label>
+                </div>
+
+                <div id="genderScreen" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="womenScreen" id="" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Essential Screening for Woman
+                    </label>
+                </div>
+
+                <div id="heartScreen" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="heartScreen" checked>
+                    <label class="form-check-label" for="diaScreen">
+                        Heart Screening
+                    </label>
+                </div>
+
+
+                <div id="diaScreen" class="form-check">
+                    <input class="form-check-input" type="checkbox" value="diaScreen" checked>
+                    <label class="form-check-label" for="diaScreen">
+                        Diabetic Screening
+                    </label>
+
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-primary" id="basicInforSubmit">Add to My Screenings</button>
+
+
+
+            </form>
+
+        </div>
+        <div id="black">
+        </div>
+
+        <!--Bottom Nav Bar-->
+        <footer class="bottomnav">
+            <a href="./main.html" class="bottomicons bottom1">
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="bottomicons bottom2">
+                <i class="material-icons">event_available</i>
+                <span>Schedule</span>
+            </a>
+            <a href="./testresults.html" class="bottomicons bottom3">
+                <i class="material-icons">assignment</i>
+                <span>Test Results</span>
+            </a>
+            <a href="./myProfile.html" class="bottomicons bottom4">
+                <i class="material-icons">account_circle</i>
+                <span>My Profile</span>
+            </a>
+
+        </footer>
+
+        <!--------------------------------------------------->
+        <!-- Your Javascript Libraries and scripts go here -->
+        <!--------------------------------------------------->
+
+        <script src="scripts/index.js"></script>
+        <script>
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    var currentUser = db.collection("users").doc(user.uid);
+
+                    //when uers change personal profile
+                    //const input = document.querySelector("#mypic-input");
+                    //const profile = document.querySelector("#profile");
+                    currentUser.get().then(userDoc => {
+                        let name = userDoc.data().name;
+                        var picUrl = userDoc.data().profilepic;
+                        let ongoingCondition = userDoc.data().ongoingCondition;
+                        let familyHistory = userDoc.data().familyHistory;
+                        let age = 2021 - userDoc.data().yearOfBirth;
+                        var gender = userDoc.data().gender;
+                        var bodyHeight = userDoc.data().bodyHeight;
+                        var bodyWeight = userDoc.data().bodyWeight;
+                        document.querySelector("#name").innerHTML = name;
+                        $("#profile").attr("src", picUrl);
+
+                        let labels = document.querySelectorAll('label');
+                        let inputs = document.querySelectorAll('input');
+                        //let generalScreen = document.querySelector("#generalScreen");
+                        let genderScreen = document.querySelector("#genderScreen");
+                        let heartScreen = document.querySelector('input[value = "heartScreen"]');
+                        let diaScreen = document.querySelector('input[value = "diaScreen"]');
+                        //if user is 60+ genral health screening change to senior screening
+                        if (age > 60) {
+                            labels[0].innerText = "Senior Health Screening";
+                            inputs[0].value = "seniorScreen";
+                        }
+                        //hide women screening when not women 
+                        if (gender === "Male") {
+                            genderScreen.style.display = "none";
+                        }
+                        //unclick heart screening and diabetis screening when not necessary
+                        if (bodyWeight / Math.pow(bodyHeight, 2) < 30 || age < 30) {
+                            //console.log("here");
+                            //console.log(heartScreen);
+                            heartScreen.checked = false;
+                            diaScreen.checked = false;
+
+                        }
+                        document.querySelector("#screenings").addEventListener('submit', submitForm);
+
+                        function submitForm(e) {
+                            e.preventDefault();
+                            //find all the clicked input, stored in array, upload to firebse
+                            const screenings = document.querySelectorAll('input');
+                            console.log("clicked");
+                            
+                            const screeningArray = [];
+                            screenings.forEach(element => {
+                                if (element.checked === true) {
+                                    screeningArray.push(element.value);
+                                }
+
+                            })
+                            currentUser.update({
+                                'screeningCategory': screeningArray
+                            }).then(function () {
+                                console.log("add userScreening to firebase")
+                            })
+
+
+                        }
+
+                    })
+
+
+
+                } else {
+                    // No user is signed in.
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>

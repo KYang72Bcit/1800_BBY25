@@ -209,37 +209,37 @@ $(document).ready(function () {
 
   //  showing profile photo that user upload
 
-  function showImg() {
-    const input = document.querySelector("#mypic-input");
-    const profile = document.querySelector("#mypic-goes-here");
+  // function showImg() {
+  //   const input = document.querySelector("#mypic-input");
+  //   const profile = document.querySelector("#mypic-goes-here");
 
-    input.addEventListener('change', function (e) {
-      var blob = URL.createObjectURL(e.target.files[0]);
-      profile.src = blob;
-    })
-  }
-  //showImg();
+  //   input.addEventListener('change', function (e) {
+  //     var blob = URL.createObjectURL(e.target.files[0]);
+  //     profile.src = blob;
+  //   })
+  // }
+  // //showImg();
 
-  function uploadImg() {
+  // function uploadImg() {
 
-   //storageRef = storage.ref("images/" + user.uid + ".jpg");
-    storageRef.put(input).then(function () {
-      console.log("upload user profile");
-    })
-    //get URL of stored file
-    storageRef.getDownloadURL().then(function (url) {
-      console.log(url);
-      currentUser.update({
-        "profilepic": url
-      })
-      currentUser.update({
-          "profilepic": url
-        })
-        .then(function () {
-          console.log("update userprofile pic to firestore");
-        })
-    })
-  }
+  //  //storageRef = storage.ref("images/" + user.uid + ".jpg");
+  //   storageRef.put(input).then(function () {
+  //     console.log("upload user profile");
+  //   })
+  //   //get URL of stored file
+  //   storageRef.getDownloadURL().then(function (url) {
+  //     console.log(url);
+  //     currentUser.update({
+  //       "profilepic": url
+  //     })
+  //     currentUser.update({
+  //         "profilepic": url
+  //       })
+  //       .then(function () {
+  //         console.log("update userprofile pic to firestore");
+  //       })
+  //   })
+  // }
   //uploadImg();
 
   firebase.auth().onAuthStateChanged(function(user) {
