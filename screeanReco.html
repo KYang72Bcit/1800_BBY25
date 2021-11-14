@@ -84,6 +84,21 @@
                     <label class="form-check-label" for="gc">
                         General Health Checkups
                     </label>
+                    <div class="hide">
+                        <div><input class="form-check-input" type="checkbox" value="general" id="" checked>
+                            <label class="form-check-label" for="gc">
+                                Blood Grouping and Rh Factor
+                            </label></div>
+                        <div><input class="form-check-input" type="checkbox" value="general" id="" checked>
+                            <label class="form-check-label" for="gc">
+                                Complete Blood Count with ESR
+                            </label></div>
+                        <div><input class="form-check-input" type="checkbox" value="general" id="" checked>
+                            <label class="form-check-label" for="gc">
+                                Random Blood Sugar
+                            </label></div>
+
+                    </div>
                 </div>
 
                 <div class="form-check">
@@ -94,10 +109,11 @@
                 </div>
 
                 <div id="genderScreen" class="form-check">
-                    <input class="form-check-input" type="checkbox" value="womenScreen" id="" checked>
+                    <input class="form-check-input" type="checkbox" value="womenScreen" id="womenScreen" checked>
                     <label class="form-check-label" for="flexCheckChecked">
                         Essential Screening for Woman
                     </label>
+                    div
                 </div>
 
                 <div id="heartScreen" class="form-check">
@@ -155,6 +171,7 @@
         <!--------------------------------------------------->
 
         <script src="scripts/index.js"></script>
+        <script src="scripts/screenReco.js"></script>
         <script>
             firebase.auth().onAuthStateChanged(function (user) {
                 if (user) {
@@ -188,8 +205,10 @@
                             inputs[0].value = "seniorScreen";
                         }
                         //hide women screening when not women 
-                        if (gender === "Male") {
+                        if (gender === "Female") {
                             genderScreen.style.display = "none";
+                            document.querySelector("#womenScreen").checked = false;
+
                         }
                         //unclick heart screening and diabetis screening when not necessary
                         if (bodyWeight / Math.pow(bodyHeight, 2) < 30 || age < 30) {
@@ -214,6 +233,7 @@
                                 }
 
                             })
+                            console.log(screeningArray);
                             currentUser.update({
                                 'screeningCategory': screeningArray
                             }).then(function () {
