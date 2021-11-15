@@ -199,6 +199,10 @@ textarea:focus, #testupload:focus, #selectdate:focus {
     font-size: 1.2em;
 }
 
+#saved > span {
+    font-size: 1.2em;
+}
+
 @-webkit-keyframes spin {
     100%{-webkit-transform: rotate(360deg);}
 }
