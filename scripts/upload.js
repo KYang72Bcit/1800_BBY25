@@ -14,6 +14,8 @@ let userEmail;
 var testResults = db.collection("Test Results");
 
 function submit() {
+    document.getElementById("saving").style.display = "grid";
+
     //console.log(userID);
     testName = document.getElementById("testnamearea").value;
     //console.log(testName);
@@ -47,7 +49,12 @@ function submit() {
             })
         })
         .then(() => {
-            alert("Test Result Saved");
+            document.getElementById("saving").style.display = "none";
+            document.getElementById("saved").style.display = "grid";
+
+            document.querySelector(".container").addEventListener("click", function(){
+                document.getElementById("saved").style.display = "none";
+            });
         })
         .catch(console.error);
 

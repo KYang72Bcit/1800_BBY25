@@ -17,19 +17,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Firebase 9 CDNs -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="./scripts/firebaseAPI.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style_index.css">
     <link rel="stylesheet" href="./styles/style_testresults.css">
 
     <style type="text/css">
-        body{
-        margin: 0;
-        padding: 0;
+        body {
+            margin: 0;
+            padding: 0;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -54,9 +70,9 @@
         <div class="main">
             <div class="user">
                 <img src="profile.png" width="100px" alt="">
-                <span>Nancy Weinberg</span>
+                <span id="getUsername"></span>
             </div>
-            
+
             <!-- <div class="testresults">
                 <i class="material-icons">science</i>
                 <span>Test Results</span>
@@ -101,6 +117,30 @@
         <!-- Your Javascript Libraries and scripts go here -->
         <!--------------------------------------------------->
         <script src="scripts/index.js"></script>
+        <script>
+            function insertName() {
+                firebase.auth().onAuthStateChanged((user) => {
+                    // Check if user is signed in:
+                    if (user) {
+                        // Do something for the current logged-in user here:
+                        console.log(user.uid);
+                        //go to the correct user document by referencing to the user uid
+                        currentUser = db.collection("users").doc(user.uid);
+                        //get the document for current user.
+                        currentUser.get().then((userDoc) => {
+                            var user_Name = userDoc.data().name;
+                            console.log(user_Name);
+                            //method #1:  insert with html only
+                            document.getElementById("getUsername").innerHTML =
+                            user_Name; //using javascript
+                        });
+                    } else {
+                        // No user is signed in.
+                    }
+                });
+            }
+            insertName();
+        </script>
     </div>
 </body>
 
