@@ -1,14 +1,10 @@
-.contents {
+.main {
     display: grid;
-    width: 40%;
-    height: 80%;
+    width: 100%;
     grid-template-rows: 20% 10% 10% 10% 30% 20%;
     font-family: 'Noto Sans', sans-serif;
     justify-items: center;
     align-items: center;
-    border: 3px #10CAF0 solid;
-    border-radius: 5px;
-    margin: 20px;
 }
 
 .bottom3 > i, .bottom3 > span {
@@ -64,18 +60,25 @@ textarea {
 }
 
 .uploadtitle{
+    display: grid;
+    grid-template-columns: 30% 70%;
     width: 80%;
     height: 80%;
+    align-items:center;
     border-bottom: solid 1px #7a7a7a;
-    display: grid;
+}
+
+.uploadtitle > i, .uploadtitle > span {
+    color: #7a7a7a;
+}
+
+.uploadtitle > i{
+    justify-self: center;
 }
 
 .uploadtitle > span {
-    color: #2c2c2c;
-    justify-self: center;
-    align-self: center;
+    justify-self: start;
 }
-
 
 #testupload {
     display: inline-block;

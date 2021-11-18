@@ -52,7 +52,7 @@ function submit() {
             document.getElementById("saving").style.display = "none";
             document.getElementById("saved").style.display = "grid";
 
-            document.querySelector(".container").addEventListener("click", function(){
+            document.querySelector(".contain").addEventListener("click", function(){
                 document.getElementById("saved").style.display = "none";
             });
         })
