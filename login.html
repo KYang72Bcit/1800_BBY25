@@ -72,14 +72,14 @@
     <style>
       body {
         background-color: #98d0ee;
-background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
+background-image: linear-gradient(180deg, #98d0ee 0%, #9599E2 100%);
 
       }
     </style>
   </head>
 
-  <body class="container-lg">
-    <div class="px-4 py-0 my-2 text-center" style="height: 40vh">
+  <body class="container-lg" style="height:100vh">
+    <div class="px-4 py-3 mb-5 text-center" style="height: 40vh">
       <img
         class="d-block mx-auto mb-0"
         src="./images/logo.png"
@@ -88,11 +88,12 @@ background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
       />
       <h1 class="display-5 fw-bold">Welcome to <br />Health Guard</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="lead mb-0">Take Care Of Your Health With Us!</p>
+        <p class="lead mb-0">Take care of your health with us!</p>
+        <button class="btn btn-primary my-3" id="learnmore" style="background-color: rgb(63, 81, 181); border:none;">Learn more</button>
       </div>
     </div>
 
-    <div class="container pb-4 pt-0" style="height: 50vh">
+    <div class="container pb-4 pt-0" style="height: 45vh">
       <div id="firebaseui-auth-container" style="height: 90%"></div>
       <div id="loader">Loading...</div>
     </div>
@@ -100,11 +101,11 @@ background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
     <footer class="bg-light text-center text-lg-start fixed-bottom">
       <!-- Copyright -->
       <div
-        class="text-center py-3"
-        style="background-color:rgb(112, 96, 202)"
+        class="text-center py-3 text-light"
+        style="background-color:#335591"
       >
         © 2021 Copyright:
-        <a class="text-dark" href="">HealthGuard</a>
+        <a class="text-light" href="copyright.html">HealthGuard</a>
       </div>
       <!-- Copyright -->
     </footer>
@@ -129,7 +130,7 @@ background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
                 email: user.email
               }).then(function() {
                 console.log("New user added to firestore");
-                window.location.assign("main.html");
+                window.location.assign("dashboard.html");
               })
               .catch(function(error) {
                 console.log("error is " + error);
@@ -149,7 +150,7 @@ background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
         },
         // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
         signInFlow: "popup",
-        signInSuccessUrl: "main.html",
+        signInSuccessUrl: "dashboard.html",
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
           //   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -167,6 +168,11 @@ background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
 
       // The start method will wait until the DOM is loaded.
       ui.start("#firebaseui-auth-container", uiConfig);
+
+      // Learn more button link
+        document.getElementById("learnmore").onclick = function () {
+        location.href = "about.html";
+      }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script

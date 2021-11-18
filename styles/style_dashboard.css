@@ -73,6 +73,13 @@ body {
     grid-row: 1 / span 2;
     /* background-color: red; */
 /* } */ 
+#closebutton {
+        
+    font-weight: 500 !important;
+    border: none !important;
+    padding: 0px !important;
+    background-color: white !important;
+}
 
 .bottomicons {
     display: none;
@@ -102,6 +109,7 @@ body {
         align-items: center;
         margin-bottom: 0px !important;
         padding-bottom: 0px !important;
+        border-bottom: 0px !important;
     }
 
     #logo {
@@ -149,6 +157,7 @@ body {
         font-weight: 500 !important;
         border: none !important;
         padding: 0px !important;
+        background-color: white !important;
     }
 
     .bottomicons {
@@ -163,8 +172,9 @@ body {
         top: 70px;
         height: calc(100vh - 170px);
     }
-    .panel {
-        border: none;
+    .maincarditem {
+
+        height: 50vh !important;
     }
     
 }
