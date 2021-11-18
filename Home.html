@@ -31,10 +31,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" /> -->
-
-
+   
     <!-- self write stylesheet -->
     <link rel="stylesheet" href="./styles/style_dashboard.css">
 
@@ -180,24 +177,27 @@
             <div class="card-body text-center py-4">
                 <div class="row maincontents">
                   <!-- THIS IS THE DIV FOR PROFILE PICTURE -->
-                  <div class="col-2"> 
-                    <img src="?" id="???"> 
-                </div>
-                <!-- Greeting -->
-                    <div class="col-9 col-md-5 col-lg-6 m-2 dashboardtitle">
-                        <h1 class="text-start">Hello, <span id="username"></span></h1>
+                  <div class="row">
+                    <div class="col-2"> 
+                      <img src="?" id="???"> 
                     </div>
+                <!-- Greeting -->
+                    <div class="col-8 col-md-5 col-lg-6 m-2 dashboardtitle">
+                      <h1 class="text-start">Hello, <span id="username"></span></h1>
+                    </div></div>
+                  <div class="container">
                     <div class="row dashboardcards">
                         <div class="col-9 col-md-5 col-lg-4 m-2">
                             <div class="card border-3 border-info shadow maincarditem" style="height: 60vh">
                               <span id="getRecommendations"></span>
-                                <h2>All Screenings: </h2>
+                              <span id="upcomingScreenings"></span>
+                                <!-- <h2>Upcoming Screenings: </h2>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item"><span class="fw-bold" id="screening1" >Dental Check up</span><br><span class="fw-light" id="screening1date">Friday, December 3, 2021</span></li>
                                     <li class="list-group-item"><span class="fw-bold" id="screening2">General Health Check up</span><br><span class="fw-light" id="screening2date">Monday, January 10, 2022</span></li>
                                     <li class="list-group-item"><span class="fw-bold" id="screening3">Pap Smear</span><br><span class="fw-light" id="screening3date">Thursday, January 20, 2022</span></li>
                                 
-                                  </ul>
+                                  </ul> -->
                             </div>
                         </div>
                         <div class="col-9 col-md-5 col-lg-4 m-2">
@@ -205,15 +205,13 @@
                               <h2>Calendar: </h2>
                               <ul class="list-group list-group-flush">
                                 <li class="list-group-item"><span class="fw-bold">Calendar Widget will go here</span></li>
-                                    
-                                  <!-- <li class="list-group-item"><span class="fw-bold" id="screening1" >Dental Check up</span><br><span class="fw-light" id="screening1date">Friday, December 3, 2021</span></li>
-                                  <li class="list-group-item"><span class="fw-bold" id="screening2">General Health Check up</span><br><span class="fw-light" id="screening2date">Monday, January 10, 2022</span></li>
-                                  <li class="list-group-item"><span class="fw-bold" id="screening3">Pap Smear</span><br><span class="fw-light" id="screening3date">Thursday, January 20, 2022</span></li> -->
-                              
+                             
                                 </ul>
                           </div>
                       </div>
                     </div>
+                  </div>
+
                 </div>
 
 
@@ -242,5 +240,15 @@
     </script>
     <script src="scripts/home.js"></script>
     <script src="scripts/menus.js"></script>
+
+    <script>
+      document.getElementById("getRecommendations").innerHTML = "<h2>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>"
+
+      document.getElementById("upcomingScreenings").innerHTML = "<h2>Upcoming Screenings: </h2>"
+
+      document.getElementById("gotoRecommended").onclick = function () {
+        location.href = "MyScreenings.html";
+      }
+    </script>
   </body>
 </html>
