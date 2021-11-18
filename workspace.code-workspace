@@ -1,22 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "..\\..\\..\\OneDrive\\Desktop\\BCIT\\Comp 1537 - Web Dev\\JS-basics"
-		},
-		{
-			"path": "..\\..\\..\\OneDrive\\Desktop\\BCIT\\Comp 1537 - Web Dev\\Study materials"
-		},
-		{
-			"path": "..\\..\\..\\OneDrive\\Desktop\\BCIT\\Comp 1537 - Web Dev\\Assignments\\Assignment 4"
-		},
-		{
 			"path": "."
-		},
-		{
-			"path": "..\\..\\Demo08"
 		}
 	],
 	"settings": {
 		"liveServer.settings.multiRootWorkspaceName": "Assignment 4"
 	}
-}
+} 

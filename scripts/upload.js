@@ -3,13 +3,9 @@ let userID;
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        //console.log(user.uid);
-        //currentUser = db.collection("users").doc(user.uid);
         userID = user.uid;
-        console.log(userID);
-
+        // console.log(userID);
         userEmail = user.email;
-        //console.log(typeof(userID));
     } else {}
 });
 
@@ -18,16 +14,17 @@ let userEmail;
 var testResults = db.collection("Test Results");
 
 function submit() {
-    console.log(userID);
+    document.getElementById("saving").style.display = "grid";
+
+    //console.log(userID);
     testName = document.getElementById("testnamearea").value;
-    console.log(testName);
+    //console.log(testName);
     testDate = document.getElementById("selectdate").value;
-    console.log(testDate);
+    //console.log(testDate);
     comments = document.getElementById("commentarea").value;
 
     const ref = firebase.storage().ref();
     const file = document.getElementById("testupload").files[0];
-    //uid + testName + testDate ?
     const name = userID + "/" + testName + "-" + testDate + "-" +
         file.name;
     const metadata = {
@@ -38,8 +35,8 @@ function submit() {
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
             fileURL = url;
-            console.log(fileURL);
-            console.log(typeof (fileURL));
+            //console.log(fileURL);
+            //console.log(typeof (fileURL));
             return testResults.doc(userID + testName + testDate).set({
                 UserID: userID,
                 FileName:file.name,
@@ -52,7 +49,12 @@ function submit() {
             })
         })
         .then(() => {
-            alert("Test Result Saved");
+            document.getElementById("saving").style.display = "none";
+            document.getElementById("saved").style.display = "grid";
+
+            document.querySelector(".container").addEventListener("click", function(){
+                document.getElementById("saved").style.display = "none";
+            });
         })
         .catch(console.error);
 

@@ -49,6 +49,7 @@
       rel="stylesheet"
       href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
     />
+    
 
     <!-- Firebase 8 CDNs-->
 
@@ -68,32 +69,39 @@
     <script src="./scripts/firebaseAPI.js"></script>
 
     <!-- Self-written styles sheets -->
+    <style>
+      body {
+        background-color: #98d0ee;
+background-image: linear-gradient(135deg, #98d0ee 0%, #9599E2 100%);
+
+      }
+    </style>
   </head>
 
-  <body>
-    <div class="px-4 py-5 my-2 text-center">
+  <body class="container-lg">
+    <div class="px-4 py-0 my-2 text-center" style="height: 40vh">
       <img
         class="d-block mx-auto mb-0"
         src="./images/logo.png"
         alt=""
-        width="10%"
+        height="40%"
       />
-      <h1 class="display-5 fw-bold">Welcome Back to <br />Health Guard</h1>
+      <h1 class="display-5 fw-bold">Welcome to <br />Health Guard</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-0">Take Care Of Your Health With Us!</p>
       </div>
     </div>
 
-    <div class="container">
-      <div id="firebaseui-auth-container"></div>
+    <div class="container pb-4 pt-0" style="height: 50vh">
+      <div id="firebaseui-auth-container" style="height: 90%"></div>
       <div id="loader">Loading...</div>
     </div>
 
-    <footer class="bg-light text-center text-lg-start">
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
       <!-- Copyright -->
       <div
         class="text-center py-3"
-        style="background-color: rgba(0, 0, 0, 0.2)"
+        style="background-color:rgb(112, 96, 202)"
       >
         © 2021 Copyright:
         <a class="text-dark" href="">HealthGuard</a>

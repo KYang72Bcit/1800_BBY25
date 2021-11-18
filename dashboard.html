@@ -12,15 +12,18 @@
       crossorigin="anonymous"
     />
 
+    <!-- self write stylesheet -->
+    <link rel="stylesheet" href="./styles/style_dashboard.css">
+
     <title>Main Page Layout</title>
   </head>
   <body>
-    <div class="container-fluid" style="background-color: gainsboro">
+    <div class="container-fluid contain">
       <div class="row">
         <!-- Sidebar -->
-        <div class="col-6 col-md-4 col-lg-3 col-xxl-2 p-0" id="menu">
+        <div class="col-5 col-md-4 col-lg-3 col-xxl-2 p-0" id="menu" >
           <div
-            class="flex p-3"
+            class="flex p-3 sidebar"
             style=" height: 100vh; background-color: rgb(44, 64, 88)"
           >
           <!-- min-width: 280px; -->
@@ -33,6 +36,7 @@
                 link-dark
                 text-decoration-none
                 border-bottom
+                title
               "
             >
               <img
@@ -41,35 +45,30 @@
                 width="90"
                 height="96"
                 class="me-0 ms-0"
+                id="logo"
               />
-              <span class="h2 m-3 text-light">Health Guard</span>
+              <span class="h2 m-3 text-light appname">Health Guard</span>
             </div>
-            <ul class="list-unstyled ps-0">
-              <li class="mb-1">
-                <div class="d-grid gap-3">
-                  <button class="btn btn-info" type="button">Dashboard</button>
-                  <button class="btn btn-info" type="button">Calendar</button>
-                  <button class="btn btn-info" type="button">
-                    Test Results
-                  </button>
-                  <button class="btn btn-info" type="button">
-                    Update Survey
-                  </button>
-                  <button class="btn btn-info" type="button">
-                    Recommended
-                  </button>
-                  <button class="btn btn-info" type="button">My Profile</button>
+            
+                <div class="d-grid gap-3 menus">
+                  <button class="btn btn-info menubuttons" type="button"><img src="./images/home-3-fill.png" alt="home icon" class="bottomicons"/><span>Home</span></button>
+                  <button class="btn btn-info menubuttons" type="button" ><img src="./images/calendar-event-fill.png" alt="calendar icon" class="bottomicons" /><span>Calendar</span></button>
+                  <button class="btn btn-info menubuttons" type="button"><img src="./images/folder-chart-fill.png" alt="test results icon" class="bottomicons" />
+                    <span>Test Results</span></button>
+                  <button class="btn btn-info menubuttons" type="button"><img src="./images/survey-fill.png" alt="screenings icon" class="bottomicons" />
+                    <span>My Screenings</span></button>
+                  <button class="btn btn-info menubuttons" type="button"><img src="./images/user-fill.png" alt="user icon" class="bottomicons" />
+                    <span>My Profile</span></button>
                 </div>
-              </li>
-            </ul>
+              
           </div>
         </div>
 
         <!-- Dashboard -->
       
-        <div class="col-6 col-md-8 col-lg-9 col-xxl-10 p-0">
+        <div class="col-7 col-md-8 col-lg-9 col-xxl-10 p-0 main">
           <div class="card" style="height: 100vh">
-            <div class="card-body text-center py-4">
+            <div class="card-body text-center py-4 panel">
                 <div class="row">
                     <div class="col-10 col-md-6 col-lg-5 m-2">
                         <h1>Hello, <span id="username">Ramil Garipov</span></h1>
