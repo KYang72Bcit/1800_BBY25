@@ -59,3 +59,11 @@ function submit() {
         .catch(console.error);
 
 }
+
+    // Links to other pages from the menu:
+    document.getElementById("resultsBtn").onclick = function () {
+        location.href = "upload.html";
+      }
+      document.getElementById("profileBtn").onclick = function () {
+        location.href = "myProfile.html";
+      }
