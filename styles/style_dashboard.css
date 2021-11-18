@@ -85,6 +85,10 @@ body {
     display: none;
 }
 
+.dashboardtitle{
+    width: 100%;
+}
+
 @media screen and (max-width: 720px) {
     .contain {
         display: block;
@@ -187,6 +191,30 @@ body {
 
         height: 50vh !important;
     }
+
+    .dashboardcards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .maincontents {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .dashboardtitle{
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    
     
 }
 
