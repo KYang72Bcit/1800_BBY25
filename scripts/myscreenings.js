@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             //get basic user information from user file
             let name = userDoc.data().name;
             var picUrl = userDoc.data().profilepic;
+            //console.log(picUrl);
             let ongoingCondition = userDoc.data().ongoingCondition;
             let familyHistory = userDoc.data().familyHistory;
             let age = 2021 - userDoc.data().yearOfBirth;

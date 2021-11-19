@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>HealthGuard</title>
-    <meta name="author" content="BBY25">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Icon-->
+    <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +21,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style_index.css">
 
     <!-- Firebase 9 CDNs -->
 
@@ -39,164 +37,184 @@
     <!-- Link to the api keys for your firebase project -->
     <script src="./scripts/firebaseAPI.js"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- self write stylesheet -->
+    <!--Template Style-->
+    <link rel="stylesheet" href="./styles/style_dashboard.css"> 
+
+    <!--Page Style-->
 
 
-    <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <title>Health Guard</title>
 </head>
 
 <body>
-    <div class="container">
-        <!--Top Nav Bar-->
-        <nav class="topnav">
-            <div class="logo"></div>
-            <!-- <span class="appname">HealthGuard</span> -->
-            <i class="material-icons iphoto" style="font-size:30px;color:#7a7a7a">add_a_photo</i>
-            <i class="material-icons iadd" style="font-size:30px;color:#7a7a7a">add_circle</i>
-            <!--Hamberger menu & js to be included-->
-            <a href="#" id="hamburgermenu">
-                <i class="material-icons imenu" style="font-size:30px;color:#7a7a7a">menu</i>
-            </a>
-        </nav>
-        <div id="menuLinks">
-            <a href="#" class="insidemenu"><span>Information Centre</span></a>
-            <a href="#" class="insidemenu"><span>Find Doctor Near Me</span></a>
-            <a href="#" class="insidemenu"><span>App Settings</span></a>
-        </div>
-        <div class="main">
-            <!-- CONTENT -->
-            <div class="user">
-                <img src="profile.png" alt="" id="profile" width="150px">
-                <span id="name"></span>
+
+    <div class="container-fluid contain">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-5 col-md-4 col-lg-3 col-xxl-2 p-0" id="menu">
+                <div class="flex p-3 sidebar" style=" height: 100vh; background-color: rgb(44, 64, 88)">
+                    <!-- min-width: 280px; -->
+                    <div class="
+                d-flex
+                align-items-between
+                pb-3
+                mb-3
+                link-dark
+                text-decoration-none
+                border-bottom
+                title
+              ">
+                        <img src="images/logo.png" alt="Health Guard Logo" width="90" height="96" class="me-0 ms-0"
+                            id="logo" />
+                        <span class="h2 m-3 text-light appname">Health Guard</span>
+                    </div>
+
+                    <div class="d-grid gap-3 menus">
+                        <button class="btn btn-info menubuttons" type="button" id="homeBtn"><img
+                                src="./images/home-3-fill.png" alt="home icon"
+                                class="bottomicons" /><span>Home</span></button>
+                        <button class="btn btn-info menubuttons" type="button" id="calendarBtn"><img
+                                src="./images/calendar-event-fill.png" alt="calendar icon"
+                                class="bottomicons" /><span>Calendar</span></button>
+                        <button class="btn btn-info menubuttons" type="button" id="resultsBtn"><img
+                                src="./images/folder-chart-fill.png" alt="test results icon" class="bottomicons" />
+                            <span>Test Results</span></button>
+                        <button class="btn btn-info menubuttons" type="button" id="screeningsBtn"><img
+                                src="./images/survey-fill.png" alt="screenings icon" class="bottomicons" />
+                            <span>My Screenings</span></button>
+                        <button class="btn btn-info menubuttons" type="button" id="profileBtn"><img
+                                src="./images/user-fill.png" alt="user icon" class="bottomicons" />
+                            <span>My Profile</span></button>
+                    </div>
+
+                </div>
             </div>
-            <form id="screenings">
-                <h5 class="">Recomended Screenings</h5>
 
-                <!-- general check -->
-                <div id="generalScreen" class="form-check screening">
-                    <input class="form-check-input" type="checkbox" value="general" id="general">
-                    <label class="form-check-label" for="gc">
-                        General Health Checkups
-                    </label>
-                    <!-- placeholder for template -->
-                    <div id="general1">
-
-                    </div>
+            <!-- main -->
+            <div class="col-7 col-md-8 col-lg-9 col-xxl-10 p-0 main">
+                <!-- Merge contents from here-->
+                <div class="user">
+                    <img src="profile.png" alt="" id="profile" width="150px">
+                    <span id="name"></span>
                 </div>
-
-                <!-- dental check -->
-                <div id="dentalScreen" class="form-check screening">
-                    <input class="form-check-input" type="checkbox" value="dental" id="dental">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Dental Checkups
-                    </label>
-                    <!-- placeholder for template -->
-                    <div id="dental1">
-
+                <form id="screenings">
+                    <h5 class="">Recomended Screenings</h5>
+    
+                    <!-- general check -->
+                    <div id="generalScreen" class="form-check screening">
+                        <input class="form-check-input" type="checkbox" value="general" id="general">
+                        <label class="form-check-label" for="gc">
+                            General Health Checkups
+                        </label>
+                        <!-- placeholder for template -->
+                        <div id="general1">
+    
+                        </div>
                     </div>
-                </div>
-                <!-- gender ralated check applicable for certain group-->
-                <div id="genderScreen" class="form-check screening">
-                    <input class="form-check-input" type="checkbox" value="womenScreen" id="womenScreen">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Essential Screening for Woman
-                    </label>
-                     <!-- placeholder for template -->
-                    <div id="womenScreen1">
-
+    
+                    <!-- dental check -->
+                    <div id="dentalScreen" class="form-check screening">
+                        <input class="form-check-input" type="checkbox" value="dental" id="dental">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Dental Checkups
+                        </label>
+                        <!-- placeholder for template -->
+                        <div id="dental1">
+    
+                        </div>
                     </div>
+                    <!-- gender ralated check applicable for certain group-->
+                    <div id="genderScreen" class="form-check screening">
+                        <input class="form-check-input" type="checkbox" value="womenScreen" id="womenScreen">
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Essential Screening for Woman
+                        </label>
+                         <!-- placeholder for template -->
+                        <div id="womenScreen1">
+    
+                        </div>
+                        
+                    </div>
+                    <!-- heartcheck applicable for certain group -->
+                    <div id="heartScreen" class="form-check screening">
+                        <input class="form-check-input" type="checkbox" value="heartScreen">
+                        <label class="form-check-label" for="diaScreen">
+                            Heart Screening
+                        </label>
+                         <!-- placeholder for template -->
+                        <div id="heartScreen1">
+    
+                        </div>
+                    </div>
+    
+                     <!-- diabetic check applicable for certain group  -->
+                    <div id="diaScreen" class="form-check screening">
+                        <input class="form-check-input" type="checkbox" value="diaScreen">
+                        <label class="form-check-label" for="diaScreen">
+                            Diabetic Screening
+                        </label>
+                         <!-- placeholder for template -->
+                        <div id="diaScreen1">
+    
+                        </div>
+    
+                    </div>
+    
+    
+    
+                    <!-- submit button -->
+                    <button type="submit" class="btn btn-primary" id="basicInforSubmit">Add to My Screenings</button>
                     
-                </div>
-                <!-- heartcheck applicable for certain group -->
-                <div id="heartScreen" class="form-check screening">
-                    <input class="form-check-input" type="checkbox" value="heartScreen">
-                    <label class="form-check-label" for="diaScreen">
-                        Heart Screening
-                    </label>
-                     <!-- placeholder for template -->
-                    <div id="heartScreen1">
-
-                    </div>
-                </div>
-
-                 <!-- diabetic check applicable for certain group  -->
-                <div id="diaScreen" class="form-check screening">
-                    <input class="form-check-input" type="checkbox" value="diaScreen">
-                    <label class="form-check-label" for="diaScreen">
-                        Diabetic Screening
-                    </label>
-                     <!-- placeholder for template -->
-                    <div id="diaScreen1">
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- submit button -->
-                <button type="submit" class="btn btn-primary" id="basicInforSubmit">Add to My Screenings</button>
-                
-
-
-
-            </form>
-
-        </div>
-        <div id="black">
-        </div>
-
-        <!--Bottom Nav Bar-->
-        <footer class="bottomnav">
-            <a href="./main.html" class="bottomicons bottom1">
-                <i class="material-icons">home</i>
-                <span>Home</span>
-            </a>
-            <a href="#" class="bottomicons bottom2">
-                <i class="material-icons">event_available</i>
-                <span>Schedule</span>
-            </a>
-            <a href="./testresults.html" class="bottomicons bottom3">
-                <i class="material-icons">assignment</i>
-                <span>Test Results</span>
-            </a>
-            <a href="./myProfile.html" class="bottomicons bottom4">
-                <i class="material-icons">account_circle</i>
-                <span>My Profile</span>
-            </a>
-
-        </footer>
-
-
-        <!-- Templates for general use, not displayed -->
-        <template id="CardTemplate">
-            <div>
-                <input class="hello" type="checkbox" value="">
-                <label class="test-name"> First checkbox </label>
+    
+    
+    
+                </form>
+    
             </div>
-
-
-        </template>
-
-        <!--------------------------------------------------->
-        <!-- Your Javascript Libraries and scripts go here -->
-        <!--------------------------------------------------->
-
-        <script src="scripts/index.js"></script>
-        <script src="scripts/myscreenings.js"></script>
-        <script>
-           
-
-          
-        </script>
+        </div>
     </div>
+
+    <!-- Templates for general use, not displayed -->
+    <template id="CardTemplate">
+        <div>
+            <input class="hello" type="checkbox" value="">
+            <label class="test-name"> First checkbox </label>
+        </div>
+
+
+    </template>
+
+    <script src="/scripts/myscreenings.js"></script>
+    <script src="scripts/menus.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script src="./scripts/dashboard.js"></script>
+    <script src="scripts/upload.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+
+    </script>
+   
+
+
 </body>
 
 </html>
