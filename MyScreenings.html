@@ -77,56 +77,62 @@
                 <span id="name"></span>
             </div>
             <form id="screenings">
-                <h5 class="">Recomended Screening Category</h5>
+                <h5 class="">Recomended Screenings</h5>
 
+                <!-- general check -->
                 <div id="generalScreen" class="form-check screening">
                     <input class="form-check-input" type="checkbox" value="general" id="general">
                     <label class="form-check-label" for="gc">
                         General Health Checkups
                     </label>
+                    <!-- placeholder for template -->
                     <div id="general1">
 
                     </div>
                 </div>
 
-
+                <!-- dental check -->
                 <div id="dentalScreen" class="form-check screening">
                     <input class="form-check-input" type="checkbox" value="dental" id="dental">
                     <label class="form-check-label" for="flexCheckChecked">
                         Dental Checkups
                     </label>
+                    <!-- placeholder for template -->
                     <div id="dental1">
 
                     </div>
                 </div>
-
+                <!-- gender ralated check applicable for certain group-->
                 <div id="genderScreen" class="form-check screening">
                     <input class="form-check-input" type="checkbox" value="womenScreen" id="womenScreen">
                     <label class="form-check-label" for="flexCheckChecked">
                         Essential Screening for Woman
                     </label>
-                    <div id="genderScreen1">
+                     <!-- placeholder for template -->
+                    <div id="womenScreen1">
 
                     </div>
-                    div
+                    
                 </div>
-
+                <!-- heartcheck applicable for certain group -->
                 <div id="heartScreen" class="form-check screening">
                     <input class="form-check-input" type="checkbox" value="heartScreen">
                     <label class="form-check-label" for="diaScreen">
                         Heart Screening
                     </label>
+                     <!-- placeholder for template -->
                     <div id="heartScreen1">
 
                     </div>
                 </div>
 
-
+                 <!-- diabetic check applicable for certain group  -->
                 <div id="diaScreen" class="form-check screening">
                     <input class="form-check-input" type="checkbox" value="diaScreen">
                     <label class="form-check-label" for="diaScreen">
                         Diabetic Screening
                     </label>
+                     <!-- placeholder for template -->
                     <div id="diaScreen1">
 
                     </div>
@@ -135,7 +141,7 @@
 
 
 
-
+                <!-- submit button -->
                 <button type="submit" class="btn btn-primary" id="basicInforSubmit">Add to My Screenings</button>
                 
 
@@ -184,167 +190,9 @@
         <!--------------------------------------------------->
 
         <script src="scripts/index.js"></script>
-        <!-- <script src="scripts/screenReco.js"></script> -->
+        <script src="scripts/myscreenings.js"></script>
         <script>
-            firebase.auth().onAuthStateChanged(function (user) {
-                if (user) {
-                    // User is signed in.
-                    var currentUser = db.collection("users").doc(user.uid);
-
-                    //when uers change personal profile
-                    //const input = document.querySelector("#mypic-input");
-                    //const profile = document.querySelector("#profile");
-                    currentUser.get().then(userDoc => {
-                        let name = userDoc.data().name;
-                        var picUrl = userDoc.data().profilepic;
-                        let ongoingCondition = userDoc.data().ongoingCondition;
-                        let familyHistory = userDoc.data().familyHistory;
-                        let age = 2021 - userDoc.data().yearOfBirth;
-                        var gender = userDoc.data().gender;
-                        var bodyHeight = userDoc.data().bodyHeight;
-                        var bodyWeight = userDoc.data().bodyWeight;
-                        document.querySelector("#name").innerHTML = name;
-                        $("#profile").attr("src", picUrl);
-
-                        let labels = document.querySelectorAll('label');
-                        let inputs = document.querySelectorAll('input');
-                        //let generalScreen = document.querySelector("#generalScreen");
-                        let genderScreen = document.querySelector("#genderScreen");
-                        let heartScreen = document.querySelector('input[value = "heartScreen"]');
-                        let diaScreen = document.querySelector('input[value = "diaScreen"]');
-                        //if user is 60+ genral health screening change to senior screening
-                        if (age > 60) {
-                            labels[0].innerText = "Senior Health Screening";
-                            inputs[0].value = "seniorScreen";
-                            document.querySelector("#generalScreen").setAttribute('id', "seniorScreen1")
-                        }
-                        //hide women screening when not women 
-                        if (gender === "Male") {
-                            genderScreen.style.display = "none";
-                            //document.querySelector("#womenScreen").checked = false;
-
-                        }
-                        //unclick heart screening and diabetis screening when not necessary
-                        let bmi = bodyWeight / Math.pow(bodyWeight / 100, 2);
-
-                        if (bmi < 30 || age < 30) {
-
-                            heartScreen.style.display = "none";
-                            diaScreen.style.display = "none";  
-                        }
-                        document.querySelector("#screenings").addEventListener('submit', submitForm);
-                       
-                        function getScreeningArray() {
-                            const screenings = document.querySelectorAll(
-                                'input.hello:checked');
-                            const screeningArray = [];
-                            screenings.forEach(element => {
-                                if (element.checked === true) {
-                                    screeningArray.push(element.value);
-                                }
-
-                            })
-                            return screeningArray;
-                        }
-
-                        const checkbox = document.querySelectorAll('.form-check-input:not([style="display: none"])');//how to not select hidden element
-                        checkbox.forEach(element => {
-                            //console.log(element);
-                            element.addEventListener('click', function() { show(element.value); } )
-                        });
-
-                        function show(element) {
-                            //console.log(element);
-                            let CardTemplate = document.getElementById("CardTemplate");
-                            const screenings = db.collection("ScreenCategory").doc(element);
-                            screenings.get().then(screendoc => {
-                                let testlist = screendoc.data()[0];
-                                testlist.forEach(test => {
-                                    //get every test from test list
-                                    let value = test.split(" ").join("-");
-                                    let text = test;
-                                    let newcard = CardTemplate.content.cloneNode(true);
-                                    newcard.querySelector('.test-name').innerHTML =
-                                    test;
-                                    //console.log( newcard.querySelector('.test-name'));
-
-                                    newcard.querySelector('input').setAttribute("value",
-                                        value);
-                                    newcard.querySelector('input').setAttribute(
-                                        "checked", true);
-                                        document.getElementById(element + 1).appendChild(newcard);
-                                })
-
-                            })
-
-
-                        }
-
-                        function showTest() {
-                            let CardTemplate = document.getElementById("CardTemplate");
-                            const screenings = db.collection("ScreenCategory");
-                            const userScreeningCategory = getScreeningArray();
-                            userScreeningCategory.forEach(element => {
-                                screenings.doc(element).get().then(screendoc => {
-                                    //get test list from ScreenCatergory
-                                    let testlist = screendoc.data()[0];
-                                    testlist.forEach(test => {
-
-                                        //get every test from test list
-                                        let value = test.split(" ").join("-");
-                                        let text = test;
-                                        let newcard = CardTemplate.content
-                                            .cloneNode(true);
-                                        newcard.querySelector('.test-name')
-                                            .innerHTML = test;
-                                        //console.log( newcard.querySelector('.test-name'));
-
-                                        newcard.querySelector('input')
-                                            .setAttribute("value", value);
-                                        newcard.querySelector('input')
-                                            .setAttribute("checked", true);
-                                        document.getElementById(element + 1)
-                                            .appendChild(newcard);
-
-
-
-                                    })
-                                });
-
-                            })
-                        }
-
-
-                        function submitForm(e) {
-                            e.preventDefault();
-                            //find all the clicked input, stored in array, upload to firebse
-                            const screeningArray = getScreeningArray();
-                            console.log(screeningArray);
-                            screeningArray.forEach(screening=>{
-                                currentUser.collection("screenings").doc(screening).set({
-                                    value:"notsure"
-                                }).then(function(){
-                                    console.log("creating screening collection in user folder");
-                                })
-                            })
-                            currentUser.update({
-                                'screeningCategory': screeningArray
-                            }).then(function () {
-                                console.log("add userScreening to firebase")
-                            })
-
-
-                        }
-
-                    })
-
-
-
-                } else {
-                    // No user is signed in.
-                }
-            });
-
+           
 
           
         </script>
