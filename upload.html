@@ -9,6 +9,21 @@
   <!--Icon-->
   <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind&family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Open+Sans:wght@300;400&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style_index.css">
+
+
   <!-- Firebase 9 CDNs -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,8 +45,12 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
   <!-- self write stylesheet -->
+  <!--Template Style-->
   <link rel="stylesheet" href="./styles/style_dashboard.css">
+
+  <!--Page Style-->
   <link rel="stylesheet" href="./styles/style_upload.css">
+  <link rel="stylesheet" href="./styles/style_viewresult.css">
 
   <title>Health Guard</title>
 </head>
@@ -118,6 +137,10 @@
             <span>Test result saved!</span>
           </div>
         </div>
+        <div class="resultspanel">
+          <h3 class="pagetitle">Your Test Results</h3>
+          <div id="resultlist"></div>
+        </div>
         <!--Merge contents until here-->
       </div>
     </div>
@@ -125,14 +148,22 @@
 
 
 
-  <script src="scripts/menus.js"></script>
+  <!-- Page Script-->
+  <!-------------------------->
+  <!--Need to work on script-->
+  <!-------------------------->
+  <script src="scripts/viewresults.js"></script>
   <script src="scripts/upload.js"></script>
+
+
+  <!-- Template Script-->
+  <script src="scripts/menus.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>
 
   <script src="./scripts/dashboard.js"></script>
-  <script src="scripts/upload.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
   </script>

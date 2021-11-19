@@ -22,15 +22,15 @@ span{
     color: #29c8aa;
 }
 
-.main{
+.resultspanel{
     margin: 0;
     padding: 2rem 3rem;
     display: grid;
-    grid-template-rows: 30% 2% 34% 34%;
+    grid-template-rows: 5% 95%;
     font-family: 'Noto Sans', sans-serif;
 }
 
-.main > div, .main > a{
+.resultspanel > div, .resultspanel > a{
     display: grid;
     box-sizing: border-box;
 }
