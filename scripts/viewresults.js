@@ -60,4 +60,3 @@ firebase.auth().onAuthStateChanged((user) => {
 
     } else {}
 });
-

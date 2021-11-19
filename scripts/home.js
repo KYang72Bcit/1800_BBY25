@@ -110,8 +110,8 @@ $(document).ready(function () {
           var user_bodyWeight = userDoc.data().bodyWeight;
           var user_ongoingCodition = userDoc.data().ongoingCondition;
           var picUrl = userDoc.data().profilepic  
-          console.log(picUrl);
-          console.log("122");
+          console.log("pic URL is: " + picUrl);
+          // console.log("122");
         
           // check if documents have that variables, assign the value to span with certain id. 
           
@@ -196,11 +196,10 @@ $(document).ready(function () {
 
   function checkRadioButton(user_gender) {
     let buttons = document.querySelectorAll('input[name = "gender"]')
-    console.log(buttons);
-    //console.log("123");
+    // console.log(buttons);
     buttons.forEach(element => {
       if (element.value === user_gender) {
-        console.log(element);
+        // console.log(element);
         element.checked = true
       }
 
