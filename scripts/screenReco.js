@@ -41,6 +41,15 @@ availableCategery.forEach(category=>{
     document.getElementById(category).addEventListener('click',show(category));
 })
 
+var checkbox = document.querySelector("input.hello");
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});
 // document.querySelector("#dental").addEventListener('click',showDental);
 // document.querySelector("#diaScreen").addEventListener('click',showdiaScreen);
 // document.querySelector("#general").addEventListener('click',showgeneral);
