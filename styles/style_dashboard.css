@@ -120,12 +120,18 @@ body {
         width: 100%;
         position: fixed;
         top: 70px;
-        height: calc(100vh - 170px);
+        overflow-y: scroll;
+        /* height: 150vh; */
     }
-    .maincarditem {
 
+
+    .maincarditem {
         height: 50vh !important;
     }
+
+    /* .card-body {
+        overflow-y: scroll;
+    } */
 
     .dashboardcards {
         display: flex;

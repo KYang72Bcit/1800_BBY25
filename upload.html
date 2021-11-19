@@ -59,13 +59,19 @@
           </div>
 
           <div class="d-grid gap-3 menus">
-            <button class="btn btn-info menubuttons" type="button" id="homeBtn"><img src="./images/home-3-fill.png" alt="home icon" class="bottomicons"/><span>Home</span></button>
-            <button class="btn btn-info menubuttons" type="button" id="calendarBtn"><img src="./images/calendar-event-fill.png" alt="calendar icon" class="bottomicons" /><span>Calendar</span></button>
-            <button class="btn btn-info menubuttons" type="button" id="resultsBtn"><img src="./images/folder-chart-fill.png" alt="test results icon" class="bottomicons" />
+            <button class="btn btn-info menubuttons" type="button" id="homeBtn"><img src="./images/home-3-fill.png"
+                alt="home icon" class="bottomicons" /><span>Home</span></button>
+            <button class="btn btn-info menubuttons" type="button" id="calendarBtn"><img
+                src="./images/calendar-event-fill.png" alt="calendar icon"
+                class="bottomicons" /><span>Calendar</span></button>
+            <button class="btn btn-info menubuttons" type="button" id="resultsBtn"><img
+                src="./images/folder-chart-fill.png" alt="test results icon" class="bottomicons" />
               <span>Test Results</span></button>
-            <button class="btn btn-info menubuttons" type="button" id="screeningsBtn"><img src="./images/survey-fill.png" alt="screenings icon" class="bottomicons" />
+            <button class="btn btn-info menubuttons" type="button" id="screeningsBtn"><img
+                src="./images/survey-fill.png" alt="screenings icon" class="bottomicons" />
               <span>My Screenings</span></button>
-            <button class="btn btn-info menubuttons" type="button" id="profileBtn"><img src="./images/user-fill.png" alt="user icon" class="bottomicons" /> 
+            <button class="btn btn-info menubuttons" type="button" id="profileBtn"><img src="./images/user-fill.png"
+                alt="user icon" class="bottomicons" />
               <span>My Profile</span></button>
           </div>
 
@@ -77,65 +83,73 @@
         <!-- Merge contents from here-->
         <div class="contents">
           <div class="uploadtitle">
-              <span>Upload test results</span>
+            <span>Upload test results</span>
           </div>
           <div class="uploadfile">
-              <span>Choose a test result to upload (.pdf only):</span>
-              <input type="file" id="testupload" name="testupload" accept=".pdf" />
+            <span>Choose a test result to upload (.pdf only):</span>
+            <input type="file" id="testupload" name="testupload" accept=".pdf" />
           </div>
           <div class="testname">
-              <span>Test Name: </span>
-              <textarea name="testnamearea" id="testnamearea" rows="3" cols="40"
-                  placeholder="Ex) Blood test..."></textarea>
+            <span>Test Name: </span>
+            <textarea name="testnamearea" id="testnamearea" rows="3" cols="40"
+              placeholder="Ex) Blood test..."></textarea>
           </div>
 
           <div class="testdate">
-              <span>Test Date: </span>
-              <input type="date" id="selectdate" name="selectdate" />
+            <span>Test Date: </span>
+            <input type="date" id="selectdate" name="selectdate" />
           </div>
 
           <div class="comments">
-              <span>Comments (optional): </span>
-              <textarea id="commentarea" name="commentarea" rows="8" cols="40"
-                  placeholder="Ex) Something you discussed with your doctor..."></textarea>
+            <span>Comments (optional): </span>
+            <textarea id="commentarea" name="commentarea" rows="8" cols="40"
+              placeholder="Ex) Something you discussed with your doctor..."></textarea>
           </div>
           <div class="buttons">
-              <input type="button" id="submitDetails" class="submitDetails" name="submitDetails" value="Submit" onclick="submit()" />
+            <input type="button" id="submitDetails" class="submitDetails" name="submitDetails" value="Submit"
+              onclick="submit()" />
           </div>
           <div id="saving">
-              <img id="arrows" src="./images/arrows.png" alt="arrows"/>
-              <span>Uploading in progress...</span>
+            <img id="arrows" src="./images/arrows.png" alt="arrows" />
+            <span>Uploading in progress...</span>
           </div>
           <div id="saved">
-              <img id="checked" src="./images/checked.png" alt="checked"/>
-              <span>Test result saved!</span>
+            <img id="checked" src="./images/checked.png" alt="checked" />
+            <span>Test result saved!</span>
           </div>
-      </div>
-      <!--Merge contents until here-->
+        </div>
+        <!--Merge contents until here-->
       </div>
     </div>
-    </div>
+  </div>
 
 
-    <script src="scripts/menus.js"></script>
-      <script src="scripts/upload.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-      </script>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-      </script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  <script src="scripts/menus.js"></script>
+  <script src="scripts/upload.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
 
-      </script>
-      
+  <script src="./scripts/dashboard.js"></script>
+  <script src="scripts/upload.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+
+  </script>
+
 
 
 </body>
 
-</html>      
+</html>
