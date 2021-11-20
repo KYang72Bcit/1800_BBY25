@@ -102,6 +102,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             "checked", true);
                         //append to their position 
                         document.getElementById(element + 1).appendChild(newcard);
+                        
                     })
 
                 })
