@@ -45,7 +45,7 @@ function getBasicInfor() {
         var user_ongoingCodition = userDoc.data().ongoingCondition;
         var picUrl = userDoc.data().profilepic;
         console.log("pic URL is: " + picUrl);
-        // console.log("122");
+       
 
         // check if documents have that variables, assign the value to span with certain id.
 

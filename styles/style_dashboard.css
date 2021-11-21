@@ -24,6 +24,11 @@ body {
     width: 100%;
 }
 
+.cal {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 @media screen and (max-width: 720px) {
     .contain {
         display: block;
