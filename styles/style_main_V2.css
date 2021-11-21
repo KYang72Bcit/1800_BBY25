@@ -1,110 +1,312 @@
-*{
-    box-sizing: border-box;
-}
-
-.bottom1 > i, .bottom1 > span {
-    color: #29c8aa;
-}
-
-
-
-.contents {
-    display: grid;
-    width: 30%;
-    height: 50%;
-    grid-template-rows: 20% 20% 60%;
+.main {
     font-family: 'Noto Sans', sans-serif;
-    border: 3px #10CAF0 solid;
-    border-radius: 5px;
-    margin: 20px;
 }
 
-.image {
-    grid-row: 1 / span 1;
-    width: 150px;
-    height: auto;
-    border-radius: 50%;
-    border: 2px solid white;
-    justify-self: center;
-    align-self: center;
-}
-
-.name {
-    grid-row: 2 / span 1;
-    justify-self: center;
-    align-self: center;
-    text-align: center;
-}
-
-.welcome {
-    font-size: 18px;
-}
-
-.username {
-    font-size: 24px;
-}
-
-.personalinfo {
-    grid-row: 3 / span 1;
-    width: 100%;
-    height: 100%;
-    align-self: start;
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 25% 25% 25% 10% 15%;
-    font-size: 15px;
-}
-
-.info {
-    background-color: #f0f1f1;
-    margin: 2px;
-    padding-left: 10px;
+#screenings {
+    height: 75vh;
     display: grid;
     grid-template-rows: 30% 70%;
 }
-.title {
-    color: #757c7d;
-    font-size: 13px;
-    background-color: transparent;
+
+.user > img{
+    margin: 10px ;
+    padding: 10px 10px;
+    object-fit: cover;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+}
+
+.user{
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+    align-items: center;
 }
 
 
-.age {
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+#name{
+    justify-self: start;
+    font-size: 30px;
+    font-weight: 700;
 }
 
-.gender {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 1;
+.profile {
+    display: grid;
+    grid-template-rows: 70% 30%;
+    justify-items: center;
+    align-items: center;
 }
 
-.height {
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
+#mypic-goes-here {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #A9A9A9;
 }
 
-.weight {
-    grid-column: 2 / span 1;
-    grid-row: 2 / span 1;
+#mypic-input {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#mypic-input + label {
+    width: 60%;
+    height: 30px;
+    font-size: 12px;
+    color: white;
+    background-color: #808080;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+.personalinfo {
+    align-self: start;
+    justify-self: center;
+    width: 90%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 30% 30% 40%;
+}
+
+.age, .gender, .height, .weight{
+    width: 95%;
+    height: 95%;
+    background-color: #DCDCDC;
+    align-self: center;
+    justify-self: center;
 }
 
 .condition {
     grid-column: 1 / span 2;
     grid-row: 3 / span 1;
+    width: 97%;
+    height: 95%;
+    background-color: #DCDCDC;
+    align-self: center;
+    justify-self: center;
 }
 
 .updatebutton {
     grid-column: 1 / span 2;
-    grid-row: 5 / span 1;
+    grid-row: 4 / span 1;
+    width: 97%;
+    height: 35%;
+    justify-self: center;
+    margin-top: 20px;
+    color: white;
+    background-color: #0C5DD7;
+}
+
+.info {
+    display: grid;
+    grid-template-rows: 20% 80%;
+    align-items: center;
+}
+
+.infotitle {
+    font-size: 11px;
+    margin: 10px;
+    color: 	#484848;
+}
+
+#age, #gender, #height, #weight, #user_ongoingCondition {
+    justify-self: center;
+    font-size: 18px;
 }
 
 
+body {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+#closebutton {
+        
+    font-weight: 500 !important;
+    border: none !important;
+    padding: 0px !important;
+    background-color: white !important;
+}
+
+.bottomicons {
+    display: none;
+}
+
+.dashboardtitle{
+    width: 100%;
+}
 
 @media screen and (max-width: 720px) {
-    .main {
-        height: 100%;
+    .contain {
+        display: block;
     }
 
+    .sidebar {
+        background-color: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .title {
+        position: fixed;
+        top: 0;
+        left: 5px;
+        overflow: hidden;
+        background-color: transparent;
+        width: 200px;
+        height: 70px;
+        grid-template-columns: 40% 60%;
+        border: none;
+        justify-items: center;
+        align-items: center;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+        border-bottom: 0px !important;
+    }
+
+    #logo {
+        width: 60px;
+        height: 64px;
+    }
+
+    .appname {
+        font-size: 24px;
+        color: rgb(44, 64, 88) !important;
+        line-height: 24px;
+    }
+
+    .menus {
+        position: fixed;
+        bottom: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(44, 64, 88);
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr);
+        padding: 0;
+        z-index: 1;
+    }
+
+    .menubuttons {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        background-color: transparent !important;
+        border-radius: 0 !important;
+        font-weight: 500 !important;
+        border: none !important;
+        padding: 0px !important;
+    }
+    
+    .menubuttons:hover {
+        background-color: #3D597A !important;
+    }
+    .menubuttons > span {
+        font-size: 12px !important;
+        color:#f8f9fa !important;
+            
+    }
+
+    #basicInforSubmit {
+        color: #fff !important;
+        background-color: #0d6efd !important;
+        border-color: #0d6efd !important;
+        border: 1px solid transparent !important;
+        padding: 0.375rem 0.75rem !important;
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        border-radius: 0.25rem !important;
+    }
+
+    .bottomicons {
+        display: block !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .main {
+        width: 100%;
+        position: fixed;
+        top: 70px;
+        overflow-y: scroll;
+        /* height: 150vh; */
+    }
+
+
+    .maincarditem {
+        height: 50vh !important;
+    }
+
+    /* .card-body {
+        overflow-y: scroll;
+    } */
+
+
+    /* .container {
+        height: 600px;
+    } */
+
+    .dashboardcards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        /* height: 100%; */
+    }
+
+    .maincontents {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .dashboardtitle{
+        display: grid;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    #screenings {
+        grid-template-rows: 20% 80%;
+    }
+
+    .user > img{
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+    }
+
+    #name{
+        font-size: 30px;
+    }
+
+    #mypic-goes-here {
+        display: none;
+    }
+
+    .updatebutton {
+        height: 40%;
+    }
+    
+    
 }
+
