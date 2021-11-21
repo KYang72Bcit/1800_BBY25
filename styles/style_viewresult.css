@@ -8,10 +8,12 @@
 
 .pagetitle {
     grid-row: 1 / span 1;
-    color: #878787;
+    color: #2c2c2c;;
     font-size: 24px;
+    font-weight: 600;
     padding: 0 40px;
-    align-self: end;
+    align-self: center;
+    justify-self: center;
 } 
 
 #resultlist {
@@ -29,8 +31,8 @@
 
 .card {
     text-decoration: none;
-    width: 300px;
-    height: 175px;
+    width: 200px;
+    height: 100px;
     background-color: white;
     border-radius: 10px;
     display: grid;
@@ -45,8 +47,8 @@
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
     justify-self: center;
-    width: 68px;
-    height: 68px;
+    width: 30px;
+    height: 30px;
     background-color: #3A52EE;
     border-radius: 50%;
     display: grid;
@@ -56,7 +58,7 @@
     color: white;
     justify-self: center;
     align-self: center;
-    font-size: 2rem; 
+    font-size: 14px; 
 }
 
 .storedFileName {
@@ -65,6 +67,7 @@
     grid-column: 2 / span 1;
     grid-row: 1 / span 1;
     justify-self: start;
+    font-size: 12px;
 }
 
 .storedDate {
@@ -73,7 +76,7 @@
     grid-column: 1 / span 2;
     grid-row: 2 / span 1;
     justify-self: start;
-    font-size: 0.8rem;
+    font-size: 12px;
     margin-left: 15px;
 }
 
@@ -83,19 +86,49 @@
     grid-column: 1 / span 2;
     grid-row: 3 / span 1;
     justify-self: start;
-    font-size: 0.8rem;
+    font-size: 12px;
     margin-left: 15px;
 }
 
 
-@media screen and (max-width: 703px) {
-    .resultspanel  {
+@media screen and (max-width: 720px) {
+    .resultspanel {
+        grid-template-rows: 5% 95%;
+    }
+
+    .card {
+        width: 100%;
+        height: 70px;
+        grid-template-columns: 25% 25% 50%;
+        grid-template-rows: 60% 40% 40%;
+    }
+
+    .circle {
+        justify-self: end;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+
+    .storedFileName {
+        grid-column: 2 / span 2;
+        grid-row: 1 / span 1;
+        display: grid;
         justify-items: center;
     }
-    
-    #resultlist {
-        justify-content: center;
+
+    .storedDate{
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 1;
+        display: grid;
+        justify-items: center;
     }
-} 
+
+    .storedName {
+        grid-column: 3 / span 1;
+        grid-row: 2 / span 1;
+        display: grid;
+        justify-items: start;
+    }
 
 
+}
