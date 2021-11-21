@@ -43,6 +43,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
     <!-- self write stylesheet -->
+    <link rel="stylesheet" href="styles/style_myscreenings.css">
     <!--Template Style-->
     <link rel="stylesheet" href="./styles/style_dashboard.css"> 
 
@@ -99,14 +100,14 @@
             <div class="col-7 col-md-8 col-lg-9 col-xxl-10 p-0 main">
                 <!-- Merge contents from here-->
                 <div class="user">
-                    <img src="profile.png" alt="" id="profile" width="150px">
+                    <img src="profile.png" alt="" id="profile" width="100px">
                     <span id="name"></span>
                 </div>
 
                 <div class="container">
                     <div class="row dashboardcards">
-                        <div class="col-9 col-md-5 col-lg-4 m-2">
-                            <div class="card border-3 border-info shadow maincarditem" style="height: 60vh">
+                        <div class="col-9 col-md-5 col-lg-4 m-2 ">
+                            <div class="card border-3 border-info shadow maincarditem h-100" >
                                 <form id="screenings">
                                     <h5 class="">Recommended Screenings</h5>
                     
@@ -171,7 +172,7 @@
                                     </div>
                     
                                     <!-- submit button -->
-                                    <button type="submit" class="btn btn-primary" id="basicInforSubmit">Add to My Screenings</button>
+                                    <button type="submit" class="btn btn-primary position-absolute bottom-0 end-0" id="basicInforSubmit">Next</button>
                                   
                                 </form>
                             </div>
