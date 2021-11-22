@@ -96,7 +96,7 @@ function submit() {
                         let testDate = document.createElement("span");
                         let testName = document.createElement("span");
     
-                        a.setAttribute("href", "./test_results.html");
+                        a.setAttribute("href", pdfURL);
                         a.setAttribute("class","card");
                         a.setAttribute("target","_blank");
     
