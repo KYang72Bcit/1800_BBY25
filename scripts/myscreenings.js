@@ -74,6 +74,26 @@ firebase.auth().onAuthStateChanged(function (user) {
                 })
             });
 
+            function showlist(screeningArray) {
+                console.log("showlist");
+                let ListTemplate = document.getElementById("ListTemplate");
+                //console.log(ListTemplate);
+                // const screeningArray = getScreeningArray();
+                // console.log(screeningArray);
+                screeningArray.forEach(test => {
+                    let id = test.split(" ").join("-");
+                    let text = test;
+                    let newcard = ListTemplate.content.cloneNode(true);
+                    newcard.querySelector('.datePicker').innerHTML = text;
+                    newcard.querySelector('input').setAttribute("id",id);
+                    document.getElementById('showlist').appendChild(newcard);
+
+
+                })
+
+            }
+            //showlist();
+
             //showing the template for screenings 
             function show(element) {
                 //console.log(element);
@@ -102,7 +122,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                             "checked", true);
                         //append to their position 
                         document.getElementById(element + 1).appendChild(newcard);
-                        
+
                     })
 
                 })
@@ -113,23 +133,55 @@ firebase.auth().onAuthStateChanged(function (user) {
                 e.preventDefault();
                 //find all the clicked screening, stored in a list
                 const screeningArray = getScreeningArray();
+                showlist(screeningArray);
+                const button = document.getElementById("setDate");
+                console.log(button);
+                button.style.display = "block"; 
 
                 //create new collection in user file called screening, creat each screening a individul file in that collection
-                screeningArray.forEach(screening => {
-                    currentUser.collection("screenings").doc(screening).set({
-                        //don't know the value yet;
-                        value: "notsure"
-                    }).then(function () {
-                        console.log("creating screening collection in user folder");
+                // screeningArray.forEach(screening => {
+                //     currentUser.collection("screenings").doc(screening).set({
+                //         //don't know the value yet;
+                //         value: "notsure"
+                //     }).then(function () {
+                //         //console.log("creating screening collection in user folder");
+                //     })
+                // })
+                // //also update a screening list in userfile 
+                // currentUser.update({
+                //     'screeninglist': screeningArray
+                // }).then(function () {
+                //     //console.log("add userScreening list to firebase")
+                // })
+
+
+            }
+            const button = document.getElementById("setDate");
+            button.addEventListener('click', submitData);
+
+            function submitData(e){
+                e.preventDefault();
+                console.log("in submit data");
+                const screeningArray = getScreeningArray();
+                screeningArray.forEach(test => {
+                    let id = test.split(" ").join("-");
+                    //let text = test;
+                    let time = document.getElementById(`${id}`).value;
+                    //console.log(time);
+                    currentUser.collection("screenings").doc(test).set({
+                        date: time
+                    }).then(function(){
+                        console.log("creating screening collection in user folder with dates");
                     })
+                    
+
                 })
-                //also update a screening list in userfile 
                 currentUser.update({
                     'screeninglist': screeningArray
                 }).then(function () {
-                    console.log("add userScreening list to firebase")
+                    window.location.href = "home.html";
+                    //console.log("add userScreening list to firebase")
                 })
-
 
             }
 
