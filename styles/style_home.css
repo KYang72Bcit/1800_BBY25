@@ -1,0 +1,12 @@
+#checking_go_here{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    align-items: center;
+}
+
+#checking_go_here > p, #checking_go_here > span{
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+}
