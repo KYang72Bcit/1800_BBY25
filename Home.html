@@ -34,6 +34,7 @@
    
     <!-- self write stylesheet -->
     <link rel="stylesheet" href="./styles/style_dashboard.css">
+    <link rel="stylesheet" href="./styles/style_home.css">
 
     <title>Health Guard</title>
   </head>
@@ -191,6 +192,7 @@
                             <div class="card border-3 border-info shadow maincarditem" style="height: 60vh">
                               <span id="getRecommendations"></span>
                               <span id="upcomingScreenings"></span>
+                              <div id="checking_go_here"></div>
                                 <!-- <h2>Upcoming Screenings: </h2>
                                 <h2>Upcoming: </h2> -->
 
@@ -222,6 +224,11 @@
         </div>
       </div>
     </div>
+    <!-- template to show screenings -->
+    <template id="ListTemplate">
+      <li class="list-group-item screening">  </li>
+      <span class="date"></span>
+  </template>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -245,9 +252,10 @@
     <script src="./scripts/calendarembed.js"></script>
 
     <script>
-      document.getElementById("getRecommendations").innerHTML = "<h2>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>"
+      
+      // document.getElementById("getRecommendations").innerHTML = "<h2>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>"
 
-      document.getElementById("upcomingScreenings").innerHTML = "<h2>Upcoming Screenings: </h2>"
+      // document.getElementById("upcomingScreenings").innerHTML = "<h2>Upcoming Screenings: </h2>"
 
       document.getElementById("gotoRecommended").onclick = function () {
         location.href = "MyScreenings.html";

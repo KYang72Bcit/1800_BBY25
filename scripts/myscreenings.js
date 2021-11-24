@@ -163,11 +163,13 @@ firebase.auth().onAuthStateChanged(function (user) {
                 e.preventDefault();
                 console.log("in submit data");
                 const screeningArray = getScreeningArray();
+                // const screeningMap = new Map();
                 screeningArray.forEach(test => {
                     let id = test.split(" ").join("-");
                     //let text = test;
                     let time = document.getElementById(`${id}`).value;
                     //console.log(time);
+                    // screeningMap.set(test,time);
                     currentUser.collection("screenings").doc(test).set({
                         date: time
                     }).then(function(){
@@ -177,7 +179,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 })
                 currentUser.update({
-                    'screeninglist': screeningArray
+                    //'screeningmap': screeningMap,
+                     'screeninglist': screeningArray
                 }).then(function () {
                     window.location.href = "home.html";
                     //console.log("add userScreening list to firebase")
