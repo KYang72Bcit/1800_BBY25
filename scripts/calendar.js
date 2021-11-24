@@ -7,10 +7,9 @@ const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate() + 1;
 
 const firstDayIndex = date.getDay();
+// console.log(firstDayIndex);
 
 const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
-
-
 
 const monthDays = document.querySelector(".days");
 
@@ -56,16 +55,20 @@ for (let j = 1; j <= nextDays; j++) {
 }
 }
 
+if (document.querySelector('.prev') !== null ) {
 
-document.querySelector('.prev').addEventListener('click', () => {
-    date.setMonth(date.getMonth() - 1)
-    renderCalendar();
-})
+    document.querySelector('.prev').addEventListener('click', () => {
+        date.setMonth(date.getMonth() - 1)
+        renderCalendar();
+    })
+}
 
-document.querySelector('.next').addEventListener('click', () => {
-    date.setMonth(date.getMonth() + 1)
-    renderCalendar();
-})
+if (document.querySelector('.next') !== null ) {
 
+    document.querySelector('.next').addEventListener('click', () => {
+        date.setMonth(date.getMonth() + 1)
+        renderCalendar();
+    })
+}
 // const month = date.getMonth();
 renderCalendar();
