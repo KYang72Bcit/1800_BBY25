@@ -16,7 +16,8 @@ $(document).ready(function () {
           var picUrl = userDoc.data().profilepic;
         //console.log("pic URL is: " + picUrl);
         //document.querySelector("#name").innerHTML = user_Name;
-        $("#profile").attr("src", picUrl);
+       
+        $("#userImg").attr("src", picUrl);
           if(screeninglist != null){
             currentScreen = currentUser.collection("screenings");
            
@@ -50,8 +51,8 @@ $(document).ready(function () {
               }
               
               const time = await getTime();
-              
-              newcard.querySelector('.date').innerHTML = time;
+              console.log(time);
+              newcard.querySelector('#date').innerHTML = time;
               checking.appendChild(newcard);
 
             })
