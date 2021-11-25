@@ -72,6 +72,7 @@ const renderCalendar = () => {
         checkupDates.get().then((userDoc) => {
           //get user information from document and stored in variables .
           var upcomingAppointment = userDoc.data().date;
+          console.log("TYPE OF upApp" + typeof upcomingAppointment);
           const myDate = upcomingAppointment.split("-");
           console.log(upcomingAppointment);
           for (let i = 0; i < myDate.length; i++) {
