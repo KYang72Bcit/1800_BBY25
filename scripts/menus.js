@@ -3,7 +3,7 @@
         location.href = "Home.html";
       }
       document.getElementById("calendarBtn").onclick = function () {
-        location.href = "calendar.html";
+        // location.href = "calendar.html";
       }
       document.getElementById("resultsBtn").onclick = function () {
         location.href = "upload.html";

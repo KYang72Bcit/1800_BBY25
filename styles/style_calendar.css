@@ -89,8 +89,8 @@
     font-size: 1.4rem;
     /* margin: .3rem; */
     width: calc(100% / 7);
-    height: calc (100% / 5);
-    /* height: 2.8rem; */
+    /* height: calc (100% / 5); */
+    height: 2.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,9 +98,9 @@
     transition: background-color 0.2s;
 }
 
-.days div:hover:not(.today) {
+.days div:hover:not(.today, .futureScreening) {
     background-color: #262626;
-    /* border: 0.2rem solid rgb(44, 64, 88); */
+    border: 0.2rem solid rgb(44, 64, 88);
     border-inline: 0.2rem solid rgb(13, 202, 240); 
     cursor: pointer;
 }
@@ -113,4 +113,9 @@
 .today {
     background-color: rgb(13, 202, 240);
     color:#000;
+}
+
+.futureScreening {
+    border: 0.2rem solid rgb(13, 202, 240);
+
 }

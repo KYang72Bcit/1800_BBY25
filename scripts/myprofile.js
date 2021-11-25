@@ -47,6 +47,7 @@ function getBasicInfor() {
         console.log("pic URL is: " + picUrl);
         document.querySelector("#name").innerHTML = user_Name;
         $("#profile").attr("src", picUrl);
+
        
 
         // check if documents have that variables, assign the value to span with certain id.

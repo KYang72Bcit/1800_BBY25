@@ -1,11 +1,4 @@
 $(document).ready(function () {
-  firebase.auth().onAuthStateChanged((user) => {
-    // Check if user is signed in:
-    if (user) {
-      // Do something for the current logged-in user here:
-      console.log("Checking if user is new:");
-      //go to the correct user document by referencing to the user uid
-      currentUser = db.collection("users").doc(user.uid);
 
     firebase.auth().onAuthStateChanged((user) => {
       // Check if user is signed in:
@@ -66,12 +59,15 @@ $(document).ready(function () {
           }
 
           if(screeninglist == null){
-            document.getElementById("getRecommendations").innerHTML = "<h2>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>";
+            document.getElementById("getRecommendations").innerHTML = "<h2 class='display-5'>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>";
           } 
 
-          document.getElementById("gotoRecommended").onclick = function () {
+          if(screeninglist == null) {
+            document.getElementById("gotoRecommended").onclick = function () {
             location.href = "MyScreenings.html";
+            }
           }
+          
         });
 
       } else {
@@ -91,10 +87,7 @@ $(document).ready(function () {
         //     document.querySelector("#calendar-goes-here").innerHTML = data;
         //   });
 
-    } else {
-      // No user is signed in.
-    }
-  });
+
 });
 
 //$("#calendar-goes-here").load( "./templates/calendar.html" );

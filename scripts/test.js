@@ -1,4 +1,4 @@
-else if(screeninglist != null){
+// else if(screeninglist != null){
     //   const upcomingScreenings = document.getElementById("upcomingScreenings");
     //   let ListTemplate = document.getElementById("ListTemplate");
     //   upcomingScreenings.innerHTML = "<h2>Upcoming Screenings: </h2>";
