@@ -67,73 +67,34 @@ const renderCalendar = () => {
         var currentUser = db.collection("users").doc(user.uid);
         // var checkupDate = db.collection("users").doc(user.uid).collection("screenings").doc(dentalchecking);
         // var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
+       
         
-        function time(userDoc){
-          var screeninglist = userDoc.data().screeninglist;
-          if(screeninglist != null){
-            currentScreen = currentUser.collection("screenings");
-            screeninglist.forEach(async screen=>{
-              
-              const screeningPackage = currentScreen.doc(screen);
-               
-              async function getTime(){
-                
-                return screeningPackage.get().then((screeningTime)=> {
-                  
-                  var time = screeningTime.data().date;
   
-                  return time;   
-                })
-              }
-              
-              var time = await getTime();
-              
-        }
-  
-        currentUser.get().then((userDoc) => {
-          var screeninglist = userDoc.data().screeninglist;
-          if(screeninglist != null){
-            currentScreen = currentUser.collection("screenings");
-            screeninglist.forEach(async screen=>{
-              
-              const screeningPackage = currentScreen.doc(screen);
-               
-              async function getTime(){
-                
-                return screeningPackage.get().then((screeningTime)=> {
-                  
-                  var time = screeningTime.data().date;
-  
-                  return time;   
-                })
-              }
-              
-              var time = await getTime();
-              
-              console.log("hiii: " + time);
-
-            })
-            
+        currentUser.get().then((userDoc) => { 
+          var screeningDates = userDoc.data().screeninglist;
+          console.log("HELLOOO: " + screeningDates);
+          console.log("length" + screeningDates.length);
+          console.log(typeof screeningDates);
+          for (let i = 0; i < screeningDates.length; i++) {
+            const appDay = screeningDates[i];
+            console.log("appointment: " + appDay);
           }
-
-          
           //get user information from document and stored in variables .
           // var upcomingAppointment = userDoc.data().date;
           // const myDate = upcomingAppointment.split("-");
           // console.log(upcomingAppointment);
-          // for (let i = 0; i < myDate.length; i++) {
-          //   if (i === 0) {
-          //     var appYear = myDate[i];
-          //   }
-          //   if (i === 1) {
-          //     var appMonth = parseInt(myDate[i]);
-          //   }
-          //   if (i === 2) {
-          //     var appDay = parseInt(myDate[i]);
-          //   }
-          // }
+        //   for (let i = 0; i < myDate.length; i++) {
+        //     if (i === 0) {
+        //       var appYear = myDate[i];
+        //     }
+        //     if (i === 1) {
+        //       var appMonth = parseInt(myDate[i]);
+        //     }
+        //     if (i === 2) {
+        //       var appDay = parseInt(myDate[i]);
+        //     }
+        //   }
         // console.log("date is: " + appDay);
-        
   for (let i = 1; i <= lastDay; i++) {
     if (
       i === new Date().getDate() &&
