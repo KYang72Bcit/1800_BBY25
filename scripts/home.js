@@ -19,20 +19,29 @@ $(document).ready(function () {
             const upcomingScreenings = document.getElementById("upcomingScreenings");
             const checking = document.querySelector('#checking_go_here');
             let ListTemplate = document.getElementById("ListTemplate");
-            upcomingScreenings.innerHTML = "<h2>Upcoming Screenings: </h2>";
+            upcomingScreenings.innerHTML = "<h2 class='display-6'>Upcoming Screenings: </h2>";
             screeninglist.forEach(async screen=>{
               var newcard = ListTemplate.content.cloneNode(true);
-              newcard.querySelector('.screening').innerHTML = screen;
+              console.log(screen);
               const screeningPackage = currentScreen.doc(screen);
+              switch (screen) {
+                case "dental-checking":
+                  screen = "Dental Checkup:"
+                  break;
+                case "Blood-Grouping-and-Rh-Factor":
+                  screen = "Blood Test:"
+                  break;
+              }
+              // Need to add div card with screen as text...
+              newcard.querySelector('.screening').innerHTML = screen;
+              
               async function getTime(){
                 
                 return screeningPackage.get().then((screeningTime)=> {
                   
                   const time = screeningTime.data().date;
   
-                  return time;
-                  
-                  
+                  return time;   
                 })
               }
               
@@ -42,13 +51,9 @@ $(document).ready(function () {
               checking.appendChild(newcard);
 
             })
-
-
           }
           
           var user_gender = userDoc.data().gender;
-          
-          
           
           // check if documents have that variables, assign the value to span with certain id. 
           console.log(user_gender);
@@ -59,7 +64,7 @@ $(document).ready(function () {
           }
 
           if(screeninglist == null){
-            document.getElementById("getRecommendations").innerHTML = "<h2 class='display-5'>Get Recommended Screenings: </h2> <br><button class='btn btn-primary' id='gotoRecommended'>Let's go!</button>";
+            document.getElementById("getRecommendations").innerHTML = "<h1 class='display-6'>Check Your Recommended Screenings: </h2> <br><button class='btn btn-info' id='gotoRecommended' style='padding: 20px'>Let's go!</button>";
           } 
 
           if(screeninglist == null) {
@@ -75,24 +80,5 @@ $(document).ready(function () {
       }
     });
 
-      //$("#calendar-goes-here").load( "./templates/calendar.html" );
-      
-        //  $("#calendar-goes-here").load("./templates/calendar.html");
-        //   console.log("Here")
-        // fetch("./templates/calendar.html")
-        //   .then(response => {
-        //     return response.text()
-        //   })
-        //   .then(data => {
-        //     document.querySelector("#calendar-goes-here").innerHTML = data;
-        //   });
-
-
 });
 
-//$("#calendar-goes-here").load( "./templates/calendar.html" );
-// $(function () {
-//   $("#calendar-goes-here").load("./templates/calendar.html");
-// });
-// document.getElementById("calendar-goes-here").innerHTML = "./templates/calendar.html";
-// document.getElementById('calendar-goes-here').src = './templates/calendar.html';
