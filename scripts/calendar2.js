@@ -1,4 +1,3 @@
-
 const date = new Date();
 
 const renderCalendar = () => {
@@ -67,56 +66,40 @@ const renderCalendar = () => {
         var currentUser = db.collection("users").doc(user.uid);
         // var checkupDate = db.collection("users").doc(user.uid).collection("screenings").doc(dentalchecking);
         // var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
-        
-        function time(userDoc){
-          var screeninglist = userDoc.data().screeninglist;
-          if(screeninglist != null){
-            currentScreen = currentUser.collection("screenings");
-            screeninglist.forEach(async screen=>{
-              
-              const screeningPackage = currentScreen.doc(screen);
-               
-              async function getTime(){
-                
-                return screeningPackage.get().then((screeningTime)=> {
-                  
-                  var time = screeningTime.data().date;
-  
-                  return time;   
-                })
-              }
-              
-              var time = await getTime();
-              
+
+        function time(userDoc) {
+
+          
+
         }
-  
+
         currentUser.get().then((userDoc) => {
           var screeninglist = userDoc.data().screeninglist;
-          if(screeninglist != null){
+          if (screeninglist != null) {
             currentScreen = currentUser.collection("screenings");
-            screeninglist.forEach(async screen=>{
-              
+            screeninglist.forEach(async screen => {
+
               const screeningPackage = currentScreen.doc(screen);
-               
-              async function getTime(){
-                
-                return screeningPackage.get().then((screeningTime)=> {
-                  
+
+              async function getTime() {
+
+                return screeningPackage.get().then((screeningTime) => {
+
                   var time = screeningTime.data().date;
-  
-                  return time;   
+
+                  return time;
                 })
               }
-              
+
               var time = await getTime();
-              
+
               console.log("hiii: " + time);
 
             })
-            
+
           }
 
-          
+
           //get user information from document and stored in variables .
           // var upcomingAppointment = userDoc.data().date;
           // const myDate = upcomingAppointment.split("-");
@@ -132,37 +115,37 @@ const renderCalendar = () => {
           //     var appDay = parseInt(myDate[i]);
           //   }
           // }
-        // console.log("date is: " + appDay);
-        
-  for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-      days += `<div class="today">${i}</div>`;
-    } 
-    // else if (
-    //   i === appDay && appMonth === date.getMonth() + 1
-    // ) {
-    //   days += `<div class="futureScreening">${i}</div>`;
-    // } 
-    else {
-      days += `<div>${i}</div>`;
-    }
-  }
+          // console.log("date is: " + appDay);
 
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
-  }
-});
-        
-// console.log(checkupDate);
-} else {
-console.log("No user is signed in.");
-}
-});
-});
+          for (let i = 1; i <= lastDay; i++) {
+            if (
+              i === new Date().getDate() &&
+              date.getMonth() === new Date().getMonth()
+            ) {
+              days += `<div class="today">${i}</div>`;
+            }
+            // else if (
+            //   i === appDay && appMonth === date.getMonth() + 1
+            // ) {
+            //   days += `<div class="futureScreening">${i}</div>`;
+            // } 
+            else {
+              days += `<div>${i}</div>`;
+            }
+          }
+
+          for (let j = 1; j <= nextDays; j++) {
+            days += `<div class="next-date">${j}</div>`;
+            monthDays.innerHTML = days;
+          }
+        });
+
+        // console.log(checkupDate);
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+  });
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
