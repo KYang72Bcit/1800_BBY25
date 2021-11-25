@@ -11,7 +11,7 @@
     padding: 0.5rem;
 }
 
-img{
+#userImg{
     object-fit: contain;
     width: 100px;
     height: 100px;
@@ -20,6 +20,9 @@ img{
     align-self: center;
     border: 1px solid white;
 
+}
+li{
+    border: none;
 }
 
 .dashboardtitle {
