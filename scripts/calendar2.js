@@ -68,6 +68,27 @@ const renderCalendar = () => {
         // var checkupDate = db.collection("users").doc(user.uid).collection("screenings").doc(dentalchecking);
         // var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
         
+        function time(userDoc){
+          var screeninglist = userDoc.data().screeninglist;
+          if(screeninglist != null){
+            currentScreen = currentUser.collection("screenings");
+            screeninglist.forEach(async screen=>{
+              
+              const screeningPackage = currentScreen.doc(screen);
+               
+              async function getTime(){
+                
+                return screeningPackage.get().then((screeningTime)=> {
+                  
+                  var time = screeningTime.data().date;
+  
+                  return time;   
+                })
+              }
+              
+              var time = await getTime();
+              
+        }
   
         currentUser.get().then((userDoc) => {
           var screeninglist = userDoc.data().screeninglist;
