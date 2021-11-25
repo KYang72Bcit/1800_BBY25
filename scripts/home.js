@@ -13,6 +13,10 @@ $(document).ready(function () {
         currentUser.get().then((userDoc) => {
           //get user information from document and stored in variables .
           var screeninglist = userDoc.data().screeninglist;
+          var picUrl = userDoc.data().profilepic;
+        //console.log("pic URL is: " + picUrl);
+        //document.querySelector("#name").innerHTML = user_Name;
+        $("#profile").attr("src", picUrl);
           if(screeninglist != null){
             currentScreen = currentUser.collection("screenings");
            

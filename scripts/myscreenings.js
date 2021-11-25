@@ -15,6 +15,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             var gender = userDoc.data().gender;
             var bodyHeight = userDoc.data().bodyHeight;
             var bodyWeight = userDoc.data().bodyWeight;
+            var sreeningInDatabase = userDoc.data().screeninglist;
             //show username and profile picture in this page
             document.querySelector("#name").innerHTML = name;
             $("#profile").attr("src", picUrl);

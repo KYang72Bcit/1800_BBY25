@@ -67,11 +67,7 @@ const renderCalendar = () => {
         // var checkupDate = db.collection("users").doc(user.uid).collection("screenings").doc(dentalchecking);
         // var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
 
-        function time(userDoc) {
-
-          
-
-        }
+     
 
         currentUser.get().then((userDoc) => {
           var screeninglist = userDoc.data().screeninglist;
