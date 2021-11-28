@@ -265,7 +265,7 @@ textarea:focus,
         font-size: 14px;
         width: 100%;
         height: 30px;
-        background-color: #10caf0;
+        background-color: #b1eefa;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
         display: grid;
@@ -281,7 +281,7 @@ textarea:focus,
     }
 
     .uploadbutton:focus, .testresultbutton:focus {
-        background-color: #b1eefa;
+        background-color: #10caf0;
         font-size: 15px;
     }
 

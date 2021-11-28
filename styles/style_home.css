@@ -29,4 +29,9 @@ li{
     display: grid;
     grid-template-columns: 10% 90%;
     align-items: center;
-} */
+    justify-items: start;
+}
+.list-group-item{
+    border: none;
+    
+}
