@@ -9,12 +9,68 @@ body {
     display: flex;
 }
 
+#checking_go_here{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-items: start;
+    border-top: 3px solid rgb(13, 202, 240);
+    font-weight: 600;
+    text-align: left !important;
+}
+ 
+/* FIX THIS by removing span out of here and focusing on card-specific items */
+#checking_go_here > p, #checking_go_here {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem;
+    /* border: 2px solid rgb(99, 173, 84); */   
+}
+
+#date {
+    padding: 0.5rem;
+    width: 100%;
+    border-bottom: 2px solid rgb(13, 202, 240) !important;
+}
+
+
+#userImg{
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    justify-self: start;
+    align-self: center;
+    border: 1px solid white;
+
+}
+li{
+    border: none;
+}
+
+.dashboardtitle {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+}
+
 #closebutton {
         
     font-weight: 500 !important;
     border: none !important;
     padding: 0px !important;
     background-color: white !important;
+}
+
+.maincarditem, .screening {
+    background-color: rgb(44, 64, 88);
+    color: #eee;
+}
+
+.screening {
+    border: none !important;
+    width: 100%;
+    border-bottom: 2px solid rgb(13, 202, 240) !important;
 }
 
 .bottomicons {

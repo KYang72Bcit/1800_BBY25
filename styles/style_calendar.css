@@ -42,8 +42,8 @@
 .calendaricon {
     display: inline-block;
     font-size: 1rem;
-    width: 20px !important;
-    height: 20px !important;
+    width: 1.5rem;
+    height: 7rem;
     color: white !important;
     cursor: pointer;
 }

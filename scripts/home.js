@@ -30,12 +30,27 @@ $(document).ready(function () {
               console.log(screen);
               const screeningPackage = currentScreen.doc(screen);
               switch (screen) {
-                case "dental-checking":
-                  screen = "Dental Checkup:"
+                case "Dental-Examination":
+                  screen = "Dental Examination:"
                   break;
-                case "Blood-Grouping-and-Rh-Factor":
-                  screen = "Blood Test:"
-                  break;
+                case "Complete-Blood-Count":
+                    screen = "Complete Blood Count:"
+                    break;
+                case "Comprehensive-Metabolic-Panel":
+                    screen = "Comprehensive Metabolic Panel:"
+                    break;
+                case "Random-Blood-Sugar":
+                    screen = "Random Blood Sugar:"
+                    break;
+                case "Thyroid-Panel":
+                    screen = "Thyroid Panel:"
+                    break;
+                case "Pap-Smear":
+                    screen = "Pap Smear:"
+                    break;
+                case "Ultrasound-Abdomen-and-Pelvis":
+                    screen = "Abdomen and Pelvis Ultrasound:"
+                    break;
               }
               // Need to add div card with screen as text...
               newcard.querySelector('.screening').innerHTML = screen;
