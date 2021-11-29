@@ -18,16 +18,16 @@
 }
 
 .user{
-    justify-self: center;
+    height: 100px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-    align-items: center;
+    grid-template-columns: 50% 50%;
 }
 
 
 #name{
-    justify-self: start;
+
+    justify-self: center;
+    align-self: center;
     font-size: 30px;
     font-weight: 700;
 }

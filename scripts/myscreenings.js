@@ -36,7 +36,17 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
             //hide women screening user is male 
             if (gender === "Male") {
-                genderScreen.style.display = "none";
+
+                labels[2].innerText = "Essential Screening for Man";
+                inputs[0].value = "manscreening";
+                let genderscreening = document.querySelector("#womenScreen")
+                document.querySelector("#womenScreen1").setAttribute('id',"manscreening1")
+                genderscreening.setAttribute('id', "manscreening");
+                genderscreening.setAttribute('value', "manscreening");
+
+                
+
+                //genderScreen.style.display = "none";
 
             }
             //hide heart screening and diabetis screening when not necessary
@@ -139,21 +149,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 console.log(button);
                 button.style.display = "block"; 
 
-                //create new collection in user file called screening, creat each screening a individul file in that collection
-                // screeningArray.forEach(screening => {
-                //     currentUser.collection("screenings").doc(screening).set({
-                //         //don't know the value yet;
-                //         value: "notsure"
-                //     }).then(function () {
-                //         //console.log("creating screening collection in user folder");
-                //     })
-                // })
-                // //also update a screening list in userfile 
-                // currentUser.update({
-                //     'screeninglist': screeningArray
-                // }).then(function () {
-                //     //console.log("add userScreening list to firebase")
-                // })
+                
 
 
             }
