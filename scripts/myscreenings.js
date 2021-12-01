@@ -37,7 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             //hide women screening user is male 
             if (gender === "Male") {
 
-                labels[2].innerText = "Essential Screening for Man";
+                labels[2].innerText = "Essential Screening for Men";
                 inputs[0].value = "manscreening";
                 let genderscreening = document.querySelector("#womenScreen")
                 document.querySelector("#womenScreen1").setAttribute('id',"manscreening1")
