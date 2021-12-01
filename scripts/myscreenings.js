@@ -8,9 +8,8 @@ firebase.auth().onAuthStateChanged(function (user) {
             //get basic user information from user file
             let name = userDoc.data().name;
             var picUrl = userDoc.data().profilepic;
-            //console.log(picUrl);
-            let ongoingCondition = userDoc.data().ongoingCondition;
-            let familyHistory = userDoc.data().familyHistory;
+            // let ongoingCondition = userDoc.data().ongoingCondition;
+            // let familyHistory = userDoc.data().familyHistory;
             let age = 2021 - userDoc.data().yearOfBirth;
             var gender = userDoc.data().gender;
             var bodyHeight = userDoc.data().bodyHeight;
@@ -46,11 +45,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
                 
 
-                //genderScreen.style.display = "none";
 
             }
             //hide heart screening and diabetis screening when not necessary
-            let bmi = bodyWeight / Math.pow(bodyWeight / 100, 2);
+            let bmi = bodyWeight / Math.pow(bodyHeight / 100, 2);
 
             //if age is less than 40 or bmi is less than 30, hide heart or dia screenings 
             if (bmi < 30 || age < 40) {
@@ -88,9 +86,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             function showlist(screeningArray) {
                 console.log("showlist");
                 let ListTemplate = document.getElementById("ListTemplate");
-                //console.log(ListTemplate);
-                // const screeningArray = getScreeningArray();
-                // console.log(screeningArray);
+                
                 screeningArray.forEach(test => {
                     let id = test.split(" ").join("-");
                     let text = test;
@@ -103,7 +99,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 })
 
             }
-            //showlist();
+           
 
             //showing the template for screenings 
             function show(element) {
@@ -139,7 +135,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 })
 
             }
-
+            //submit users selected screenings
             function submitForm(e) {
                 e.preventDefault();
                 //find all the clicked screening, stored in a list
@@ -156,17 +152,17 @@ firebase.auth().onAuthStateChanged(function (user) {
             const button = document.getElementById("setDate");
             button.addEventListener('click', submitData);
 
+            //submit user selected screeening dates
             function submitData(e){
                 e.preventDefault();
-                console.log("in submit data");
+                
                 const screeningArray = getScreeningArray();
                 const screeningTime = [];
                 screeningArray.forEach(test => {
                     let id = test.split(" ").join("-");
-                    //let text = test;
+                    
                     let time = document.getElementById(`${id}`).value;
-                    //console.log(time);
-                    // screeningMap.set(test,time);
+                    
                     screeningTime.push(time);
                     currentUser.collection("screenings").doc(test).set({
                         date: time
@@ -181,7 +177,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                      'screeninglist': screeningArray
                 }).then(function () {
                     window.location.href = "home.html";
-                    //console.log("add userScreening list to firebase")
+                    
                 })
 
             }

@@ -1,6 +1,6 @@
 *{
     font-size: 16px;
-    padding: 2px;
+    /* padding: 2px; */
 
 }
 .main {
@@ -36,9 +36,9 @@
 .screening{
     border-bottom: solid 2px rgb(221, 216, 216);
 }
-button{
+/* button{
     margin: 10px;
-}
+} */
 
 .user span{
     font-size: 30px;

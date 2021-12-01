@@ -96,7 +96,7 @@ $(document).ready(function () {
       // Check if user is signed in:
       if (user) {
         // Do something for the current logged-in user here:
-        //console.log(user.uid);
+        
         //go to the correct user document by referencing to the user uid
         var currentUser = db.collection("users").doc(user.uid);
         var storageRef = storage.ref("images/" + user.uid + ".jpg");
@@ -147,7 +147,7 @@ $(document).ready(function () {
       // Check if user is signed in:
       if (user) {
         // Do something for the current logged-in user here:
-        //console.log(user.uid);
+       
         //go to the correct user document by referencing to the user uid
         currentUser = db.collection("users").doc(user.uid);
         //get the document for current user.
@@ -160,12 +160,7 @@ $(document).ready(function () {
           var user_bodyWeight = userDoc.data().bodyWeight;
           var user_ongoingCodition = userDoc.data().ongoingCondition;
           var user_familyHistory = userDoc.data().familyHistory;
-          //console.log(user_ongoingCodition);
-          // check if documents have that variables, assign the value to span with certain id. 
-          //console.log(user_age);
-          // if (user_Name != null) {
-          //   document.getElementById("name").innerText = user_Name;
-          // }
+          
           if (user_gender != null) {
             checkRadioButton(user_gender);
           }
@@ -193,7 +188,7 @@ $(document).ready(function () {
     });
   }
   getBasicInforModal();
-
+//get the value selected by user in a radio button
   function checkRadioButton(user_gender) {
     let buttons = document.querySelectorAll('input[name = "gender"]')
     console.log(buttons);
@@ -207,40 +202,7 @@ $(document).ready(function () {
     })
   }
 
-  //  showing profile photo that user upload
-
-  // function showImg() {
-  //   const input = document.querySelector("#mypic-input");
-  //   const profile = document.querySelector("#mypic-goes-here");
-
-  //   input.addEventListener('change', function (e) {
-  //     var blob = URL.createObjectURL(e.target.files[0]);
-  //     profile.src = blob;
-  //   })
-  // }
-  // //showImg();
-
-  // function uploadImg() {
-
-  //  //storageRef = storage.ref("images/" + user.uid + ".jpg");
-  //   storageRef.put(input).then(function () {
-  //     console.log("upload user profile");
-  //   })
-  //   //get URL of stored file
-  //   storageRef.getDownloadURL().then(function (url) {
-  //     console.log(url);
-  //     currentUser.update({
-  //       "profilepic": url
-  //     })
-  //     currentUser.update({
-  //         "profilepic": url
-  //       })
-  //       .then(function () {
-  //         console.log("update userprofile pic to firestore");
-  //       })
-  //   })
-  // }
-  //uploadImg();
+ 
 
   firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
