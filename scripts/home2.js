@@ -208,17 +208,7 @@ $(document).ready(function () {
       }
     });
 
-      //$("#calendar-goes-here").load( "./templates/calendar.html" );
-      
-        //  $("#calendar-goes-here").load("./templates/calendar.html");
-        //   console.log("Here")
-        // fetch("./templates/calendar.html")
-        //   .then(response => {
-        //     return response.text()
-        //   })
-        //   .then(data => {
-        //     document.querySelector("#calendar-goes-here").innerHTML = data;
-        //   });
+     
 
 
 });

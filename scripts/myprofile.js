@@ -30,7 +30,7 @@ function getBasicInfor() {
     // Check if user is signed in:
     if (user) {
       // Do something for the current logged-in user here:
-      //console.log(user.uid);
+      
       //go to the correct user document by referencing to the user uid
       var currentUser = db.collection("users").doc(user.uid);
       var storageRef = storage.ref("images/" + user.uid + ".jpg");
