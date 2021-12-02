@@ -10,7 +10,6 @@ var testResults = db.collection("Test Results");
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         userID = user.uid;
-        // console.log(userID);
         userEmail = user.email;
     } else {}
 });
@@ -18,11 +17,8 @@ firebase.auth().onAuthStateChanged((user) => {
 function submit() {
     document.getElementById("saving").style.display = "grid";
 
-    //console.log(userID);
     testName = document.getElementById("testnamearea").value;
-    //console.log(testName);
     testDate = document.getElementById("selectdate").value;
-    //console.log(testDate);
     comments = document.getElementById("commentarea").value;
 
     const ref = firebase.storage().ref();
@@ -37,8 +33,6 @@ function submit() {
         .then(snapshot => snapshot.ref.getDownloadURL())
         .then(url => {
             fileURL = url;
-            //console.log(fileURL);
-            //console.log(typeof (fileURL));
             return testResults.doc(userID + testName + testDate).set({
                 UserID: userID,
                 FileName:file.name,
@@ -60,14 +54,6 @@ function submit() {
         .catch(console.error);
 
 }
-
-    // // Links to other pages from the menu:
-    // document.getElementById("resultsBtn").onclick = function () {
-    //     location.href = "upload.html";
-    //   }
-    //   document.getElementById("profileBtn").onclick = function () {
-    //     location.href = "myProfile.html";
-    //   }
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -126,8 +112,6 @@ function submit() {
         } else {}
     });
 
-
-
     document.querySelector(".uploadbutton").addEventListener("click", function(){
             document.querySelector(".resultspanel").style.cssText = "display:none!important";
             document.querySelector(".contents").style.cssText = "display:grid!important"; 
@@ -139,7 +123,6 @@ function submit() {
             document.querySelector(".contents").style.cssText = "display:none!important"; 
     } )
 
-
     var x = window.matchMedia("(min-width: 720px)");
 
     function myFunction(x) {
@@ -149,7 +132,5 @@ function submit() {
         } 
       }
 
-
-      
       myFunction(x); // Call listener function at run time
       x.addListener(myFunction) // Attach listener function on state changes
