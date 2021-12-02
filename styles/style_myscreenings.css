@@ -55,3 +55,16 @@ input[type = "date"]{
     border: none;
 }
 
+h2 {
+    text-align: center;
+}
+
+#basicInforSubmit, #setDate {
+    width: 5rem;
+    height: 8%;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 10px !important;
+    margin-right: 10px !important;
+}
+

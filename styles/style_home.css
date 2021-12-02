@@ -14,9 +14,13 @@ body {
     display: grid;
     grid-template-columns: 60% 40%;
     justify-items: start;
-    border-top: 3px solid rgb(13, 202, 240);
+   
     font-weight: 600;
     text-align: left !important;
+}
+
+.cardHeader {
+    border-bottom: 3px solid rgb(13, 202, 240);
 }
  
 /* FIX THIS by removing span out of here and focusing on card-specific items */

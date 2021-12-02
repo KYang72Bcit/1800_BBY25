@@ -24,7 +24,7 @@ $(document).ready(function () {
             const upcomingScreenings = document.getElementById("upcomingScreenings");
             const checking = document.querySelector('#checking_go_here');
             let ListTemplate = document.getElementById("ListTemplate");
-            upcomingScreenings.innerHTML = "<h2 class='display-6'>Upcoming Screenings: </h2>";
+            upcomingScreenings.innerHTML = "<h2 class='display-6 cardHeader'>Upcoming Screenings: </h2>";
             screeninglist.forEach(async screen=>{
               var newcard = ListTemplate.content.cloneNode(true);
               console.log(screen);
@@ -84,7 +84,7 @@ $(document).ready(function () {
           }
 
           if(screeninglist == null){
-            document.getElementById("getRecommendations").innerHTML = "<h1 class='display-6'>Check Your Recommended Screenings: </h2> <br><button class='btn btn-info' id='gotoRecommended' style='padding: 20px'>Let's go!</button>";
+            document.getElementById("getRecommendations").innerHTML = "<h2 class='display-6 cardHeader'>Check Your Recommended Screenings: </h2> <br><button class='btn btn-info' id='gotoRecommended' style='padding: 20px'>Let's go!</button>";
           } 
 
           if(screeninglist == null) {
