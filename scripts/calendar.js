@@ -1,11 +1,9 @@
-
 const date = new Date();
 
 const renderCalendar = () => {
   date.setDate(1);
 
   // console.log(date.getDay());
-
 
   const monthDays = document.querySelector(".days");
 
@@ -56,8 +54,26 @@ const renderCalendar = () => {
     days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
   }
 
-  $(document).ready(function () {
+  for (let i = 1; i <= lastDay; i++) {
+    if (
+      i === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      days += `<div class="today">${i}</div>`;
+    }
+    else {
+      days += `<div id="d${i}">${i}</div>`;
+    }
+  }
 
+  for (let j = 1; j <= nextDays; j++) {
+    days += `<div class="next-date">${j}</div>`;
+    monthDays.innerHTML = days;
+  }
+};
+
+const highlightCalendar = () => {
+  $(document).ready(function () {
     firebase.auth().onAuthStateChanged((user) => {
       // Check if user is signed in:
       if (user) {
@@ -66,64 +82,71 @@ const renderCalendar = () => {
         //go to the correct user document by referencing to the user uid
         var currentUser = db.collection("users").doc(user.uid);
         // var checkupDate = db.collection("users").doc(user.uid).collection("screenings").doc(dentalchecking);
-        var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
-        
-  
-        checkupDates.get().then((userDoc) => {
-          //get user information from document and stored in variables .
-          var upcomingAppointment = userDoc.data().date;
-          console.log("TYPE OF upApp" + typeof upcomingAppointment);
-          const myDate = upcomingAppointment.split("-");
-          console.log(upcomingAppointment);
-          for (let i = 0; i < myDate.length; i++) {
-            if (i === 0) {
-              var appYear = myDate[i];
+        // var checkupDates = currentUser.collection("screenings").doc("Dental-Examination");
+
+        currentUser.get().then((userDoc) => {
+          var screeningDates = userDoc.data().screeningTime;
+          // console.log("HELLOOO: " + screeningDates);
+          // console.log("length" + screeningDates.length);
+          // console.log(typeof screeningDates);
+          // var appDate = screeningDates.split("-");
+          // console.log("app date: " + appDate);
+
+          for (let i = 0; i < screeningDates.length; i++) {
+            const appDate = screeningDates[i];
+            // console.log("appointment: " + appDate);
+            appDateString = appDate.split("-");
+            for (let j = 0; j < appDateString.length; j++) {
+              if (j === 0) {
+                var appYear = appDateString[j];
+              }
+              if (j === 1) {
+                var appMonth = parseInt(appDateString[j]);
+              }
+              if (j === 2) {
+                var appDay = parseInt(appDateString[j]);
+              }
             }
-            if (i === 1) {
-              var appMonth = parseInt(myDate[i]);
-            }
-            if (i === 2) {
-              var appDay = parseInt(myDate[i]);
+            // console.log("month is: " + appMonth);
+            // console.log("day is: " + appDay);
+
+            const lastDay = new Date(
+              date.getFullYear(),
+              date.getMonth() + 1,
+              0
+            ).getDate();
+
+            for (let k = 1; k <= lastDay; k++) {
+              if (k === appDay && appMonth === date.getMonth() + 1) {
+                // console.log("HERE" + k.toString());
+                // console.log("HERE:" +document.getElementById("d" + k));
+                document
+                  .getElementById("d" + k)
+                  .setAttribute("class", "futureScreening");
+              }
             }
           }
-        console.log("date is: " + appDay);
-  for (let i = 1; i <= lastDay; i++) {
-    if (
-      i === new Date().getDate() &&
-      date.getMonth() === new Date().getMonth()
-    ) {
-      days += `<div class="today">${i}</div>`;
-    } else if (
-      i === appDay && appMonth === date.getMonth() + 1
-    ) {
-      days += `<div class="futureScreening">${i}</div>`;
-    } else {
-      days += `<div>${i}</div>`;
-    }
-  }
+        });
 
-  for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
-  }
-});
-        
-// console.log(checkupDate);
-} else {
-console.log("No user is signed in.");
-}
-});
-});
+        // console.log(checkupDate);
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+  });
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
   date.setMonth(date.getMonth() - 1);
   renderCalendar();
+  highlightCalendar();
 });
 
 document.querySelector(".next").addEventListener("click", () => {
   date.setMonth(date.getMonth() + 1);
   renderCalendar();
+  highlightCalendar();
 });
 
 renderCalendar();
+highlightCalendar();
