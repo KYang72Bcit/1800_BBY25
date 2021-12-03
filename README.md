@@ -14,8 +14,6 @@ This browser based web application to remind user of their health checkups and b
 * Hi this is Ramil. I am excited about this project because we're gonna make something cool. At least I hope so.
 
 
-
-	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
@@ -99,10 +97,11 @@ Firebase hosting files:
 - Logo homemade!
 
 ## Contact 
-* Ramil Garipov    - rgaripov@my.bcit.ca
-* Ke Yang	   - kyang72@my.bcit.ca
-* Kelly Park  - spark339@my.bcit.ca
+* Ramil Garipov     - rgaripov@my.bcit.ca
+* Ke Yang	        - kyang72@my.bcit.ca
+* Kelly Park        - spark339@my.bcit.ca
 
 ## Acknowledgements 
 * <a href="https://fonts.google.com/">Google Fonts</a>
 * <a href="https://getbootstrap.com/">Bootstrap</a>
+* <a href="https://www.youtube.com/watch?v=o1yMqPyYeAo">Code And Create. Calendar making tutorial</a>

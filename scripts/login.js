@@ -1,4 +1,6 @@
 // Initialize the FirebaseUI Widget using Firebase.
+
+//Allows creation of new profiles and allows existing users to log in.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
   callbacks: {
