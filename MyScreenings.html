@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <base href="/">  -->
 
     <!--Icon-->
     <link href="./images/favicon.ico" rel="icon" type="image/x-icon" />
@@ -45,24 +44,21 @@
 
     <!-- self write stylesheet -->
     <link rel="stylesheet" href="styles/style_myscreenings.css">
-    
+
     <!--Template Style-->
-    <link rel="stylesheet" href="./styles/style_dashboard.css"> 
+    <link rel="stylesheet" href="./styles/style_dashboard.css">
 
     <!--Page Style-->
     <style>
         * {
-          font-family: 'Noto Sans', sans-serif;
+            font-family: 'Noto Sans', sans-serif;
         }
-      </style>
-    
-
+    </style>
 
     <title>Health Guard</title>
 </head>
 
 <body>
-
     <div class="container-fluid contain">
         <div class="row">
             <!-- Sidebar -->
@@ -115,10 +111,10 @@
                 <div class="container">
                     <div class="row dashboardcards">
                         <div class="col-9 col-md-5 col-lg-5 col-xxl-4 m-2">
-                            <div class="card border-3 border-info shadow maincarditem h-100" >
+                            <div class="card border-3 border-info shadow maincarditem h-100">
                                 <form id="screenings">
                                     <h2 class="display-6">Recommended Screenings:</h2>
-                    
+
                                     <!-- general check -->
                                     <div id="generalScreen" class="form-check screening">
                                         <input class="form-check-input" type="checkbox" value="general" id="general">
@@ -127,10 +123,10 @@
                                         </label>
                                         <!-- placeholder for template -->
                                         <div id="general1">
-                    
+
                                         </div>
                                     </div>
-                    
+
                                     <!-- dental check -->
                                     <div id="dentalScreen" class="form-check screening">
                                         <input class="form-check-input" type="checkbox" value="dental" id="dental">
@@ -139,20 +135,21 @@
                                         </label>
                                         <!-- placeholder for template -->
                                         <div id="dental1">
-                    
+
                                         </div>
                                     </div>
                                     <!-- gender ralated check applicable for certain group-->
                                     <div id="genderScreen" class="form-check screening">
-                                        <input class="form-check-input" type="checkbox" value="womenScreen" id="womenScreen">
+                                        <input class="form-check-input" type="checkbox" value="womenScreen"
+                                            id="womenScreen">
                                         <label class="form-check-label" for="flexCheckChecked">
                                             Essential Screenings for Women
                                         </label>
-                                         <!-- placeholder for template -->
+                                        <!-- placeholder for template -->
                                         <div id="womenScreen1">
-                    
+
                                         </div>
-                                        
+
                                     </div>
                                     <!-- heartcheck applicable for certain group -->
                                     <div id="heartScreen" class="form-check screening">
@@ -160,47 +157,49 @@
                                         <label class="form-check-label" for="diaScreen">
                                             Heart Screening
                                         </label>
-                                         <!-- placeholder for template -->
+                                        <!-- placeholder for template -->
                                         <div id="heartScreen1">
-                    
+
                                         </div>
                                     </div>
-                    
-                                     <!-- diabetic check applicable for certain group  -->
+
+                                    <!-- diabetic check applicable for certain group  -->
                                     <div id="diaScreen" class="form-check screening">
                                         <input class="form-check-input" type="checkbox" value="diaScreen">
                                         <label class="form-check-label" for="diaScreen">
                                             Screening for Diabetes
                                         </label>
-                                         <!-- placeholder for template -->
+                                        <!-- placeholder for template -->
                                         <div id="diaScreen1">
-                    
+
                                         </div>
-                    
+
                                     </div>
-                    
+
                                     <!-- submit button -->
-                                    <button type="submit" class="btn btn-info position-absolute bottom-0 end-0" id="basicInforSubmit">Next</button>
-                                  
+                                    <button type="submit" class="btn btn-info position-absolute bottom-0 end-0"
+                                        id="basicInforSubmit">Next</button>
+
                                 </form>
                             </div>
                         </div>
                         <div class="col-9 col-md-5 col-lg-5 col-xxl-4 m-2">
-                          <div class="card border-3 border-info shadow maincarditem" style="height: 60vh">
-                              <h2 class="display-6">My Screenings: </h2>
-                              <ul class="list-group list-group-flush" id="showlist">
-                                
-                                <button  class="btn btn-info position-absolute bottom-0 end-0" id="setDate" style="display: none">Set</button>
-                               
-                             
-                                </ul>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
+                            <div class="card border-3 border-info shadow maincarditem" style="height: 60vh">
+                                <h2 class="display-6">My Screenings: </h2>
+                                <ul class="list-group list-group-flush" id="showlist">
 
-                
-    
+                                    <button class="btn btn-info position-absolute bottom-0 end-0" id="setDate"
+                                        style="display: none">Set</button>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -211,53 +210,31 @@
             <input class="hello" type="checkbox" value="">
             <label class="test-name"> First checkbox </label>
         </div>
-
-
     </template>
 
     <template id="ListTemplate">
         <li class="list-group-item datePicker"> </li>
-       
         <input type="date" id="" value="">
-       
-
-
     </template>
 
     <form action="
     "></form>
 
-
-    
-
-    
-
+    <!-- Page Script-->
     <script src="/scripts/myscreenings.js"></script>
     <script src="scripts/menus.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
-    <!-- <script src="./scripts/home.js"></script> -->
-    <!-- <script src="scripts/upload.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-
     </script>
-    <!--  -->
-   
-
-
 </body>
 
 </html>
