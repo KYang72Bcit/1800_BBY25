@@ -1,31 +1,8 @@
-// $(document).ready(function () {
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     // Check if user is signed in:
-//     if (user) {
-//       // Do something for the current logged-in user here:
-//       console.log("Checking if user is new:");
-//       //go to the correct user document by referencing to the user uid
-//       currentUser = db.collection("users").doc(user.uid);
-     
-//       //get the document for current user.
-//       currentUser.get().then((userDoc) => {
-//         //get user information from document and stored in variables .
-
-//         var user_gender = userDoc.data().gender;
-//         // check if documents have that variables, assign the value to span with certain id. 
-//         console.log(user_gender);
-//         console.log("Click the Update Basic Information button if you would like to make changes.");
-//       });
-//     } else {
-//       // No user is signed in.
-//     }
-//   });
-
-// });
+//This program provides general functionality to the Basic Information Modal. 
 
 document.querySelector("#basicInfor").addEventListener('submit', submitForm);
 
+//Allows submission of the form and writes/updates the values on the database.
 function submitForm(e) {
   e.preventDefault();
 
@@ -57,7 +34,7 @@ function submitForm(e) {
 
 }
 
-// close modal
+// closes modal
 function closeModal() {
   $("#myModal").modal('hide');
 }
@@ -141,7 +118,7 @@ function getBasicInforModal() {
 }
 getBasicInforModal();
 
-
+//generates the radio buttons for sex selections in the form
 function checkRadioButton(user_gender) {
   let buttons = document.querySelectorAll('input[name = "gender"]')
   // console.log(buttons);
@@ -152,39 +129,4 @@ function checkRadioButton(user_gender) {
     }
   });
 }
-
-//  showing profile photo that user upload
-
-// function showImg() {
-//   const input = document.querySelector("#mypic-input");
-//   const profile = document.querySelector("#mypic-goes-here");
-
-//   input.addEventListener('change', function (e) {
-//     var blob = URL.createObjectURL(e.target.files[0]);
-//     profile.src = blob;
-//   })
-// }
-// //showImg();
-
-// function uploadImg() {
-
-//  //storageRef = storage.ref("images/" + user.uid + ".jpg");
-//   storageRef.put(input).then(function () {
-//     console.log("upload user profile");
-//   })
-//   //get URL of stored file
-//   storageRef.getDownloadURL().then(function (url) {
-//     console.log(url);
-//     currentUser.update({
-//       "profilepic": url
-//     })
-//     currentUser.update({
-//         "profilepic": url
-//       })
-//       .then(function () {
-//         console.log("update userprofile pic to firestore");
-//       })
-//   })
-// }
-//uploadImg();
 

@@ -1,3 +1,7 @@
+//These are the homepage scripts, customized for its users. This program greets the users, prompts them for their basic information
+//if they are new users, and populates the card either inviting the users to check out their recommended screenings, or to display
+//all the previously selected screenings and their dates. 
+
 $(document).ready(function () {
 
     firebase.auth().onAuthStateChanged((user) => {
@@ -18,6 +22,8 @@ $(document).ready(function () {
         //document.querySelector("#name").innerHTML = user_Name;
        
         $("#userImg").attr("src", picUrl);
+
+        //displays currently selected screenings
           if(screeninglist != null){
             currentScreen = currentUser.collection("screenings");
            
@@ -28,6 +34,8 @@ $(document).ready(function () {
             screeninglist.forEach(async screen=>{
               var newcard = ListTemplate.content.cloneNode(true);
               console.log(screen);
+
+              //Slight formatting for the wording of different screenings
               const screeningPackage = currentScreen.doc(screen);
               switch (screen) {
                 case "Dental-Examination":
@@ -75,7 +83,8 @@ $(document).ready(function () {
           
           var user_gender = userDoc.data().gender;
           
-          // check if documents have that variables, assign the value to span with certain id. 
+          //checks if this is a new user by looking at the value for their sex/gender. If it's null, prompts them with the basic 
+          //information form 
           console.log(user_gender);
           if (user_gender == null) {
             console.log("gender hasn't been set yet");
@@ -83,10 +92,13 @@ $(document).ready(function () {
             console.log("Hi there, please fill out this form.");
           }
 
+          //checks if the user previously selected any screenings, and if not, invites them to MyScreenings page to receive their
+          //recommendations
           if(screeninglist == null){
             document.getElementById("getRecommendations").innerHTML = "<h2 class='display-6 cardHeader'>Check Your Recommended Screenings: </h2> <br><button class='btn btn-info' id='gotoRecommended' style='padding: 20px'>Let's go!</button>";
           } 
 
+          //button to redirect the user to myscreenings.html
           if(screeninglist == null) {
             document.getElementById("gotoRecommended").onclick = function () {
             location.href = "MyScreenings.html";
