@@ -34,7 +34,7 @@ Content of the project folder:
 ├── index.html               # landing HTML file, this is what users see when you come to url
 ├── Home.html                # main HTML file, the landing page after log-in or user set-up
 ├── MyScreenings.html        # HTML file for My Screenings page, the page where users select their screenings
-├── upload.html                                      # HTML file for Test Results page, the page where users upload their test results
+├── upload.html              # HTML file for Test Results page, the page where users upload their test results
 ├── MyProfile.html           # HTML file for My Profile page, the page where users update their basic information
 └── README.md                # woah, you're reading this now!
 
