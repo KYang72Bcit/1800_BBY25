@@ -100,7 +100,7 @@ Firebase hosting files:
 
 ## Contact 
 * Ramil Garipov    - rgaripov@my.bcit.ca
-* Ke Yang
+* Ke Yang	   - kyang72@my.bcit.ca
 * Kelly Park  - spark339@my.bcit.ca
 
 ## Acknowledgements 
