@@ -176,7 +176,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     'screeningTime': screeningTime,
                      'screeninglist': screeningArray
                 }).then(function () {
-                    window.location.href = "home.html";
+                    window.location.href = "Home.html";
                     
                 })
 
